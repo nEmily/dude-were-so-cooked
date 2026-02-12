@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dude we're so cooked — Bloomberg Terminal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Courier New', 'Consolas', monospace;
+    background: #0a0e18;
+    color: #c8d0d8;
+    min-height: 100vh;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .back { display: inline-block; padding: 0.5rem 0.75rem; color: #445; font-size: 11px; }
+  .back:hover { color: #8cf; }
+
+  /* Ticker Bar */
+  .ticker-bar {
+    background: #0d1220;
+    border-bottom: 1px solid #1a2040;
+    padding: 0.4rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+  }
+  .ticker-item {
+    display: inline-block;
+    padding: 0 1.5rem;
+    font-size: 12px;
+  }
+  .ticker-headline { color: #8cf; }
+  .ticker-src { color: #556; }
+  .ticker-hot { color: #f84; }
+
+  /* Header */
+  .header {
+    background: #0d1220;
+    border-bottom: 2px solid #ff9900;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header-left h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff9900;
+  }
+  .header-left .sub { font-size: 11px; color: #556; }
+  .header-right {
+    text-align: right;
+    font-size: 11px;
+    color: #556;
+  }
+  .header-right .time { color: #ff9900; font-size: 13px; }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  /* Cooked Meter Panel */
+  .cooked-panel {
+    background: #0d1220;
+    border: 1px solid #1a2040;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .cooked-panel-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #1a2040;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+  .panel-title {
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .panel-tag {
+    font-size: 10px;
+    color: #445;
+  }
+  .cooked-big {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .cooked-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff3333;
+    line-height: 1;
+  }
+  .cooked-label {
+    font-size: 14px;
+    color: #ff6644;
+  }
+  .cooked-bar-row {
+    display: flex;
+    gap: 2px;
+    margin-top: 0.4rem;
+  }
+  .cooked-bar-seg {
+    height: 4px;
+    flex: 1;
+    background: #1a2040;
+    border-radius: 1px;
+  }
+  .cooked-bar-seg.filled { background: #ff3333; }
+  .cooked-bar-seg.filled.warm { background: #ff6600; }
+  .cooked-bar-seg.filled.hot { background: #ff0000; }
+
+  /* Multi-column layout */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  @media (min-width: 700px) {
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Panels */
+  .panel {
+    background: #0d1220;
+    border: 1px solid #1a2040;
+    margin-bottom: 0.5rem;
+  }
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid #1a2040;
+  }
+
+  /* Stories */
+  .story-row {
+    display: flex;
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid #0f1528;
+    gap: 0.5rem;
+    font-size: 12px;
+  }
+  .story-row:hover { background: #111828; }
+  .story-score {
+    color: #ff3333;
+    font-weight: bold;
+    min-width: 3ch;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .story-title { color: #c8d0d8; flex: 1; }
+  .story-src { color: #446; min-width: 8ch; text-align: right; flex-shrink: 0; }
+  .story-time { color: #334; min-width: 4ch; text-align: right; flex-shrink: 0; }
+
+  /* Lab Updates */
+  .lab-row {
+    display: flex;
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid #0f1528;
+    gap: 0.5rem;
+    font-size: 12px;
+  }
+  .lab-row:hover { background: #111828; }
+  .lab-name-tag {
+    color: #ff9900;
+    font-weight: bold;
+    min-width: 10ch;
+    flex-shrink: 0;
+  }
+  .lab-text { color: #8cf; }
+
+  /* Discussions */
+  .disc-row {
+    display: flex;
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid #0f1528;
+    gap: 0.5rem;
+    font-size: 12px;
+  }
+  .disc-row:hover { background: #111828; }
+  .disc-votes {
+    color: #4c8;
+    font-weight: bold;
+    min-width: 5ch;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .disc-title { color: #c8d0d8; flex: 1; }
+  .disc-src { color: #446; flex-shrink: 0; }
+
+  /* Job Tracker — stock-ticker style */
+  .jobs-panel {
+    background: #0d1220;
+    border: 1px solid #1a2040;
+    margin-bottom: 0.5rem;
+  }
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 500px) {
+    .jobs-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .job-cell {
+    padding: 0.5rem 0.75rem;
+    border-right: 1px solid #1a2040;
+    border-bottom: 1px solid #1a2040;
+  }
+  .job-cell:nth-child(3n) { border-right: none; }
+  @media (max-width: 500px) {
+    .job-cell:nth-child(2n) { border-right: none; }
+    .job-cell:nth-child(3n) { border-right: 1px solid #1a2040; }
+  }
+  .job-symbol {
+    font-size: 11px;
+    color: #ff9900;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .job-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e8e8e8;
+    line-height: 1.3;
+  }
+  .job-change { font-size: 11px; }
+  .job-up { color: #4c8; }
+  .job-down { color: #f44; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 10px;
+    color: #334;
+    border-top: 1px solid #1a2040;
+  }
+</style>
+</head>
+<body>
+  <a href="index.html" class="back">← prototypes</a>
+
+  <!-- Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-content">
+      <span class="ticker-item"><span class="ticker-hot">●</span> <span class="ticker-headline">GPT-5 "Prometheus" announced</span> <span class="ticker-src">TC</span></span>
+      <span class="ticker-item"><span class="ticker-headline">DeepMind agent completes full SW projects</span> <span class="ticker-src">arXiv</span></span>
+      <span class="ticker-item"><span class="ticker-hot">●</span> <span class="ticker-headline">Amazon cuts 40% warehouse mgmt</span> <span class="ticker-src">RTRS</span></span>
+      <span class="ticker-item"><span class="ticker-headline">28% junior dev tasks automated</span> <span class="ticker-src">STAN</span></span>
+      <span class="ticker-item"><span class="ticker-headline">Anthropic $8B Series E @ $120B</span> <span class="ticker-src">BBG</span></span>
+      <span class="ticker-item"><span class="ticker-hot">●</span> <span class="ticker-headline">GPT-5 "Prometheus" announced</span> <span class="ticker-src">TC</span></span>
+      <span class="ticker-item"><span class="ticker-headline">DeepMind agent completes full SW projects</span> <span class="ticker-src">arXiv</span></span>
+      <span class="ticker-item"><span class="ticker-hot">●</span> <span class="ticker-headline">Amazon cuts 40% warehouse mgmt</span> <span class="ticker-src">RTRS</span></span>
+      <span class="ticker-item"><span class="ticker-headline">28% junior dev tasks automated</span> <span class="ticker-src">STAN</span></span>
+      <span class="ticker-item"><span class="ticker-headline">Anthropic $8B Series E @ $120B</span> <span class="ticker-src">BBG</span></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>DUDE WE'RE SO COOKED</h1>
+      <div class="sub">AI LABOR MARKET TERMINAL</div>
+    </div>
+    <div class="header-right">
+      <div class="time">12:34:56 EST</div>
+      <div>FEB 12 2026</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Cooked Meter -->
+    <div class="cooked-panel">
+      <div class="cooked-panel-header">
+        <span class="panel-title">Cooked Index</span>
+        <span class="panel-tag">REAL-TIME</span>
+      </div>
+      <div class="cooked-big">
+        <span class="cooked-number">8.0</span>
+        <span class="cooked-label">EXTRA CRISPY ▲ +0.3 today</span>
+      </div>
+      <div class="cooked-bar-row">
+        <div class="cooked-bar-seg filled warm"></div>
+        <div class="cooked-bar-seg filled warm"></div>
+        <div class="cooked-bar-seg filled"></div>
+        <div class="cooked-bar-seg filled"></div>
+        <div class="cooked-bar-seg filled hot"></div>
+        <div class="cooked-bar-seg filled hot"></div>
+        <div class="cooked-bar-seg filled hot"></div>
+        <div class="cooked-bar-seg filled hot"></div>
+        <div class="cooked-bar-seg"></div>
+        <div class="cooked-bar-seg"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Top Stories -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Top Stories</span>
+          <span class="panel-tag">5 items</span>
+        </div>
+        <div class="story-row">
+          <span class="story-score">9.4</span>
+          <span class="story-title">OpenAI announces GPT-5 "Prometheus" — PhD-level reasoning</span>
+          <span class="story-src">TC</span>
+          <span class="story-time">2h</span>
+        </div>
+        <div class="story-row">
+          <span class="story-score">8.7</span>
+          <span class="story-title">DeepMind agent autonomously completes SW projects</span>
+          <span class="story-src">arXiv</span>
+          <span class="story-time">4h</span>
+        </div>
+        <div class="story-row">
+          <span class="story-score">8.2</span>
+          <span class="story-title">Amazon replaces 40% warehouse mgmt roles with AI</span>
+          <span class="story-src">RTRS</span>
+          <span class="story-time">5h</span>
+        </div>
+        <div class="story-row">
+          <span class="story-score">7.5</span>
+          <span class="story-title">28% of junior dev tasks now fully automated — Stanford</span>
+          <span class="story-src">STAN</span>
+          <span class="story-time">7h</span>
+        </div>
+        <div class="story-row">
+          <span class="story-score">7.1</span>
+          <span class="story-title">Anthropic raises $8B at $120B, plans "AI scientist"</span>
+          <span class="story-src">BBG</span>
+          <span class="story-time">9h</span>
+        </div>
+      </div>
+
+      <!-- Lab Updates + Discussions stacked -->
+      <div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Lab Updates</span>
+            <span class="panel-tag">LIVE</span>
+          </div>
+          <div class="lab-row">
+            <span class="lab-name-tag">ANTHROPIC</span>
+            <span class="lab-text">Released Claude 4.5 Opus — "best model ever"</span>
+          </div>
+          <div class="lab-row">
+            <span class="lab-name-tag">DEEPMIND</span>
+            <span class="lab-text">Gemini Ultra 2.0 — 94.2% AGI benchmark</span>
+          </div>
+          <div class="lab-row">
+            <span class="lab-name-tag">META AI</span>
+            <span class="lab-text">Open-sources Llama 5 — matches GPT-5 coding</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Trending Discussions</span>
+            <span class="panel-tag">HOT</span>
+          </div>
+          <div class="disc-row">
+            <span class="disc-votes">2.4k</span>
+            <span class="disc-title">Applied to 300 SWE jobs. Got 2 interviews.</span>
+            <span class="disc-src">RDDT</span>
+          </div>
+          <div class="disc-row">
+            <span class="disc-votes">1.8k</span>
+            <span class="disc-title">Replaced frontend team with Claude. AMA.</span>
+            <span class="disc-src">RDDT</span>
+          </div>
+          <div class="disc-row">
+            <span class="disc-votes">1.1k</span>
+            <span class="disc-title">Should I still learn to code in 2026?</span>
+            <span class="disc-src">HN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job Tracker -->
+    <div class="jobs-panel">
+      <div class="panel-header">
+        <span class="panel-title">Job Tracker — Open Positions by Lab</span>
+        <span class="panel-tag">WEEKLY</span>
+      </div>
+      <div class="jobs-grid">
+        <div class="job-cell">
+          <div class="job-symbol">ANTH</div>
+          <div class="job-number">847</div>
+          <div class="job-change job-up">▲ +23</div>
+        </div>
+        <div class="job-cell">
+          <div class="job-symbol">OAID</div>
+          <div class="job-number">1,203</div>
+          <div class="job-change job-up">▲ +67</div>
+        </div>
+        <div class="job-cell">
+          <div class="job-symbol">DPMN</div>
+          <div class="job-number">634</div>
+          <div class="job-change job-down">▼ -12</div>
+        </div>
+        <div class="job-cell">
+          <div class="job-symbol">META</div>
+          <div class="job-number">1,891</div>
+          <div class="job-change job-up">▲ +104</div>
+        </div>
+        <div class="job-cell">
+          <div class="job-symbol">XAI</div>
+          <div class="job-number">412</div>
+          <div class="job-change job-up">▲ +31</div>
+        </div>
+        <div class="job-cell">
+          <div class="job-symbol">MSTL</div>
+          <div class="job-number">287</div>
+          <div class="job-change job-down">▼ -8</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    DUDE WE'RE SO COOKED TERMINAL v0.1 | DATA DELAYED 30 MIN | NOT FINANCIAL ADVICE (IT'S WORSE)
+  </div>
+</body>
+</html>

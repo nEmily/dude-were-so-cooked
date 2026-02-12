@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dude we're so cooked — Doom Feed</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f0f;
+    color: #e8e8e8;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  .back { display: inline-block; padding: 0.75rem 1rem; color: #666; font-size: 13px; }
+  .back:hover { color: #fff; }
+
+  /* Header */
+  .header {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    background: #0f0f0f;
+    z-index: 10;
+  }
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .header h1 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff4444, #ff8800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-date {
+    color: #666;
+    font-size: 13px;
+  }
+
+  .feed {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Cooked Meter */
+  .cooked-section {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .cooked-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+  .cooked-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+  }
+  .cooked-score {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff4444;
+  }
+  .cooked-bar-bg {
+    height: 8px;
+    background: #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cooked-bar-fill {
+    height: 100%;
+    width: 80%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #ff8800, #ff4444, #cc0000);
+    box-shadow: 0 0 12px rgba(255,68,68,0.4);
+  }
+  .cooked-verdict {
+    margin-top: 0.5rem;
+    font-size: 13px;
+    color: #ff6644;
+    font-style: italic;
+  }
+
+  /* Cards */
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+    padding: 1.25rem 0 0.75rem;
+  }
+  .card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #222;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #333; }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+  }
+  .source-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4444;
+  }
+  .card-time {
+    font-size: 12px;
+    color: #555;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 12px;
+    color: #555;
+  }
+  .card-score {
+    color: #ff6644;
+    font-weight: 700;
+  }
+
+  /* Lab Updates */
+  .lab-card {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #222;
+  }
+  .lab-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ff8800;
+    background: rgba(255,136,0,0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lab-text {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.4;
+  }
+
+  /* Discussions */
+  .disc-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #222;
+  }
+  .disc-title {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .disc-meta {
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    gap: 0.75rem;
+  }
+  .disc-votes { color: #ff6644; font-weight: 600; }
+
+  /* Jobs */
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .job-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 0.85rem;
+    border: 1px solid #222;
+  }
+  .job-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+  .job-count {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #e8e8e8;
+  }
+  .job-delta {
+    font-size: 12px;
+    margin-top: 0.15rem;
+  }
+  .up { color: #44cc44; }
+  .down { color: #ff4444; }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+  <a href="index.html" class="back">← prototypes</a>
+
+  <header class="header">
+    <div class="header-row">
+      <h1>dude we're so cooked</h1>
+      <span class="header-date">Feb 12, 2026</span>
+    </div>
+  </header>
+
+  <div class="feed">
+    <!-- Cooked Meter -->
+    <div class="cooked-section">
+      <div class="cooked-label">
+        <span class="cooked-title">Today's Cooked Level</span>
+        <span class="cooked-score">8/10</span>
+      </div>
+      <div class="cooked-bar-bg">
+        <div class="cooked-bar-fill"></div>
+      </div>
+      <div class="cooked-verdict">verdict: extra crispy — we are absolutely cooked</div>
+    </div>
+
+    <!-- Top Stories -->
+    <div class="section-title">Top Stories</div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="source-badge"><span class="source-dot"></span> TechCrunch</div>
+        <span class="card-time">2h ago</span>
+      </div>
+      <div class="card-title">OpenAI announces GPT-5 "Prometheus" — achieves PhD-level reasoning across all domains</div>
+      <div class="card-meta">
+        <span class="card-score">9.4 cooked</span>
+        <span>847 reactions</span>
+        <span>312 comments</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="source-badge"><span class="source-dot"></span> arXiv</div>
+        <span class="card-time">4h ago</span>
+      </div>
+      <div class="card-title">Google DeepMind's new agent autonomously completes full software projects in hours</div>
+      <div class="card-meta">
+        <span class="card-score">8.7 cooked</span>
+        <span>623 reactions</span>
+        <span>198 comments</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="source-badge"><span class="source-dot"></span> Reuters</div>
+        <span class="card-time">5h ago</span>
+      </div>
+      <div class="card-title">Amazon replaces 40% of warehouse management roles with AI systems, plans office next</div>
+      <div class="card-meta">
+        <span class="card-score">8.2 cooked</span>
+        <span>1.2k reactions</span>
+        <span>445 comments</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="source-badge"><span class="source-dot"></span> Stanford</div>
+        <span class="card-time">7h ago</span>
+      </div>
+      <div class="card-title">Stanford study: 28% of junior dev tasks now fully automated, up from 4% in 2024</div>
+      <div class="card-meta">
+        <span class="card-score">7.5 cooked</span>
+        <span>534 reactions</span>
+        <span>267 comments</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="source-badge"><span class="source-dot"></span> Bloomberg</div>
+        <span class="card-time">9h ago</span>
+      </div>
+      <div class="card-title">Anthropic raises $8B Series E at $120B valuation, plans "AI scientist" product line</div>
+      <div class="card-meta">
+        <span class="card-score">7.1 cooked</span>
+        <span>389 reactions</span>
+        <span>156 comments</span>
+      </div>
+    </div>
+
+    <!-- Lab Updates -->
+    <div class="section-title">Lab Updates</div>
+
+    <div class="lab-card">
+      <span class="lab-badge">Anthropic</span>
+      <span class="lab-text">Released Claude 4.5 Opus — "best model we've ever made"</span>
+    </div>
+    <div class="lab-card">
+      <span class="lab-badge">DeepMind</span>
+      <span class="lab-text">Gemini Ultra 2.0 scores 94.2% on new AGI benchmark suite</span>
+    </div>
+    <div class="lab-card">
+      <span class="lab-badge">Meta AI</span>
+      <span class="lab-text">Open-sources Llama 5 — 400B params, matches GPT-5 on coding</span>
+    </div>
+
+    <!-- Discussions -->
+    <div class="section-title">Trending Discussions</div>
+
+    <div class="disc-card">
+      <div class="disc-title">"I mass-applied to 300 SWE jobs. Got 2 interviews. Both asked if I use AI."</div>
+      <div class="disc-meta">
+        <span class="disc-votes">2.4k ▲</span>
+        <span>r/cscareerquestions</span>
+        <span>847 comments</span>
+      </div>
+    </div>
+    <div class="disc-card">
+      <div class="disc-title">"My startup replaced our entire frontend team with Claude. AMA."</div>
+      <div class="disc-meta">
+        <span class="disc-votes">1.8k ▲</span>
+        <span>r/experienceddevs</span>
+        <span>1.2k comments</span>
+      </div>
+    </div>
+    <div class="disc-card">
+      <div class="disc-title">"Honest question: should I still learn to code in 2026?"</div>
+      <div class="disc-meta">
+        <span class="disc-votes">1.1k ▲</span>
+        <span>Hacker News</span>
+        <span>634 comments</span>
+      </div>
+    </div>
+
+    <!-- Job Tracker -->
+    <div class="section-title">Job Tracker</div>
+
+    <div class="jobs-grid">
+      <div class="job-card">
+        <div class="job-name">Anthropic</div>
+        <div class="job-count">847</div>
+        <div class="job-delta up">▲ +23 this week</div>
+      </div>
+      <div class="job-card">
+        <div class="job-name">OpenAI</div>
+        <div class="job-count">1,203</div>
+        <div class="job-delta up">▲ +67 this week</div>
+      </div>
+      <div class="job-card">
+        <div class="job-name">DeepMind</div>
+        <div class="job-count">634</div>
+        <div class="job-delta down">▼ -12 this week</div>
+      </div>
+      <div class="job-card">
+        <div class="job-name">Meta AI</div>
+        <div class="job-count">1,891</div>
+        <div class="job-delta up">▲ +104 this week</div>
+      </div>
+      <div class="job-card">
+        <div class="job-name">xAI</div>
+        <div class="job-count">412</div>
+        <div class="job-delta up">▲ +31 this week</div>
+      </div>
+      <div class="job-card">
+        <div class="job-name">Mistral</div>
+        <div class="job-count">287</div>
+        <div class="job-delta down">▼ -8 this week</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      dude we're so cooked · refreshed every 30 min · built with existential dread
+    </div>
+  </div>
+</body>
+</html>
