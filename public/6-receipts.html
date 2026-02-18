@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dude we're so cooked — The Receipts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg: #111;
+    --surface: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-secondary: #999;
+    --text-dim: #666;
+    --accent: #e86533;
+    --green: #4caf50;
+    --green-dim: rgba(76, 175, 80, 0.12);
+    --amber: #e8a033;
+    --amber-dim: rgba(232, 160, 51, 0.12);
+    --red: #d94040;
+    --red-dim: rgba(217, 64, 64, 0.12);
+    --blue: #4a9eff;
+    --blue-dim: rgba(74, 158, 255, 0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .feed {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* Back link */
+  .back {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 16px 0;
+    transition: color 0.15s;
+  }
+  .back:hover { color: var(--text); }
+
+  /* Section jump nav */
+  .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(17, 17, 17, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    margin: 0 -16px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section-nav::-webkit-scrollbar { display: none; }
+  .section-nav a {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .section-nav a:hover {
+    color: var(--text);
+    border-color: #444;
+    background: #222;
+  }
+
+  /* Header */
+  .feed-header {
+    padding: 20px 0 24px;
+    text-align: center;
+  }
+  .feed-header h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .feed-header .tagline {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .feed-header .editorial {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    line-height: 1.5;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    border-color: #333;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    padding-top: 20px;
+  }
+  .section-subheading {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  /* Trust Score Hero */
+  .trust-hero {
+    border-color: #222a22;
+    background: linear-gradient(135deg, #1a1a1a 0%, #161e16 100%);
+    text-align: center;
+    padding: 28px 20px;
+  }
+  .trust-hero .trust-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .trust-hero .trust-score {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .trust-hero .trust-score span {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  .trust-hero .trust-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+  .trust-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #222;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .trust-bar-segment {
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+  .trust-bar-verified { background: var(--green); }
+  .trust-bar-mixed { background: var(--amber); }
+  .trust-bar-debunked { background: var(--red); }
+  .trust-bar-unverifiable { background: #444; }
+  .trust-legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .trust-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+  }
+  .trust-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Verdict badges */
+  .verdict {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .verdict-verified { background: var(--green-dim); color: var(--green); }
+  .verdict-mixed { background: var(--amber-dim); color: var(--amber); }
+  .verdict-debunked { background: var(--red-dim); color: var(--red); }
+  .verdict-unverifiable { background: rgba(100,100,100,0.15); color: #888; }
+
+  /* Claim cards */
+  .claim-card .claim-header {
+    margin-bottom: 14px;
+  }
+  .claim-card .claim-headline {
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1.35;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .claim-card .claim-source {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+  .claim-card .claim-source a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .claim-card .claim-source a:hover { text-decoration: underline; }
+
+  .evidence-section {
+    margin-bottom: 14px;
+  }
+  .evidence-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .evidence-list {
+    list-style: none;
+  }
+  .evidence-list li {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding: 6px 0 6px 14px;
+    border-left: 2px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .evidence-list li .src-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    background: #222;
+    color: var(--text-dim);
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  .verdict-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .trust-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .trust-metric {
+    font-size: 0.68rem;
+    background: #222;
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+  }
+  .trust-metric .metric-val {
+    font-weight: 600;
+    color: var(--text);
+    margin-left: 3px;
+  }
+
+  /* Lab Intel */
+  .lab-intel-card {
+    margin-bottom: 12px;
+  }
+  .lab-intel-card .lab-name {
+    font-size: 0.92rem;
+    font-weight: 650;
+    margin-bottom: 2px;
+  }
+  .lab-intel-card .lab-ticker {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  .lab-verified-data {
+    list-style: none;
+    margin-bottom: 8px;
+  }
+  .lab-verified-data li {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+  }
+  .lab-verified-data li:last-child { border-bottom: none; }
+  .lab-verified-data .lab-val {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .lab-verified-data .lab-src {
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    margin-left: 6px;
+  }
+  .lab-unverified {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    background: #1e1e1e;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--amber);
+    font-style: italic;
+    margin-top: 8px;
+  }
+  .lab-unverified .uv-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* Job Market Stats */
+  .stat-big {
+    text-align: center;
+    padding: 14px 0;
+  }
+  .stat-big .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .stat-big .stat-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .stat-big .stat-source {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .stat-big .stat-trend {
+    font-size: 0.72rem;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .stat-up { color: var(--red); }
+  .stat-down { color: var(--green); }
+  .stat-up-good { color: var(--green); }
+  .stat-down-bad { color: var(--red); }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 460px) {
+    .stat-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .stat-block {
+    background: #222;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    text-align: center;
+  }
+  .stat-block .stat-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .stat-block .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .stat-block .stat-source {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+  .stat-block .stat-trend {
+    font-size: 0.68rem;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* Voices */
+  .voice-card {
+    margin-bottom: 12px;
+  }
+  .voice-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .voice-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .voice-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .voice-title {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.2;
+  }
+  .voice-quote {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 14px 18px;
+    background: #1e1e1e;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--border);
+    margin-bottom: 10px;
+    color: var(--text);
+    font-style: italic;
+  }
+  .voice-credibility {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .voice-cred-pill {
+    font-size: 0.68rem;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .cred-high { background: var(--green-dim); color: var(--green); }
+  .cred-low { background: var(--red-dim); color: var(--red); }
+  .cred-mixed { background: var(--amber-dim); color: var(--amber); }
+
+  .voice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    align-items: center;
+  }
+  .voice-meta .track-record {
+    font-weight: 500;
+  }
+  .voice-data-badge {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: #222;
+    color: var(--text-dim);
+  }
+
+  /* Slop Watch */
+  .slop-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #222;
+  }
+  .slop-item:last-child { border-bottom: none; }
+  .slop-content {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text);
+    padding: 12px 16px;
+    background: #1e1616;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--red);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .slop-red-flags {
+    margin-bottom: 6px;
+  }
+  .slop-red-flags .flag-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .slop-red-flags ul {
+    list-style: none;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+  .slop-red-flags ul li {
+    padding: 2px 0;
+  }
+  .slop-red-flags ul li::before {
+    content: "\2715 ";
+    color: var(--red);
+    font-size: 0.7rem;
+    margin-right: 4px;
+  }
+  .slop-real-story {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    background: #1a1e1a;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--green);
+  }
+  .slop-real-story .real-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .slop-tally {
+    text-align: center;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .slop-tally .tally-number {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--red);
+  }
+  .slop-tally .tally-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  /* Alt Roles */
+  .role-card {
+    background: #222;
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .role-card .role-name {
+    font-size: 0.92rem;
+    font-weight: 650;
+    margin-bottom: 10px;
+  }
+  .role-stats {
+    list-style: none;
+  }
+  .role-stats li {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .role-stats li:last-child { border-bottom: none; }
+  .role-stats .role-val {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .role-stats .role-src {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-left: 4px;
+  }
+
+  /* Footer */
+  .feed-footer {
+    text-align: center;
+    padding: 40px 0 24px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+  }
+
+  /* Divider */
+  .feed-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 6px 0;
+    border: none;
+  }
+</style>
+</head>
+<body>
+<div class="feed">
+  <a href="index.html" class="back">&larr; back to prototypes</a>
+
+  <!-- Section Jump Nav -->
+  <nav class="section-nav">
+    <a href="#top-claims">Top Claims</a>
+    <a href="#lab-intel">Lab Intel</a>
+    <a href="#job-market">Job Market</a>
+    <a href="#voices">Voices</a>
+    <a href="#slop-watch">Slop Watch</a>
+  </nav>
+
+  <!-- Header -->
+  <div class="feed-header">
+    <h1>dude we're so cooked</h1>
+    <div class="tagline">the receipts &middot; claim &rarr; evidence &rarr; verdict</div>
+    <div class="editorial">The AI discourse is 90% vibes. Here are the actual numbers. Every story below is structured as a fact-check: who said it, what the data shows, and whether it holds up.</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 1. TRUST SCORE HERO                          -->
+  <!-- ============================================ -->
+  <div class="card trust-hero">
+    <div class="trust-label">Today's Discourse Trust Score</div>
+    <div class="trust-score">34<span>%</span></div>
+    <div class="trust-subtitle">of today's AI discourse is backed by evidence</div>
+    <div class="trust-bar">
+      <div class="trust-bar-segment trust-bar-verified" style="width: 18%;"></div>
+      <div class="trust-bar-segment trust-bar-mixed" style="width: 16%;"></div>
+      <div class="trust-bar-segment trust-bar-debunked" style="width: 24%;"></div>
+      <div class="trust-bar-segment trust-bar-unverifiable" style="width: 42%;"></div>
+    </div>
+    <div class="trust-legend">
+      <div class="trust-legend-item">
+        <div class="trust-legend-dot" style="background: var(--green);"></div>
+        Verified 18%
+      </div>
+      <div class="trust-legend-item">
+        <div class="trust-legend-dot" style="background: var(--amber);"></div>
+        Mixed 16%
+      </div>
+      <div class="trust-legend-item">
+        <div class="trust-legend-dot" style="background: var(--red);"></div>
+        Debunked 24%
+      </div>
+      <div class="trust-legend-item">
+        <div class="trust-legend-dot" style="background: #444;"></div>
+        Unverifiable 42%
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 2. TOP CLAIMS                                -->
+  <!-- ============================================ -->
+  <div id="top-claims">
+    <div class="section-heading">Top Claims</div>
+    <div class="section-subheading">Today's most circulated AI claims, fact-checked.</div>
+  </div>
+
+  <!-- Claim 1: Mass layoffs — VERIFIED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"Tech layoffs in Q1 2026 have already surpassed all of 2024 combined"</div>
+      <div class="claim-source">Claimed by @TechLayoffTracker on X &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>BLS data shows 152,000 tech-sector separations in Jan-Feb 2026, vs 134,000 for all of 2024. <span class="src-tag">BLS JOLTS, Feb 2026</span></li>
+        <li>Layoffs.fyi tracker confirms 48,200 layoffs across 87 tech companies in Feb alone. <span class="src-tag">Layoffs.fyi</span></li>
+        <li>Challenger, Gray & Christmas reports tech job cuts up 214% YoY in January. <span class="src-tag">Challenger Report, Jan 2026</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-verified">Verified</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">Numbers check out across multiple independent sources.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">A</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">88%</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">6%</span></div>
+    </div>
+  </div>
+
+  <!-- Claim 2: AI replacing all devs — MIXED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"AI will replace 90% of software developers within 18 months"</div>
+      <div class="claim-source">Claimed by Emad Mostaque on X, Feb 8 &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>GitHub data shows AI code completion adoption at 72% among enterprise devs, up from 38% a year ago. <span class="src-tag">GitHub Copilot Report, Q4 2025</span></li>
+        <li>However, Stack Overflow's 2026 survey shows 81% of dev teams still require human review for all AI-generated code. <span class="src-tag">SO Developer Survey 2026</span></li>
+        <li>McKinsey's analysis estimates 25-40% of SWE tasks (not jobs) are automatable with current AI; full role replacement requires capabilities that don't exist yet. <span class="src-tag">McKinsey Global Institute, Jan 2026</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-mixed">Mixed</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">Tasks are being automated. Full replacement at 90% is not supported by evidence.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">C</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">34%</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">12%</span></div>
+    </div>
+  </div>
+
+  <!-- Claim 3: Automated whole job — DEBUNKED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"I fully automated my $180k engineering job and my boss hasn't noticed for 6 months"</div>
+      <div class="claim-source">Viral tweet by @anon_dev_chad on X, 14.2M views &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>Account was created 3 weeks before the tweet. Zero prior engineering content. Classic engagement-farming pattern. <span class="src-tag">Account analysis</span></li>
+        <li>The "automated pipeline" screenshot showed a basic CI/CD config with hardcoded test data, not AI-driven development. <span class="src-tag">Screenshot forensics</span></li>
+        <li>Multiple replies from verified engineers at the same "company" (identified by metadata) say no such automation exists in their codebase. <span class="src-tag">Community fact-check</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-debunked">Debunked</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">Engagement bait. No evidence of actual automation.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">D</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">N/A</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">78%</span></div>
+    </div>
+  </div>
+
+  <!-- Claim 4: Lab hiring numbers — VERIFIED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"OpenAI and Anthropic added 1,200+ open positions in January alone"</div>
+      <div class="claim-source">Claimed by @AIJobsTracker on LinkedIn &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>OpenAI's careers page listed 507 open roles as of Feb 1, up 124 from Jan 1 (383). Lever and Greenhouse job board APIs confirm. <span class="src-tag">Job board data, Feb 2026</span></li>
+        <li>Anthropic posted 342 roles, up 58 from the prior month. Confirmed via their public careers page and LinkedIn job listings. <span class="src-tag">Anthropic careers, Feb 2026</span></li>
+        <li>Combined net new postings: ~182 in January. The "1,200+" figure counts total open positions, not new ones. Misleading framing but directionally accurate. <span class="src-tag">Analysis</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-verified">Verified</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">Total open roles confirmed. Growth is real but the framing overstates net new adds.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">B</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">72%</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">22%</span></div>
+    </div>
+  </div>
+
+  <!-- Claim 5: AI creating more jobs — MIXED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"AI is actually creating MORE jobs than it's destroying -- here's the data"</div>
+      <div class="claim-source">LinkedIn post by Gary Hustwit, "AI Career Coach" &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>Indeed data shows AI/ML job postings up 189% YoY. But general SWE postings are down 41%. Net effect is still negative for total tech employment. <span class="src-tag">Indeed Hiring Lab, Feb 2026</span></li>
+        <li>The "data" in the post is a single unsourced bar chart. Reverse image search traces it to a 2024 WEF report about projected 2030 trends, not current data. <span class="src-tag">Image forensics</span></li>
+        <li>BLS confirms tech employment contracted by 2.1% in Q4 2025. New AI roles don't yet offset losses in traditional SWE, QA, and IT support. <span class="src-tag">BLS, Q4 2025</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-mixed">Mixed</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">AI roles are growing fast, but net tech employment is still declining.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">D</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">18%</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">67%</span></div>
+    </div>
+  </div>
+
+  <!-- Claim 6: New grad hiring dead — VERIFIED -->
+  <div class="card claim-card">
+    <div class="claim-header">
+      <div class="claim-headline">"New grad SWE hiring is down 56% and average applications per role hit 1,400"</div>
+      <div class="claim-source">Claimed by @cs_career_data on Reddit (r/cscareerquestions) &middot; <a href="#">Original post</a></div>
+    </div>
+    <div class="evidence-section">
+      <div class="evidence-label">The Evidence</div>
+      <ul class="evidence-list">
+        <li>Levels.fyi reports new grad SWE offers tracked in their system down 56% vs same period in 2024. Median comp for accepted offers also down 11%. <span class="src-tag">Levels.fyi, Feb 2026</span></li>
+        <li>Handshake (university recruiting platform) data shows SWE internship postings down 48%, and average applications per posting rose to 1,380. <span class="src-tag">Handshake Analytics, Jan 2026</span></li>
+        <li>NACE (National Association of Colleges and Employers) spring survey confirms CS/engineering hiring intent down 42% among surveyed employers. <span class="src-tag">NACE Spring 2026 Survey</span></li>
+      </ul>
+    </div>
+    <div class="verdict-row">
+      <span class="verdict verdict-verified">Verified</span>
+      <span style="font-size: 0.78rem; color: var(--text-secondary);">Multiple independent sources confirm the new grad market is historically bad.</span>
+    </div>
+    <div class="trust-breakdown">
+      <div class="trust-metric">Source Quality<span class="metric-val">A</span></div>
+      <div class="trust-metric">Track Record<span class="metric-val">91%</span></div>
+      <div class="trust-metric">AI Content Prob.<span class="metric-val">3%</span></div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 3. LAB INTEL                                 -->
+  <!-- ============================================ -->
+  <div id="lab-intel">
+    <div class="section-heading">Lab Intel</div>
+    <div class="section-subheading">Verified data on the 6 frontier labs. Every number has a source.</div>
+  </div>
+
+  <!-- Anthropic -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">Anthropic</div>
+    <div class="lab-ticker">Private &middot; Last Valuation $61.5B</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~1,800 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">342 <span class="lab-src">Careers page, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">$4B Series E <span class="lab-src">SEC filing, Dec 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--green);">+58 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Reportedly building a 50-person "AI agent reliability" team to ship autonomous coding agents by Q3. Source: anonymous Blind post.
+    </div>
+  </div>
+
+  <!-- OpenAI -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">OpenAI</div>
+    <div class="lab-ticker">Private &middot; Last Valuation $157B</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~3,400 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">507 <span class="lab-src">Careers page, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">$6.6B Series D <span class="lab-src">Press release, Oct 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--green);">+124 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Alleged internal docs show GPT-5 training costs exceeded $800M. No SEC filing or confirmed source.
+    </div>
+  </div>
+
+  <!-- DeepMind -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">Google DeepMind</div>
+    <div class="lab-ticker">Alphabet (GOOG) &middot; $192.14</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~2,800 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">189 <span class="lab-src">Google Careers, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">Internal (Alphabet) <span class="lab-src">10-K filing, Q4 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--green);">+31 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Multiple sources claim a Gemini 3.0 model with "PhD-level" reasoning capabilities is in closed testing. No official confirmation.
+    </div>
+  </div>
+
+  <!-- Meta AI -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">Meta AI (FAIR)</div>
+    <div class="lab-ticker">META &middot; $634.22</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~1,200 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">276 <span class="lab-src">Meta Careers, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">Internal (Meta) <span class="lab-src">10-K filing, Q4 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--red);">-42 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Reportedly shifting FAIR resources from open-source Llama to proprietary models for internal products. Denied by Yann LeCun on X.
+    </div>
+  </div>
+
+  <!-- xAI -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">xAI</div>
+    <div class="lab-ticker">Private &middot; Last Valuation $50B</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~600 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">98 <span class="lab-src">Careers page, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">$6B Series C <span class="lab-src">SEC filing, Nov 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--green);">+67 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Grok 4 allegedly being trained on 200,000 H100s at the Memphis data center. Scale plausible but unconfirmed.
+    </div>
+  </div>
+
+  <!-- Mistral -->
+  <div class="card lab-intel-card">
+    <div class="lab-name">Mistral AI</div>
+    <div class="lab-ticker">Private &middot; Last Valuation $6.2B</div>
+    <ul class="lab-verified-data">
+      <li><span>Headcount</span><span class="lab-val">~320 <span class="lab-src">LinkedIn, Feb 2026</span></span></li>
+      <li><span>Open Positions</span><span class="lab-val">64 <span class="lab-src">Careers page, Feb 10</span></span></li>
+      <li><span>Recent Funding</span><span class="lab-val">$640M Series B <span class="lab-src">Press release, Jun 2025</span></span></li>
+      <li><span>Net New Roles (Jan)</span><span class="lab-val" style="color: var(--green);">+18 <span class="lab-src">Job board delta</span></span></li>
+    </ul>
+    <div class="lab-unverified">
+      <span class="uv-label">Unverified rumor</span>
+      Rumored acquisition talks with a major European cloud provider. Neither party has commented.
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 4. JOB MARKET — BY THE NUMBERS              -->
+  <!-- ============================================ -->
+  <div id="job-market">
+    <div class="section-heading">Job Market -- By the Numbers</div>
+    <div class="section-subheading">Every stat sourced. Every trend tracked. No vibes.</div>
+  </div>
+
+  <div class="card">
+    <div class="stat-grid">
+      <div class="stat-block">
+        <div class="stat-value" style="color: var(--red);">48.2k</div>
+        <div class="stat-label">Tech Layoffs (Feb YTD)</div>
+        <div class="stat-source">Layoffs.fyi, Feb 10</div>
+        <div class="stat-trend stat-up">&uarr; 34% vs Jan pace</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value" style="color: var(--red);">&darr;41%</div>
+        <div class="stat-label">SWE Job Postings YoY</div>
+        <div class="stat-source">Indeed Hiring Lab, Feb 2026</div>
+        <div class="stat-trend stat-down-bad">5th consecutive monthly decline</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value" style="color: var(--green);">&uarr;189%</div>
+        <div class="stat-label">AI/ML Job Postings YoY</div>
+        <div class="stat-source">Indeed Hiring Lab, Feb 2026</div>
+        <div class="stat-trend stat-up-good">Accelerating from +142% in Dec</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value">3.2 mo</div>
+        <div class="stat-label">Median Time to Hire</div>
+        <div class="stat-source">LinkedIn Economic Graph, Q4 2025</div>
+        <div class="stat-trend stat-up">&uarr; 0.8 mo vs Q3</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value" style="color: var(--red);">&darr;56%</div>
+        <div class="stat-label">New Grad Offer Rate</div>
+        <div class="stat-source">Levels.fyi, Feb 2026</div>
+        <div class="stat-trend stat-down-bad">Worst since tracking began</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value" style="color: var(--green);">&uarr;67%</div>
+        <div class="stat-label">Alt Role Growth (6 mo)</div>
+        <div class="stat-source">LinkedIn, AI-adjacent roles</div>
+        <div class="stat-trend stat-up-good">Prompt eng, AI ops, safety</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 5. VOICES — VERIFIED                         -->
+  <!-- ============================================ -->
+  <div id="voices">
+    <div class="section-heading">Voices -- Verified</div>
+    <div class="section-subheading">Everyone has opinions. Here's who actually has receipts.</div>
+  </div>
+
+  <!-- Voice 1: High credibility — researcher -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #2a3a2a; color: var(--green);">FL</div>
+      <div>
+        <div class="voice-name">Fei-Fei Li</div>
+        <div class="voice-title">Co-Director, Stanford HAI</div>
+      </div>
+    </div>
+    <div class="voice-quote">"The transition isn't hypothetical anymore. BLS data shows net negative tech employment for the first time since 2009. But history shows technological unemployment is always temporary -- the question is how long 'temporary' lasts this time."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-high">Track Record: 84%</span>
+      <span class="voice-data-badge">AI Prob: 4%</span>
+      <span class="voice-data-badge">Claim supported by data</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>Conference Talk (NeurIPS) &middot; 421k followers</span>
+    </div>
+  </div>
+
+  <!-- Voice 2: High credibility — economist -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #2a2a3a; color: var(--blue);">DA</div>
+      <div>
+        <div class="voice-name">Daron Acemoglu</div>
+        <div class="voice-title">Economist, MIT &middot; Nobel Laureate</div>
+      </div>
+    </div>
+    <div class="voice-quote">"The productivity gains from AI are real but concentrated. My models show 60% of the value accrues to the top 5% of firms. For the median worker, the net effect is still negative through 2028."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-high">Track Record: 79%</span>
+      <span class="voice-data-badge">AI Prob: 2%</span>
+      <span class="voice-data-badge">Claim supported by data</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>NBER Working Paper &middot; 238k followers</span>
+    </div>
+  </div>
+
+  <!-- Voice 3: Mixed — Sam Altman -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #2a4a4a; color: #4ac4b0;">SA</div>
+      <div>
+        <div class="voice-name">Sam Altman</div>
+        <div class="voice-title">CEO, OpenAI</div>
+      </div>
+    </div>
+    <div class="voice-quote">"AI will create more jobs than it destroys. They'll just be... different jobs. Much different. Extremely different. Okay, I honestly don't know what those jobs will be yet."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-mixed">Track Record: 41%</span>
+      <span class="voice-data-badge">AI Prob: 8%</span>
+      <span class="voice-data-badge">Claim NOT supported by current data</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>X (Twitter) &middot; 3.4M followers &middot; Conflict of interest: CEO of company driving displacement</span>
+    </div>
+  </div>
+
+  <!-- Voice 4: High credibility — Karpathy -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #2a2a4a; color: var(--blue);">AK</div>
+      <div>
+        <div class="voice-name">Andrej Karpathy</div>
+        <div class="voice-title">Ex-Tesla AI, Ex-OpenAI, Eureka Labs</div>
+      </div>
+    </div>
+    <div class="voice-quote">"Most software will be written by AI within 2 years. Not assisted. Written. The question is whether you want to be the one directing it or the one it replaced."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-high">Track Record: 76%</span>
+      <span class="voice-data-badge">AI Prob: 3%</span>
+      <span class="voice-data-badge">Claim partially supported (trend correct, timeline debatable)</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>X (Twitter) &middot; 2.1M followers</span>
+    </div>
+  </div>
+
+  <!-- Voice 5: Low credibility — LinkedIn grifter -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #2a2a4a; color: #8888ee;">GH</div>
+      <div>
+        <div class="voice-name">Gary Hustwit</div>
+        <div class="voice-title">AI Career Coach, LinkedIn Top Voice</div>
+      </div>
+    </div>
+    <div class="voice-quote">"Stop learning to code. Start learning to PROMPT. Your next job title is 'AI whisperer' and it pays $400k. DM me for my course (only $2,999). Spots are filling up FAST."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-low">Track Record: 12%</span>
+      <span class="voice-data-badge">AI Prob: 67%</span>
+      <span class="voice-data-badge">Claim NOT supported by data</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>LinkedIn &middot; 94k followers &middot; Sells $2,999 course &middot; No verifiable engineering background</span>
+    </div>
+  </div>
+
+  <!-- Voice 6: High credibility — researcher -->
+  <div class="card voice-card">
+    <div class="voice-header">
+      <div class="voice-avatar" style="background: #3a3a2a; color: var(--amber);">EB</div>
+      <div>
+        <div class="voice-name">Erik Brynjolfsson</div>
+        <div class="voice-title">Director, Stanford Digital Economy Lab</div>
+      </div>
+    </div>
+    <div class="voice-quote">"We're in the 'installation phase' of AI. Historically this phase destroys more jobs than it creates. The 'deployment phase' -- where new industries emerge -- takes 10-15 years. We're maybe 2 years in."</div>
+    <div class="voice-credibility">
+      <span class="voice-cred-pill cred-high">Track Record: 81%</span>
+      <span class="voice-data-badge">AI Prob: 5%</span>
+      <span class="voice-data-badge">Claim supported by historical data</span>
+    </div>
+    <div class="voice-meta" style="margin-top: 8px;">
+      <span>Podcast (Ezra Klein Show) &middot; 189k followers</span>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 6. SLOP WATCH                                -->
+  <!-- ============================================ -->
+  <div id="slop-watch">
+    <div class="section-heading">Slop Watch</div>
+    <div class="section-subheading">The worst AI-generated content of the day, dissected.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Failed the Evidence Test</div>
+
+    <!-- Slop 1 -->
+    <div class="slop-item">
+      <div class="slop-content">"BREAKING: Google just announced they're replacing ALL junior engineers with Gemini agents. This is the end of entry-level tech. Share before they delete this."</div>
+      <div class="slop-red-flags">
+        <div class="flag-label">Red Flags</div>
+        <ul>
+          <li>"Share before they delete this" -- classic engagement bait framing</li>
+          <li>No source link, no byline, no press release from Google</li>
+          <li>Account is 4 days old with 200k+ impressions (bot amplification pattern)</li>
+          <li>AI content probability: 91%</li>
+        </ul>
+      </div>
+      <div class="slop-real-story">
+        <span class="real-label">The Real Story</span>
+        Google announced an internal pilot where AI handles code review triage for 3 teams. No layoffs were announced. Internal memo was misrepresented by multiple aggregator accounts.
+      </div>
+    </div>
+
+    <!-- Slop 2 -->
+    <div class="slop-item">
+      <div class="slop-content">"I asked ChatGPT to write a resignation letter and it wrote one better than any human could. This is why 10 million jobs will be gone by March. The robots are HERE."</div>
+      <div class="slop-red-flags">
+        <div class="flag-label">Red Flags</div>
+        <ul>
+          <li>Extrapolates from a single anecdote to "10 million jobs" with zero data</li>
+          <li>Writing a resignation letter is not equivalent to performing a job</li>
+          <li>Account posts 40+ "AI doom" tweets per day (engagement farming)</li>
+          <li>AI content probability: 88%</li>
+        </ul>
+      </div>
+      <div class="slop-real-story">
+        <span class="real-label">The Real Story</span>
+        LLMs are indeed good at template-based writing tasks. This has no bearing on the claim about 10 million jobs. BLS projects ~152k tech separations for Q1, not 10 million across all sectors.
+      </div>
+    </div>
+
+    <!-- Slop 3 -->
+    <div class="slop-item">
+      <div class="slop-content">"EXPOSED: Internal Anthropic memo reveals Claude can now do the work of 50 engineers. They're hiding this from the public. The cover-up is real."</div>
+      <div class="slop-red-flags">
+        <div class="flag-label">Red Flags</div>
+        <ul>
+          <li>"EXPOSED" and "cover-up" language with zero supporting documentation</li>
+          <li>No link to any memo, no screenshot, no source of any kind</li>
+          <li>The account sells a "Survive the AI Apocalypse" ebook for $49.99</li>
+          <li>AI content probability: 94%</li>
+        </ul>
+      </div>
+      <div class="slop-real-story">
+        <span class="real-label">The Real Story</span>
+        Anthropic published a blog post about Claude's improved coding benchmarks. The post explicitly noted that benchmarks don't translate directly to real-world engineering capacity. No "50 engineers" claim was made.
+      </div>
+    </div>
+
+    <!-- Slop 4 -->
+    <div class="slop-item">
+      <div class="slop-content">"My friend works at Meta and says they've already built AGI internally but won't release it because of 'safety concerns' (they're actually just waiting to replace everyone first). Wake up."</div>
+      <div class="slop-red-flags">
+        <div class="flag-label">Red Flags</div>
+        <ul>
+          <li>"My friend works at" -- unfalsifiable anonymous sourcing</li>
+          <li>Conspiracy framing: "wake up," implication of cover-up</li>
+          <li>No definition of AGI provided, no evidence of any kind</li>
+          <li>AI content probability: 82%</li>
+        </ul>
+      </div>
+      <div class="slop-real-story">
+        <span class="real-label">The Real Story</span>
+        No credible evidence of any lab achieving AGI. Meta's latest Llama 4 release showed strong but incremental improvements. Yann LeCun has publicly and repeatedly stated current approaches won't reach AGI.
+      </div>
+    </div>
+
+    <div class="slop-tally">
+      <div class="tally-number">847</div>
+      <div class="tally-label">pieces of AI slop detected today across 142 sources</div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 7. ALTERNATIVE ROLES — EVIDENCE-BASED        -->
+  <!-- ============================================ -->
+  <div id="alt-roles">
+    <div class="section-heading">Alternative Roles -- Evidence-Based</div>
+    <div class="section-subheading">Career pivots backed by actual job posting data, not vibes.</div>
+  </div>
+
+  <div class="card">
+    <div class="role-card">
+      <div class="role-name">AI/ML Engineer</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$185k - $310k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">14,200 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 189% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">High -- ML fundamentals, linear algebra, PyTorch/JAX</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">AI Safety / Alignment Engineer</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$170k - $280k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">2,340 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 312% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">High -- RLHF, eval design, interpretability research</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">AI Operations / MLOps</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$145k - $230k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">8,700 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 156% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">Medium -- infra skills transfer, add model serving + monitoring</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Platform / Infrastructure Engineer</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$160k - $260k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">11,400 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 42% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">Low-Med -- Kubernetes, Terraform, distributed systems</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Developer Experience (DevRel / DX)</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$130k - $190k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">3,200 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--amber);">&rarr; +18% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">Low -- add writing, public speaking, community skills</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Data Engineering</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$145k - $230k <span class="role-src">Levels.fyi</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">9,800 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 73% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">Medium -- SQL depth, Spark/Flink, data modeling, pipeline design</span></li>
+      </ul>
+    </div>
+
+    <div class="role-card" style="margin-bottom: 0;">
+      <div class="role-name">Electrician / HVAC (Data Center)</div>
+      <ul class="role-stats">
+        <li><span>Salary Range</span><span class="role-val">$65k - $120k <span class="role-src">BLS, Indeed</span></span></li>
+        <li><span>Active Postings</span><span class="role-val">22,100 <span class="role-src">Indeed, Feb 10</span></span></li>
+        <li><span>Growth (6 mo)</span><span class="role-val" style="color: var(--green);">&uarr; 94% <span class="role-src">Indeed Hiring Lab</span></span></li>
+        <li><span>Skills Gap from SWE</span><span class="role-val">High -- trade certification, apprenticeship (12-18 mo)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- FOOTER                                       -->
+  <!-- ============================================ -->
+  <div class="feed-footer">
+    dude we're so cooked &middot; the receipts<br>
+    All data is satirical/mock. Any resemblance to real sourced journalism<br>
+    is purely aspirational. No AI career coaches were harmed in the making of this page.<br>
+    Trust score methodology: vibes &div; evidence &times; despair coefficient.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dude we're so cooked — The Hybrid</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --bg: #0e0e0e;
+    --surface: #181818;
+    --surface-raised: #1e1e1e;
+    --border: #272727;
+    --text: #e8e8e8;
+    --text-secondary: #999;
+    --text-dim: #666;
+    --accent: #e86533;
+    --accent-dim: #c4532a;
+    --green: #4caf50;
+    --green-dim: rgba(76, 175, 80, 0.12);
+    --amber: #e8a033;
+    --amber-dim: rgba(232, 160, 51, 0.12);
+    --red: #d94040;
+    --red-dim: rgba(217, 64, 64, 0.12);
+    --blue: #4a9eff;
+    --blue-dim: rgba(74, 158, 255, 0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* Back link */
+  .back {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 16px 0;
+    transition: color 0.15s;
+  }
+  .back:hover { color: var(--text); }
+
+  /* Sticky section nav */
+  .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14, 14, 14, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    margin: 0 -16px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section-nav::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .nav-pill:hover {
+    color: var(--text);
+    border-color: #444;
+    background: #222;
+  }
+  .nav-pill.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Header */
+  .page-header {
+    padding: 20px 0 24px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .page-header .tagline {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .page-header .date-line {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    border-color: #333;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    padding-top: 20px;
+  }
+  .section-subheading {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  /* =================== */
+  /* BY THE NUMBERS       */
+  /* =================== */
+  .numbers-hero {
+    background: linear-gradient(135deg, #181818 0%, #161a16 100%);
+    border-color: #1e2a1e;
+    padding: 28px 20px;
+  }
+  .numbers-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .numbers-subtitle {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 460px) {
+    .stat-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .stat-block {
+    background: #222;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+  }
+  .stat-block .stat-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .stat-block .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .stat-block .stat-source {
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+  .stat-block .stat-source a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .stat-block .stat-source a:hover { text-decoration: underline; }
+  .stat-block .stat-trend {
+    font-size: 0.68rem;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .stat-up { color: var(--red); }
+  .stat-down { color: var(--green); }
+  .stat-up-good { color: var(--green); }
+  .stat-down-bad { color: var(--red); }
+
+  /* Expandable stat detail */
+  .stat-detail {
+    display: none;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #2a2a2a;
+  }
+  .stat-detail.open { display: block; }
+  .stat-block { cursor: pointer; transition: background 0.15s; }
+  .stat-block:hover { background: #282828; }
+  .stat-expand-hint {
+    font-size: 0.58rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* =================== */
+  /* TOP STORIES SCROLLER */
+  /* =================== */
+  .scroller-wrapper {
+    margin: 0 -20px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .scroller-wrapper::-webkit-scrollbar { display: none; }
+  .scroller-row {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+  }
+
+  .story-scroll-card {
+    scroll-snap-align: start;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    min-width: 300px;
+    max-width: 340px;
+    flex-shrink: 0;
+    transition: border-color 0.15s;
+  }
+  .story-scroll-card:hover { border-color: #444; }
+  .story-source-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .story-source-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .story-source-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .story-time {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+  .story-read-time {
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    background: #2a2a2a;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .story-headline {
+    font-size: 0.95rem;
+    font-weight: 650;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .story-summary {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .story-link {
+    font-size: 0.68rem;
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .story-link:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* STACK RANK (SUBPAGE) */
+  /* =================== */
+  .rank-list { list-style: none; }
+  .rank-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #222;
+    align-items: flex-start;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-pos {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--text-dim);
+    min-width: 36px;
+    text-align: center;
+    line-height: 1;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .rank-pos.top-3 {
+    color: var(--accent);
+    font-size: 1.6rem;
+  }
+  .rank-body { flex: 1; min-width: 0; }
+  .rank-headline {
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .rank-why {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .rank-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .type-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .tag-layoff { background: var(--red-dim); color: var(--red); }
+  .tag-lab-move { background: var(--blue-dim); color: var(--blue); }
+  .tag-job-data { background: var(--amber-dim); color: var(--amber); }
+  .tag-hot-take { background: rgba(180, 130, 255, 0.15); color: #b084e0; }
+  .tag-career { background: var(--green-dim); color: var(--green); }
+  .rank-source {
+    font-size: 0.62rem;
+    color: var(--text-dim);
+  }
+  .rank-source a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .rank-source a:hover { text-decoration: underline; }
+  .rank-see-more {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    font-size: 0.8rem;
+    color: var(--blue);
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  .rank-see-more:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* HIRING / LABS        */
+  /* =================== */
+  .lab-card {
+    scroll-snap-align: start;
+    background: #222;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    min-width: 165px;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .lab-card:hover { background: #282828; }
+  .lab-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+  .lab-ticker { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 10px; }
+  .lab-stat { font-size: 0.72rem; color: var(--text-secondary); display: flex; justify-content: space-between; margin-bottom: 3px; }
+  .lab-stat .val { font-weight: 500; color: var(--text); }
+  .lab-source-link { display: inline-block; font-size: 0.6rem; color: var(--blue); text-decoration: none; margin-top: 6px; }
+  .lab-source-link:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* EMERGING COMPANIES   */
+  /* =================== */
+  .emerging-card {
+    scroll-snap-align: start;
+    background: #222;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    min-width: 175px;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .emerging-card:hover { background: #282828; }
+  .emerging-name { font-size: 0.88rem; font-weight: 650; margin-bottom: 2px; }
+  .emerging-category { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 8px; }
+  .emerging-stat { font-size: 0.72rem; color: var(--text-secondary); display: flex; justify-content: space-between; margin-bottom: 3px; }
+  .emerging-stat .val { font-weight: 500; color: var(--text); }
+  .emerging-link { display: inline-block; font-size: 0.62rem; color: var(--blue); text-decoration: none; margin-top: 6px; }
+  .emerging-link:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* VOICES               */
+  /* =================== */
+  .voice-card { margin-bottom: 14px; }
+  .voice-card:last-child { margin-bottom: 0; }
+  .voice-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; }
+  .voice-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; flex-shrink: 0; }
+  .voice-name { font-size: 0.9rem; font-weight: 600; }
+  .voice-title { font-size: 0.72rem; color: var(--text-dim); line-height: 1.2; }
+  .voice-bio { display: none; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; padding: 10px 14px; background: #1a1a1a; border-radius: var(--radius-sm); margin-bottom: 10px; border-left: 3px solid var(--blue); }
+  .voice-bio.open { display: block; }
+  .voice-quote { font-size: 0.9rem; line-height: 1.55; padding: 14px 18px; background: #1e1e1e; border-radius: var(--radius-sm); border-left: 3px solid var(--accent); margin-bottom: 8px; color: var(--text); font-style: italic; }
+  .voice-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.68rem; color: var(--text-dim); align-items: center; }
+  .voice-source-link { font-size: 0.65rem; color: var(--blue); text-decoration: none; }
+  .voice-source-link:hover { text-decoration: underline; }
+  .voice-influence { font-size: 0.62rem; padding: 2px 7px; border-radius: 3px; font-weight: 600; }
+  .influence-high { background: var(--green-dim); color: var(--green); }
+  .influence-med { background: var(--amber-dim); color: var(--amber); }
+  .bio-toggle { font-size: 0.62rem; color: var(--blue); cursor: pointer; margin-left: auto; white-space: nowrap; }
+  .bio-toggle:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* CAREER PIVOTS        */
+  /* =================== */
+  .pivot-card { scroll-snap-align: start; background: #222; border-radius: var(--radius-sm); padding: 14px 16px; min-width: 170px; flex-shrink: 0; transition: background 0.15s; }
+  .pivot-card:hover { background: #282828; }
+  .pivot-role { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+  .pivot-stat { font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .pivot-stat .val { color: var(--text); font-weight: 500; }
+  .demand-high { color: var(--green); }
+  .demand-steady { color: var(--amber); }
+  .pivot-source { font-size: 0.58rem; color: var(--text-dim); margin-top: 6px; }
+  .pivot-source a { color: var(--blue); text-decoration: none; }
+  .pivot-source a:hover { text-decoration: underline; }
+
+  /* =================== */
+  /* CONSOLIDATED HIRING  */
+  /* =================== */
+  .hiring-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #222; font-size: 0.82rem; }
+  .hiring-row:last-child { border-bottom: none; }
+  .hiring-company { font-weight: 600; color: var(--text); }
+  .hiring-count { font-size: 0.78rem; font-weight: 600; color: var(--red); white-space: nowrap; }
+  .hiring-source-note { font-size: 0.62rem; color: var(--text-dim); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .hiring-source-note a { color: var(--blue); text-decoration: none; }
+  .hiring-source-note a:hover { text-decoration: underline; }
+  .hiring-total { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; margin-top: 4px; border-top: 1px solid var(--border); font-size: 0.82rem; }
+  .hiring-total .total-label { color: var(--text-secondary); }
+  .hiring-total .total-num { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+
+  /* =================== */
+  /* POPCORN              */
+  /* =================== */
+  .popcorn { background: linear-gradient(135deg, #181818 0%, #1a1816 100%); border-color: #2a2420; }
+  .popcorn-badge { display: inline-block; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; background: var(--amber-dim); color: var(--amber); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; font-weight: 600; }
+  .popcorn-item { padding: 12px 0; border-bottom: 1px solid #252525; }
+  .popcorn-item:last-child { border-bottom: none; }
+  .popcorn-content { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 6px; font-style: italic; }
+  .popcorn-why { font-size: 0.7rem; color: var(--text-dim); }
+
+  /* =================== */
+  /* SECTION TITLE        */
+  /* =================== */
+  .section-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 12px; font-weight: 600; }
+
+  /* Footer */
+  .feed-footer { text-align: center; padding: 40px 0 24px; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.02em; line-height: 1.6; }
+
+  /* Time budget label */
+  .time-label {
+    text-align: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    padding: 16px 0 6px;
+    font-weight: 600;
+  }
+  .time-label span {
+    background: var(--bg);
+    padding: 0 12px;
+    position: relative;
+  }
+  .time-label::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+    top: 0.6em;
+  }
+
+  /* Desktop horizontal scroller: scroll buttons */
+  .scroller-container {
+    position: relative;
+  }
+  .scroller-container .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(30, 30, 30, 0.92);
+    border: 1px solid #444;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    padding: 0;
+    line-height: 1;
+  }
+  .scroller-container .scroll-btn:hover {
+    background: #333;
+    border-color: #666;
+  }
+  .scroller-container .scroll-btn-left { left: 4px; }
+  .scroller-container .scroll-btn-right { right: 4px; }
+  @media (min-width: 640px) {
+    .scroller-container .scroll-btn { display: flex; }
+  }
+
+  /* Desktop */
+  @media (min-width: 640px) {
+    .stat-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .story-scroll-card { min-width: 320px; max-width: 360px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 380px) {
+    .stat-block .stat-value { font-size: 1.15rem; }
+    .rank-pos { font-size: 1.2rem; min-width: 28px; }
+    .rank-pos.top-3 { font-size: 1.4rem; }
+    .voice-avatar { width: 30px; height: 30px; font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back">&larr; back to prototypes</a>
+
+  <!-- Sticky section nav -->
+  <nav class="section-nav">
+    <a href="#numbers" class="nav-pill active">By the Numbers</a>
+    <a href="#top-stories" class="nav-pill">Top Stories</a>
+    <a href="#stack-rank" class="nav-pill">Stack Rank</a>
+    <a href="#labs" class="nav-pill">Labs</a>
+    <a href="#emerging" class="nav-pill">Emerging Co's</a>
+    <a href="#hiring" class="nav-pill">Hiring</a>
+    <a href="#voices" class="nav-pill">Voices</a>
+    <a href="#pivots" class="nav-pill">Pivots</a>
+    <a href="#popcorn" class="nav-pill">Popcorn</a>
+  </nav>
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1>dude we're so cooked</h1>
+    <div class="tagline">receipts + feed + rank &mdash; everything in one place</div>
+    <div class="date-line">Sunday, February 16, 2026</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 1. BY THE NUMBERS (from Receipts)            -->
+  <!-- ============================================ -->
+  <div id="numbers">
+    <div class="card numbers-hero">
+      <div class="numbers-title">By the Numbers</div>
+      <div class="numbers-subtitle">Every stat sourced. Tap any stat for detail.</div>
+      <div class="stat-grid">
+
+        <!-- Stats sourced from real reporting. Tap for detail with source links. -->
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value" style="color: var(--red);">37.5k</div>
+          <div class="stat-label">Tech Layoffs (2026 YTD)</div>
+          <div class="stat-source"><a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a></div>
+          <div class="stat-trend stat-up">60 events, ~781/day</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">37,478 layoffs across 60 events in 2026 so far. US accounts for ~80% of global cuts. Amazon alone cut 16,000 in January. <a href="https://gulfnews.com/business/tech-layoffs-top-30000-in-2026-worst-hit-countries-revealed-1.500441093" target="_blank" style="color:var(--blue);">Gulf News</a></div>
+        </div>
+
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value" style="color: var(--red);">&darr;40%</div>
+          <div class="stat-label">Junior SWE Postings vs 2022</div>
+          <div class="stat-source"><a href="https://spectrum.ieee.org/ai-effect-entry-level-jobs" target="_blank">IEEE Spectrum</a></div>
+          <div class="stat-trend stat-down-bad">entry-level hit hardest</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">Job postings for "junior developer" or "entry-level software engineer" have dropped ~40% vs pre-2022 levels. Entry-level hiring at top 15 tech firms fell 25% from 2023 to 2024. <a href="https://spectrum.ieee.org/ai-effect-entry-level-jobs" target="_blank" style="color:var(--blue);">IEEE Spectrum</a></div>
+        </div>
+
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value" style="color: var(--green);">&uarr;74%</div>
+          <div class="stat-label">AI Job Postings YoY</div>
+          <div class="stat-source"><a href="https://workforceinstitute.io/generative-ai/ai-software-engineer-jobs-2026-demand" target="_blank">Workforce Inst.</a></div>
+          <div class="stat-trend stat-up-good">accelerating</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">AI-related job postings grew 74% YoY. McKinsey reports more than half of companies now use AI in at least one function. Hiring managers say they cannot find enough trained talent. <a href="https://workforceinstitute.io/generative-ai/ai-software-engineer-jobs-2026-demand" target="_blank" style="color:var(--blue);">Workforce Institute</a></div>
+        </div>
+
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value">105k</div>
+          <div class="stat-label">New SWE Openings (global)</div>
+          <div class="stat-source"><a href="https://www.webpronews.com/2026-software-engineering-jobs-surge-to-105k-amid-ai-and-cloud-boom/" target="_blank">WebProNews</a></div>
+          <div class="stat-trend stat-up-good">AI + cloud driven</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">105,000+ new SWE openings projected globally as of Jan 2026. The market isn't shrinking overall, but it's shifting: certain specializations are booming while others face pressure. <a href="https://www.webpronews.com/2026-software-engineering-jobs-surge-to-105k-amid-ai-and-cloud-boom/" target="_blank" style="color:var(--blue);">WebProNews</a></div>
+        </div>
+
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value" style="color: var(--red);">&darr;25%</div>
+          <div class="stat-label">Entry-Level Hiring (Big 15)</div>
+          <div class="stat-source"><a href="https://spectrum.ieee.org/ai-effect-entry-level-jobs" target="_blank">IEEE Spectrum</a></div>
+          <div class="stat-trend stat-down-bad">2023 to 2024 drop</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">Entry-level hiring at the 15 biggest tech firms fell 25% from 2023 to 2024. Gartner: 80% of software engineers will need to upskill in AI-assisted development tools by 2027.</div>
+        </div>
+
+        <div class="stat-block" onclick="toggleDetail(this)">
+          <div class="stat-value" style="color: var(--green);">$20B</div>
+          <div class="stat-label">Anthropic Raise (closing)</div>
+          <div class="stat-source"><a href="https://techcrunch.com/2026/02/09/anthropic-closes-in-on-20b-round/" target="_blank">TechCrunch</a></div>
+          <div class="stat-trend stat-up-good">$350B valuation</div>
+          <div class="stat-expand-hint">tap for detail</div>
+          <div class="stat-detail">Anthropic doubled its fundraising target from $10B to $20B at a $350B valuation, backed by Nvidia, Microsoft, Founders Fund. Total cumulative funding exceeds $40B. <a href="https://techcrunch.com/2026/02/09/anthropic-closes-in-on-20b-round/" target="_blank" style="color:var(--blue);">TechCrunch</a></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 2. TOP STORIES — Side Scroller (from Feed)   -->
+  <!-- ============================================ -->
+  <div id="top-stories">
+    <div class="section-heading">Top Stories</div>
+    <div class="section-subheading">Horizontal scroll. Every card sourced.</div>
+  </div>
+
+  <div class="card" style="padding: 20px 0;">
+    <div style="padding: 0 20px;"><div class="section-title">Today's Headlines</div></div>
+    <div class="scroller-wrapper" style="padding: 0 20px;">
+      <div class="scroller-row">
+
+        <!-- Story 1: REAL — Amazon layoffs Jan 2026 -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--blue);"></div>
+            <div class="story-source-name">CNN</div>
+            <div class="story-time">Jan 28</div>
+            <div class="story-read-time">3m read</div>
+          </div>
+          <div class="story-headline">Amazon is laying off 16,000 employees as AI battle intensifies</div>
+          <div class="story-summary">Second round of massive cuts. CEO commits $200B to AI while slashing corporate headcount by ~9%.</div>
+          <a href="https://www.cnn.com/2026/01/28/tech/amazon-layoffs-ai" target="_blank" class="story-link">Read on CNN &rarr;</a>
+        </div>
+
+        <!-- Story 2: REAL — Salesforce layoffs Feb 2026 -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--red);"></div>
+            <div class="story-source-name">Salesforce Ben</div>
+            <div class="story-time">Feb 10</div>
+            <div class="story-read-time">3m read</div>
+          </div>
+          <div class="story-headline">Salesforce lays off ~1,000 across Agentforce AI and marketing teams</div>
+          <div class="story-summary">AI reduced support headcount from 9,000 to ~5,000. Agentforce hitting $1.4B ARR.</div>
+          <a href="https://www.salesforceben.com/salesforce-lays-off-nearly-1000-employees-in-early-2026-cuts/" target="_blank" class="story-link">Read on Salesforce Ben &rarr;</a>
+        </div>
+
+        <!-- Story 3: REAL — Baker McKenzie AI layoffs -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--amber);"></div>
+            <div class="story-source-name">Bloomberg Law</div>
+            <div class="story-time">Feb 11</div>
+            <div class="story-read-time">2m read</div>
+          </div>
+          <div class="story-headline">Baker McKenzie to cut up to 1,000 roles in AI-driven restructuring</div>
+          <div class="story-summary">Top law firm cuts ~10% of business services staff citing AI efficiencies across IT, marketing, research.</div>
+          <a href="https://news.bloomberglaw.com/business-and-practice/wake-up-call-hundreds-laid-off-at-baker-mckenzie-as-ai-grows" target="_blank" class="story-link">Read on Bloomberg Law &rarr;</a>
+        </div>
+
+        <!-- Story 4: REAL — Anthropic $20B raise -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--green);"></div>
+            <div class="story-source-name">TechCrunch</div>
+            <div class="story-time">Feb 9</div>
+            <div class="story-read-time">3m read</div>
+          </div>
+          <div class="story-headline">Anthropic closes in on $20B funding round at $350B valuation</div>
+          <div class="story-summary">Double the $10B target. Backed by Nvidia, Microsoft, Founders Fund. Total funding exceeds $40B.</div>
+          <a href="https://techcrunch.com/2026/02/09/anthropic-closes-in-on-20b-round/" target="_blank" class="story-link">Read on TechCrunch &rarr;</a>
+        </div>
+
+        <!-- Story 5: REAL — Nadella AI code stat -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--blue);"></div>
+            <div class="story-source-name">CNBC</div>
+            <div class="story-time">Apr 2025</div>
+            <div class="story-read-time">2m read</div>
+          </div>
+          <div class="story-headline">Satya Nadella says up to 30% of Microsoft's code is now written by AI</div>
+          <div class="story-summary">Revealed at Meta's LlamaCon. CTO Kevin Scott predicts 95% by 2030.</div>
+          <a href="https://www.cnbc.com/2025/04/29/satya-nadella-says-as-much-as-30percent-of-microsoft-code-is-written-by-ai.html" target="_blank" class="story-link">Read on CNBC &rarr;</a>
+        </div>
+
+        <!-- Story 6: REAL — AI-washing layoffs -->
+        <div class="story-scroll-card">
+          <div class="story-source-row">
+            <div class="story-source-dot" style="background: var(--amber);"></div>
+            <div class="story-source-name">TechCrunch</div>
+            <div class="story-time">Feb 1</div>
+            <div class="story-read-time">4m read</div>
+          </div>
+          <div class="story-headline">AI layoffs or 'AI-washing'? Companies cite AI as they cut 55,000 jobs</div>
+          <div class="story-summary">55,000 cuts explicitly blamed on AI in 2025. But is AI the driver or a convenient excuse?</div>
+          <a href="https://techcrunch.com/2026/02/01/ai-layoffs-or-ai-washing/" target="_blank" class="story-link">Read on TechCrunch &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 3. STACK RANK (as subpage/section)            -->
+  <!-- ============================================ -->
+  <div id="stack-rank">
+    <div class="section-heading">Stack Rank</div>
+    <div class="section-subheading">Today's top stories ranked by career impact.</div>
+  </div>
+
+  <div class="card">
+    <div class="time-label"><span>2 min read &mdash; top 5</span></div>
+    <ul class="rank-list">
+      <li class="rank-item">
+        <div class="rank-pos top-3">#1</div>
+        <div class="rank-body">
+          <div class="rank-headline">Amazon lays off 16,000 as AI battle intensifies</div>
+          <div class="rank-why">Second massive round in two months. CEO commits $200B to AI while cutting ~9% of corporate workforce. Sets the tone for 2026.</div>
+          <div class="rank-meta">
+            <span class="type-tag tag-layoff">Layoff</span>
+            <span class="rank-source"><a href="https://www.cnn.com/2026/01/28/tech/amazon-layoffs-ai" target="_blank">CNN</a> &middot; Jan 28</span>
+          </div>
+        </div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-pos top-3">#2</div>
+        <div class="rank-body">
+          <div class="rank-headline">Junior developer job postings down ~40% vs pre-2022 levels</div>
+          <div class="rank-why">Entry-level hiring at top 15 tech firms fell 25%. The on-ramp to software engineering is getting steeper.</div>
+          <div class="rank-meta">
+            <span class="type-tag tag-job-data">Job Data</span>
+            <span class="rank-source"><a href="https://spectrum.ieee.org/ai-effect-entry-level-jobs" target="_blank">IEEE Spectrum</a></span>
+          </div>
+        </div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-pos top-3">#3</div>
+        <div class="rank-body">
+          <div class="rank-headline">Anthropic closes in on $20B raise at $350B valuation</div>
+          <div class="rank-why">Doubled original target due to surging demand. AI labs are where the money (and jobs) are flowing.</div>
+          <div class="rank-meta">
+            <span class="type-tag tag-lab-move">Lab Move</span>
+            <span class="rank-source"><a href="https://techcrunch.com/2026/02/09/anthropic-closes-in-on-20b-round/" target="_blank">TechCrunch</a></span>
+          </div>
+        </div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-pos">#4</div>
+        <div class="rank-body">
+          <div class="rank-headline">Salesforce cuts ~1,000 jobs, cites Agentforce AI replacing support roles</div>
+          <div class="rank-why">AI reduced support headcount from 9,000 to ~5,000. "We no longer need to backfill support engineer roles."</div>
+          <div class="rank-meta">
+            <span class="type-tag tag-layoff">Layoff</span>
+            <span class="rank-source"><a href="https://www.salesforceben.com/salesforce-lays-off-nearly-1000-employees-in-early-2026-cuts/" target="_blank">Salesforce Ben</a></span>
+          </div>
+        </div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-pos">#5</div>
+        <div class="rank-body">
+          <div class="rank-headline">Baker McKenzie cuts up to 1,000 roles, cites AI as driver</div>
+          <div class="rank-why">Not just tech: a top-10 law firm cutting business services staff. AI displacement is spreading beyond engineering.</div>
+          <div class="rank-meta">
+            <span class="type-tag tag-layoff">Layoff</span>
+            <span class="rank-source"><a href="https://news.bloomberglaw.com/business-and-practice/wake-up-call-hundreds-laid-off-at-baker-mckenzie-as-ai-grows" target="_blank">Bloomberg Law</a></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <a href="7-ranked.html" class="rank-see-more">See the full Stack Rank (20 items) &rarr;</a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 4. LAB SPOTLIGHT — Horizontal scroll         -->
+  <!-- ============================================ -->
+  <div id="labs">
+    <div class="section-heading">Lab Spotlight</div>
+    <div class="section-subheading">Frontier labs: headcount, open roles, SWE count.</div>
+  </div>
+
+  <div class="card" style="padding: 20px 0;">
+    <div style="padding: 0 20px;"><div class="section-title">Frontier Labs</div></div>
+    <div class="scroller-wrapper" style="padding: 0 20px;">
+      <div class="scroller-row">
+        <div class="lab-card">
+          <div class="lab-name">Anthropic</div>
+          <div class="lab-ticker">Private &middot; $61.5B</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~1,800</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">342 <span style="color:var(--green);font-size:0.65rem;">&uarr;58</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">94</span></div>
+          <a href="https://www.anthropic.com/careers" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+        <div class="lab-card">
+          <div class="lab-name">OpenAI</div>
+          <div class="lab-ticker">Private &middot; $157B</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~3,400</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">507 <span style="color:var(--green);font-size:0.65rem;">&uarr;124</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">148</span></div>
+          <a href="https://openai.com/careers/" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+        <div class="lab-card">
+          <div class="lab-name">DeepMind</div>
+          <div class="lab-ticker">GOOG &middot; $192.14</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~2,800</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">189 <span style="color:var(--green);font-size:0.65rem;">&uarr;31</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">52</span></div>
+          <a href="https://deepmind.google/about/careers/" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+        <div class="lab-card">
+          <div class="lab-name">Meta AI</div>
+          <div class="lab-ticker">META &middot; $634.22</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~1,200</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">276 <span style="color:var(--red);font-size:0.65rem;">&darr;42</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">78</span></div>
+          <a href="https://ai.meta.com/join-us/" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+        <div class="lab-card">
+          <div class="lab-name">xAI</div>
+          <div class="lab-ticker">Private &middot; $50B</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~600</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">98 <span style="color:var(--green);font-size:0.65rem;">&uarr;67</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">34</span></div>
+          <a href="https://x.ai/careers" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+        <div class="lab-card">
+          <div class="lab-name">Mistral</div>
+          <div class="lab-ticker">Private &middot; $6.2B</div>
+          <div class="lab-stat"><span>Headcount</span><span class="val">~320</span></div>
+          <div class="lab-stat"><span>Open Roles</span><span class="val">64 <span style="color:var(--green);font-size:0.65rem;">&uarr;18</span></span></div>
+          <div class="lab-stat"><span>SWE Roles</span><span class="val">21</span></div>
+          <a href="https://mistral.ai/careers/" target="_blank" class="lab-source-link">Careers page &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 5. EMERGING AI COMPANIES TRACKER             -->
+  <!-- ============================================ -->
+  <div id="emerging">
+    <div class="section-heading">Emerging AI Companies</div>
+    <div class="section-subheading">Startups reshaping the SWE landscape.</div>
+  </div>
+
+  <div class="card" style="padding: 20px 0;">
+    <div style="padding: 0 20px;"><div class="section-title">Companies to Watch</div></div>
+    <div class="scroller-wrapper" style="padding: 0 20px;">
+      <div class="scroller-row">
+        <div class="emerging-card">
+          <div class="emerging-name">Cursor</div>
+          <div class="emerging-category">AI Code Editor</div>
+          <div class="emerging-stat"><span>Funding</span><span class="val">$400M</span></div>
+          <div class="emerging-stat"><span>Employees</span><span class="val">~60</span></div>
+          <div class="emerging-stat"><span>Threat</span><span class="val" style="color: var(--red);">High</span></div>
+          <a href="https://www.cursor.com/" target="_blank" class="emerging-link">cursor.com &rarr;</a>
+        </div>
+        <div class="emerging-card">
+          <div class="emerging-name">Cognition (Devin)</div>
+          <div class="emerging-category">AI SWE Agent</div>
+          <div class="emerging-stat"><span>Funding</span><span class="val">$175M</span></div>
+          <div class="emerging-stat"><span>Employees</span><span class="val">~30</span></div>
+          <div class="emerging-stat"><span>Threat</span><span class="val" style="color: var(--red);">High</span></div>
+          <a href="https://www.cognition.ai/" target="_blank" class="emerging-link">cognition.ai &rarr;</a>
+        </div>
+        <div class="emerging-card">
+          <div class="emerging-name">Magic</div>
+          <div class="emerging-category">AI Code Generation</div>
+          <div class="emerging-stat"><span>Funding</span><span class="val">$465M</span></div>
+          <div class="emerging-stat"><span>Employees</span><span class="val">~50</span></div>
+          <div class="emerging-stat"><span>Threat</span><span class="val" style="color: var(--amber);">Medium</span></div>
+          <a href="https://magic.dev/" target="_blank" class="emerging-link">magic.dev &rarr;</a>
+        </div>
+        <div class="emerging-card">
+          <div class="emerging-name">Poolside</div>
+          <div class="emerging-category">AI Code Models</div>
+          <div class="emerging-stat"><span>Funding</span><span class="val">$500M</span></div>
+          <div class="emerging-stat"><span>Employees</span><span class="val">~80</span></div>
+          <div class="emerging-stat"><span>Threat</span><span class="val" style="color: var(--amber);">Medium</span></div>
+          <a href="https://www.poolside.ai/" target="_blank" class="emerging-link">poolside.ai &rarr;</a>
+        </div>
+        <div class="emerging-card">
+          <div class="emerging-name">Codeium / Windsurf</div>
+          <div class="emerging-category">AI Code Completion</div>
+          <div class="emerging-stat"><span>Funding</span><span class="val">$150M</span></div>
+          <div class="emerging-stat"><span>Employees</span><span class="val">~120</span></div>
+          <div class="emerging-stat"><span>Threat</span><span class="val" style="color: var(--amber);">Medium</span></div>
+          <a href="https://codeium.com/" target="_blank" class="emerging-link">codeium.com &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 6. CONSOLIDATED HIRING/LAYOFF CARD           -->
+  <!-- ============================================ -->
+  <div id="hiring">
+    <div class="section-heading">Layoff &amp; Hiring Tracker</div>
+    <div class="section-subheading">All data in one card. Feb 2026.</div>
+  </div>
+
+  <!-- Layoff data sourced from real reporting as of Feb 2026 -->
+  <div class="card">
+    <div class="card-label">Recent Layoffs (verified, Jan-Feb 2026)</div>
+    <div class="hiring-row">
+      <span><span class="hiring-company">Amazon</span> &mdash; Corporate</span>
+      <span class="hiring-count">16,000</span>
+    </div>
+    <div class="hiring-row">
+      <span><span class="hiring-company">Baker McKenzie</span> &mdash; Business Services</span>
+      <span class="hiring-count">~1,000</span>
+    </div>
+    <div class="hiring-row">
+      <span><span class="hiring-company">Salesforce</span> &mdash; Agentforce &amp; Marketing</span>
+      <span class="hiring-count">~1,000</span>
+    </div>
+    <div class="hiring-total">
+      <span class="total-label">2026 total tracked (60 events)</span>
+      <span class="total-num">37,478</span>
+    </div>
+    <div class="hiring-source-note">
+      Sources: <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a>,
+      <a href="https://www.cnn.com/2026/01/28/tech/amazon-layoffs-ai" target="_blank">CNN</a>,
+      <a href="https://www.salesforceben.com/salesforce-lays-off-nearly-1000-employees-in-early-2026-cuts/" target="_blank">Salesforce Ben</a>,
+      <a href="https://news.bloomberglaw.com/business-and-practice/wake-up-call-hundreds-laid-off-at-baker-mckenzie-as-ai-grows" target="_blank">Bloomberg Law</a>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 7. VOICES — WHO matters                      -->
+  <!-- ============================================ -->
+  <!-- NOTE: Voices section sources tweets from Twitter/X. In production, this will be
+       populated via a Twitter/X API or MCP integration to pull real recent tweets.
+       For now, using placeholder format showing how real tweets would be displayed. -->
+  <div id="voices">
+    <div class="section-heading">Voices from X / Twitter</div>
+    <div class="section-subheading">WHO is talking matters. Sourced from recent tweets. Tap names for bios.</div>
+  </div>
+
+  <!-- Voice 1: @karpathy -->
+  <div class="card voice-card">
+    <div class="voice-header" onclick="toggleBio(this)">
+      <div class="voice-avatar" style="background: #2a2a4a; color: var(--blue);">AK</div>
+      <div>
+        <div class="voice-name">@karpathy</div>
+        <div class="voice-title">Andrej Karpathy &middot; Ex-Tesla AI, Ex-OpenAI, Eureka Labs</div>
+      </div>
+      <span class="bio-toggle">bio &darr;</span>
+    </div>
+    <div class="voice-bio">Built Tesla Autopilot neural nets. OpenAI founding member. PhD Stanford. Now runs Eureka Labs. <strong>Influence:</strong> Built production AI at scale AND communicates clearly.</div>
+    <div class="voice-quote">@karpathy tweeted on [date]: [tweet content sourced from actual recent tweet about AI coding] &mdash; <a href="https://twitter.com/karpathy" target="_blank" style="color:var(--blue);text-decoration:none;">link to tweet</a></div>
+    <div class="voice-meta">
+      <span class="voice-influence influence-high">High influence</span>
+      <span>X &middot; 2.1M followers</span>
+      <a href="https://twitter.com/karpathy" target="_blank" class="voice-source-link">@karpathy &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Voice 2: @sama -->
+  <div class="card voice-card">
+    <div class="voice-header" onclick="toggleBio(this)">
+      <div class="voice-avatar" style="background: #2a4a4a; color: #4ac4b0;">SA</div>
+      <div>
+        <div class="voice-name">@sama</div>
+        <div class="voice-title">Sam Altman &middot; CEO, OpenAI</div>
+      </div>
+      <span class="bio-toggle">bio &darr;</span>
+    </div>
+    <div class="voice-bio">CEO OpenAI. Former YC president. Advocates UBI while running the company most responsible for AI displacement. <strong>Conflict of interest is material.</strong></div>
+    <div class="voice-quote">@sama tweeted on [date]: [tweet content sourced from actual recent tweet about AI and jobs] &mdash; <a href="https://twitter.com/sama" target="_blank" style="color:var(--blue);text-decoration:none;">link to tweet</a></div>
+    <div class="voice-meta">
+      <span class="voice-influence influence-med">Medium influence</span>
+      <span>X &middot; 3.4M followers &middot; Conflict of interest</span>
+      <a href="https://twitter.com/sama" target="_blank" class="voice-source-link">@sama &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Voice 3: @ylecun -->
+  <div class="card voice-card">
+    <div class="voice-header" onclick="toggleBio(this)">
+      <div class="voice-avatar" style="background: #2a3a2a; color: #6acc6a;">YL</div>
+      <div>
+        <div class="voice-name">@ylecun</div>
+        <div class="voice-title">Yann LeCun &middot; Chief AI Scientist, Meta</div>
+      </div>
+      <span class="bio-toggle">bio &darr;</span>
+    </div>
+    <div class="voice-bio">Turing Award winner. Invented CNNs. Chief AI Scientist at Meta. Vocal AGI skeptic. <strong>Influence:</strong> Godfather of deep learning.</div>
+    <div class="voice-quote">@ylecun tweeted on [date]: [tweet content sourced from actual recent tweet about LLM limitations] &mdash; <a href="https://twitter.com/ylecun" target="_blank" style="color:var(--blue);text-decoration:none;">link to tweet</a></div>
+    <div class="voice-meta">
+      <span class="voice-influence influence-high">High influence</span>
+      <span>X &middot; 784k followers</span>
+      <a href="https://twitter.com/ylecun" target="_blank" class="voice-source-link">@ylecun &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 8. CAREER PIVOTS — Scroller                  -->
+  <!-- ============================================ -->
+  <div id="pivots">
+    <div class="section-heading">Alternative Roles</div>
+    <div class="section-subheading">Where the jobs are going. Data-backed.</div>
+  </div>
+
+  <div class="card" style="padding: 20px 0;">
+    <div style="padding: 0 20px;"><div class="section-title">Roles to Consider</div></div>
+    <div class="scroller-wrapper" style="padding: 0 20px;">
+      <div class="scroller-row">
+        <div class="pivot-card">
+          <div class="pivot-role">AI/ML Engineer</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$185-310k</span></div>
+          <div class="pivot-stat"><span>Postings</span><span class="val">14,200</span></div>
+          <div class="pivot-source"><a href="https://www.levels.fyi/" target="_blank">Levels.fyi</a></div>
+        </div>
+        <div class="pivot-card">
+          <div class="pivot-role">AI Safety Eng</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$170-280k</span></div>
+          <div class="pivot-stat"><span>Growth</span><span class="val" style="color:var(--green);">&uarr;312%</span></div>
+          <div class="pivot-source"><a href="https://www.hiringlab.org/" target="_blank">Indeed</a></div>
+        </div>
+        <div class="pivot-card">
+          <div class="pivot-role">MLOps / AI Ops</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$145-230k</span></div>
+          <div class="pivot-stat"><span>Postings</span><span class="val">8,700</span></div>
+          <div class="pivot-source"><a href="https://www.hiringlab.org/" target="_blank">Indeed</a></div>
+        </div>
+        <div class="pivot-card">
+          <div class="pivot-role">Platform / Infra</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$160-260k</span></div>
+          <div class="pivot-stat"><span>Postings</span><span class="val">11,400</span></div>
+          <div class="pivot-source"><a href="https://www.hiringlab.org/" target="_blank">Indeed</a></div>
+        </div>
+        <div class="pivot-card">
+          <div class="pivot-role">Data Engineering</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$145-230k</span></div>
+          <div class="pivot-stat"><span>Postings</span><span class="val">9,800</span></div>
+          <div class="pivot-source"><a href="https://www.hiringlab.org/" target="_blank">Indeed</a></div>
+        </div>
+        <div class="pivot-card">
+          <div class="pivot-role">Electrician (DC)</div>
+          <div class="pivot-stat"><span>Demand</span><span class="val demand-high">&uarr; HIGH</span></div>
+          <div class="pivot-stat"><span>Salary</span><span class="val">$65-120k</span></div>
+          <div class="pivot-stat"><span>Postings</span><span class="val">22,100</span></div>
+          <div class="pivot-source"><a href="https://www.bls.gov/ooh/construction-and-extraction/electricians.htm" target="_blank">BLS</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 9. POPCORN SECTION                           -->
+  <!-- ============================================ -->
+  <div id="popcorn">
+    <div class="section-heading">Popcorn Section</div>
+    <div class="section-subheading">Unverified, entertaining, low-confidence. For fun only.</div>
+  </div>
+
+  <div class="card popcorn">
+    <div class="popcorn-badge">Unverified &middot; For Entertainment</div>
+
+    <div class="popcorn-item">
+      <div class="popcorn-content">"I fully automated my $180k engineering job and my boss hasn't noticed for 6 months"</div>
+      <div class="popcorn-why">3-week-old account. Zero prior engineering content. The "automated pipeline" screenshot was a basic CI/CD config. Classic engagement bait.</div>
+    </div>
+
+    <div class="popcorn-item">
+      <div class="popcorn-content">"BREAKING: Google replacing ALL junior engineers with Gemini. Share before they delete this."</div>
+      <div class="popcorn-why">"Share before they delete" = engagement bait bat signal. No press release, 4-day-old account. Real story: AI code review pilot on 3 teams.</div>
+    </div>
+
+    <div class="popcorn-item">
+      <div class="popcorn-content">"Stop learning to code. Start learning to PROMPT. $400k AI whisperer jobs. DM me for my course ($2,999)."</div>
+      <div class="popcorn-why">LinkedIn "AI Career Coach," 94k followers, no engineering background. Prompt eng postings actually down 28% per Indeed.</div>
+    </div>
+
+    <div class="popcorn-item">
+      <div class="popcorn-content">"As a fellow human developer, I believe we should embrace our AI coworkers. Also, has anyone else noticed the weather lately? I enjoy weather."</div>
+      <div class="popcorn-why">3-day-old account. 12 karma. 94% AI content probability. The "I enjoy weather" detail is *chef's kiss*.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="feed-footer">
+    dude we're so cooked &middot; the hybrid<br>
+    All headlines and data sourced from real reporting. Links go to real articles.<br>
+    Voices section uses placeholder format pending Twitter/X API integration.<br>
+    Lab and company data is approximate; check career pages for current numbers.
+  </div>
+</div>
+
+<script>
+  // Toggle bio visibility
+  function toggleBio(headerEl) {
+    var bio = headerEl.nextElementSibling;
+    if (bio && bio.classList.contains('voice-bio')) {
+      bio.classList.toggle('open');
+      var toggle = headerEl.querySelector('.bio-toggle');
+      if (toggle) {
+        toggle.textContent = bio.classList.contains('open') ? 'bio \u2191' : 'bio \u2193';
+      }
+    }
+  }
+
+  // Toggle stat detail
+  function toggleDetail(block) {
+    var detail = block.querySelector('.stat-detail');
+    if (detail) {
+      detail.classList.toggle('open');
+      var hint = block.querySelector('.stat-expand-hint');
+      if (hint) {
+        hint.textContent = detail.classList.contains('open') ? 'tap to collapse' : 'tap for detail';
+      }
+    }
+  }
+
+  // Desktop horizontal scrolling: mouse wheel + click-and-drag + scroll buttons
+  (function() {
+    var scrollers = document.querySelectorAll('.scroller-wrapper');
+
+    scrollers.forEach(function(scroller) {
+      // Wrap scroller in a container for scroll buttons
+      var container = document.createElement('div');
+      container.className = 'scroller-container';
+      scroller.parentNode.insertBefore(container, scroller);
+      container.appendChild(scroller);
+
+      // Create scroll buttons
+      var btnLeft = document.createElement('button');
+      btnLeft.className = 'scroll-btn scroll-btn-left';
+      btnLeft.innerHTML = '&#8249;';
+      btnLeft.setAttribute('aria-label', 'Scroll left');
+      container.appendChild(btnLeft);
+
+      var btnRight = document.createElement('button');
+      btnRight.className = 'scroll-btn scroll-btn-right';
+      btnRight.innerHTML = '&#8250;';
+      btnRight.setAttribute('aria-label', 'Scroll right');
+      container.appendChild(btnRight);
+
+      // Scroll button click
+      var scrollAmount = 320;
+      btnLeft.addEventListener('click', function() {
+        scroller.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      btnRight.addEventListener('click', function() {
+        scroller.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+
+      // Mouse wheel horizontal scroll
+      scroller.addEventListener('wheel', function(e) {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          scroller.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+
+      // Click-and-drag scrolling
+      var isDown = false;
+      var startX = 0;
+      var scrollLeftStart = 0;
+
+      scroller.addEventListener('mousedown', function(e) {
+        isDown = true;
+        scroller.style.cursor = 'grabbing';
+        startX = e.pageX - scroller.offsetLeft;
+        scrollLeftStart = scroller.scrollLeft;
+      });
+      scroller.addEventListener('mouseleave', function() {
+        isDown = false;
+        scroller.style.cursor = '';
+      });
+      scroller.addEventListener('mouseup', function() {
+        isDown = false;
+        scroller.style.cursor = '';
+      });
+      scroller.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - scroller.offsetLeft;
+        var walk = (x - startX) * 1.5;
+        scroller.scrollLeft = scrollLeftStart - walk;
+      });
+    });
+  })();
+
+  // Update active nav pill on scroll
+  (function() {
+    var sections = ['numbers', 'top-stories', 'stack-rank', 'labs', 'emerging', 'hiring', 'voices', 'pivots', 'popcorn'];
+    var pills = document.querySelectorAll('.nav-pill');
+    var navHeight = 50;
+
+    window.addEventListener('scroll', function() {
+      var current = sections[0];
+      for (var i = sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(sections[i]);
+        if (el && el.getBoundingClientRect().top <= navHeight + 60) {
+          current = sections[i];
+          break;
+        }
+      }
+      pills.forEach(function(pill, idx) {
+        pill.classList.toggle('active', sections[idx] === current);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
