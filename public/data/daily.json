@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T17:22:47.583Z",
+  "generatedAt": "2026-02-19T20:37:58.388Z",
   "date": "Thursday, February 19, 2026",
   "storyCount": 18,
   "hnCount": 8,
@@ -9,33 +9,53 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "Gemini 3.1 Pro",
-      "summary": "237 points · 114 comments on HN",
-      "url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47075318",
-      "score": 237,
-      "type": "hn"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Feb 16",
-      "headline": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
-      "summary": "140 points · 53 comments on HN",
-      "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
-      "hnUrl": "https://news.ycombinator.com/item?id=47038032",
-      "score": 140,
+      "headline": "IRS lost 40% of IT staff, 80% of tech leaders in 'efficiency' shakeup",
+      "summary": "127 points · 66 comments on HN",
+      "url": "https://www.theregister.com/2026/02/19/irs_job_cuts/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47077849",
+      "score": 127,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "Gemini 3.1 Pro Preview",
-      "summary": "101 points · 51 comments on HN",
-      "url": "https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemini-3.1-pro-preview?pli=1",
-      "hnUrl": "https://news.ycombinator.com/item?id=47074735",
-      "score": 101,
+      "headline": "Gemini 3.1 Pro",
+      "summary": "570 points · 385 comments on HN",
+      "url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47075318",
+      "score": 570,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 19",
+      "headline": "South Korean ex president Yoon Suk Yeol jailed for life for leading insurrection",
+      "summary": "214 points · 106 comments on HN",
+      "url": "https://www.theguardian.com/world/2026/feb/19/yoon-suk-yeol-sentenced-to-life-in-prison-for-leading-insurrection-in-south-korea",
+      "hnUrl": "https://news.ycombinator.com/item?id=47077163",
+      "score": 214,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 19",
+      "headline": "Advancing independent research on AI alignment",
+      "summary": "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.",
+      "url": "https://openai.com/index/advancing-independent-research-ai-alignment",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 16",
+      "headline": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
+      "summary": "160 points · 66 comments on HN",
+      "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
+      "hnUrl": "https://news.ycombinator.com/item?id=47038032",
+      "score": 160,
       "type": "hn"
     },
     {
@@ -51,11 +71,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "Coding Tricks Used in the C64 Game Seawolves",
-      "summary": "63 points · 4 comments on HN",
-      "url": "https://kodiak64.co.uk/blog/seawolves-technical-tricks",
-      "hnUrl": "https://news.ycombinator.com/item?id=47073044",
-      "score": 63,
+      "headline": "Measuring AI agent autonomy in practice",
+      "summary": "52 points · 18 comments on HN",
+      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "hnUrl": "https://news.ycombinator.com/item?id=47073947",
+      "score": 52,
       "type": "hn"
     },
     {
@@ -70,12 +90,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 15",
-      "headline": "Large Language Models for Mortals: A Practical Guide for Analysts with Python",
-      "summary": "37 points · 8 comments on HN",
-      "url": "https://crimede-coder.com/blogposts/2026/LLMsForMortals",
-      "hnUrl": "https://news.ycombinator.com/item?id=47023391",
-      "score": 37,
+      "time": "Feb 19",
+      "headline": "Gemini 3.1 Pro Preview",
+      "summary": "182 points · 89 comments on HN",
+      "url": "https://console.cloud.google.com/vertex-ai/publishers/google/model-garden/gemini-3.1-pro-preview?pli=1",
+      "hnUrl": "https://news.ycombinator.com/item?id=47074735",
+      "score": 182,
       "type": "hn"
     },
     {
@@ -91,31 +111,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "Measuring AI agent autonomy in practice",
-      "summary": "21 points · 6 comments on HN",
-      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
-      "hnUrl": "https://news.ycombinator.com/item?id=47073947",
-      "score": 21,
-      "type": "hn"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Feb 13",
-      "headline": "Scaling social science research",
-      "summary": "GABRIEL is a new open-source toolkit from OpenAI that uses GPT to turn qualitative text and images into quantitative data, helping social scientists analyze research at scale.",
-      "url": "https://openai.com/index/scaling-social-science-research",
-      "type": "rss"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Feb 19",
-      "headline": "Against Theory-Motivated Experimentation",
-      "summary": "17 points · 11 comments on HN",
-      "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
-      "hnUrl": "https://news.ycombinator.com/item?id=47074083",
-      "score": 17,
+      "headline": "Coding Tricks Used in the C64 Game Seawolves",
+      "summary": "93 points · 8 comments on HN",
+      "url": "https://kodiak64.co.uk/blog/seawolves-technical-tricks",
+      "hnUrl": "https://news.ycombinator.com/item?id=47073044",
+      "score": 93,
       "type": "hn"
     },
     {
@@ -130,13 +130,49 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 18",
-      "headline": "Step 3.5 Flash – Open-source foundation model, supports deep reasoning at speed",
-      "summary": "172 points · 76 comments on HN",
-      "url": "https://static.stepfun.com/blog/step-3.5-flash/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47069179",
-      "score": 172,
+      "time": "Feb 19",
+      "headline": "Against Theory-Motivated Experimentation",
+      "summary": "27 points · 22 comments on HN",
+      "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
+      "hnUrl": "https://news.ycombinator.com/item?id=47074083",
+      "score": 27,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 19",
+      "headline": "YouTube’s latest experiment brings its conversational AI tool to TVs",
+      "summary": "YouTube is testing conversational AI on smart TVs, allowing viewers to ask the assistant questions related to the video they're watching on the big screen.",
+      "url": "https://techcrunch.com/2026/02/19/youtubes-latest-experiment-brings-its-conversational-ai-tool-to-tvs/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 19",
+      "headline": "Toyota hires seven Agility humanoid robots for Canadian factory",
+      "summary": "The robots will be unloading totes full of auto parts from an automated warehouse tugger.",
+      "url": "https://techcrunch.com/2026/02/19/toyota-hires-seven-agility-humanoid-robots-for-canadian-factory/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 19",
+      "headline": "The boys&#8217; club no one was supposed to write about",
+      "summary": "Reporter Zoë Bernard spent months talking to 51 people (31 of them gay men) to map out a subculture that's been an open secret in Silicon Valley for years: gay men, at the upper echelons of tech, quie",
+      "url": "https://techcrunch.com/2026/02/19/the-boys-club-no-one-was-supposed-to-write-about/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 19",
+      "headline": "Reddit is testing a new AI search feature for shopping",
+      "summary": "A small group of users in the U.S. will start to see search results that include interactive product carousels with pricing, images, and direct where-to-buy links.",
+      "url": "https://techcrunch.com/2026/02/19/reddit-is-testing-a-new-ai-search-feature-for-shopping/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -145,42 +181,6 @@
       "headline": "New York hits the brakes on robotaxi expansion plan",
       "summary": "The governor of New York pulled a robotaxi expansion proposal that was viewed as a win for Waymo.",
       "url": "https://techcrunch.com/2026/02/19/new-york-hits-the-brakes-on-robotaxi-expansion-plan/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 19",
-      "headline": "OpenAI reportedly finalizing $100B deal at more than $850B valuation",
-      "summary": "OpenAI is reportedly getting close to closing a $100 billion deal, with backers including Amazon, Nvidia, SoftBank, and Microsoft. The deal would value the ChatGPT-maker at $850 billion.",
-      "url": "https://techcrunch.com/2026/02/19/openai-reportedly-finalizing-100b-deal-at-more-than-850b-valuation/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 19",
-      "headline": "Current is a new RSS reader that&#8217;s more like a river than an inbox",
-      "summary": "Current introduces a stress-free, totally reimagined RSS news reading app as a one-time paid download.",
-      "url": "https://techcrunch.com/2026/02/19/current-is-a-new-rss-reader-thats-more-like-a-river-than-an-inbox/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 19",
-      "headline": "Sex toys maker Tenga says hacker stole customer information",
-      "summary": "The Japanese sex toy maker said a hacker broke into an employee's inbox and stole customer names, email addresses, and correspondence, including order details and customer service inquiries.",
-      "url": "https://techcrunch.com/2026/02/19/sex-toys-maker-tenga-says-hacker-stole-customer-information/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 19",
-      "headline": "Reload wants to give your AI agents a shared memory",
-      "summary": "Reload announces a $2.275 million raise in a round led by Anthemis and the launch of its first AI employee, Epic.",
-      "url": "https://techcrunch.com/2026/02/19/reload-an-ai-employee-agent-management-platform-raises-2-275m-and-launches-an-ai-employee/",
       "type": "rss"
     }
   ]
