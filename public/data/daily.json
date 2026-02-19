@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-19T17:21:59.339Z",
+  "generatedAt": "2026-02-19T17:22:47.583Z",
   "date": "Thursday, February 19, 2026",
   "storyCount": 18,
   "hnCount": 8,
@@ -10,10 +10,10 @@
       "sourceColor": "#ff6600",
       "time": "Feb 19",
       "headline": "Gemini 3.1 Pro",
-      "summary": "235 points · 114 comments on HN",
+      "summary": "237 points · 114 comments on HN",
       "url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
       "hnUrl": "https://news.ycombinator.com/item?id=47075318",
-      "score": 235,
+      "score": 237,
       "type": "hn"
     },
     {
@@ -91,11 +91,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "AI made coding more enjoyable",
-      "summary": "53 points · 50 comments on HN",
-      "url": "https://weberdominik.com/blog/ai-coding-enjoyable/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47075400",
-      "score": 53,
+      "headline": "Measuring AI agent autonomy in practice",
+      "summary": "21 points · 6 comments on HN",
+      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "hnUrl": "https://news.ycombinator.com/item?id=47073947",
+      "score": 21,
       "type": "hn"
     },
     {
@@ -111,11 +111,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Feb 19",
-      "headline": "Measuring AI agent autonomy in practice",
-      "summary": "21 points · 6 comments on HN",
-      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
-      "hnUrl": "https://news.ycombinator.com/item?id=47073947",
-      "score": 21,
+      "headline": "Against Theory-Motivated Experimentation",
+      "summary": "17 points · 11 comments on HN",
+      "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
+      "hnUrl": "https://news.ycombinator.com/item?id=47074083",
+      "score": 17,
       "type": "hn"
     },
     {
@@ -130,12 +130,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 19",
-      "headline": "Against Theory-Motivated Experimentation",
-      "summary": "17 points · 11 comments on HN",
-      "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
-      "hnUrl": "https://news.ycombinator.com/item?id=47074083",
-      "score": 17,
+      "time": "Feb 18",
+      "headline": "Step 3.5 Flash – Open-source foundation model, supports deep reasoning at speed",
+      "summary": "172 points · 76 comments on HN",
+      "url": "https://static.stepfun.com/blog/step-3.5-flash/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47069179",
+      "score": 172,
       "type": "hn"
     },
     {
