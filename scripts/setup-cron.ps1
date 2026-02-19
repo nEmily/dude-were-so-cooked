@@ -40,7 +40,7 @@ $ActionScript = @"
 cd /d "$ProjectDir" && `
 node "$CurateScript" && `
 git add public/data/daily.json && `
-git diff --cached --quiet || git commit -m "chore: daily data refresh" && `
+(git diff --cached --quiet || git commit -m "chore: daily data refresh") && `
 git push origin main && `
 node "$NotifyScript"
 "@
