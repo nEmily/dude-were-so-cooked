@@ -1,30 +1,81 @@
 {
-  "generatedAt": "2026-02-22T23:30:00.983Z",
-  "date": "Sunday, February 22, 2026",
-  "storyCount": 12,
-  "hnCount": 2,
+  "generatedAt": "2026-02-24T05:15:46.350Z",
+  "date": "Monday, February 23, 2026",
+  "storyCount": 18,
+  "hnCount": 8,
   "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 22",
-      "headline": "NanoClaw Moved from Apple Containers to Docker",
-      "summary": "86 points · 62 comments on HN",
-      "url": "https://twitter.com/Gavriel_Cohen/status/2025603982769410356",
-      "hnUrl": "https://news.ycombinator.com/item?id=47113731",
-      "score": 86,
+      "time": "Feb 23",
+      "headline": "Show HN: Steerling-8B, a language model that can explain any token it generates",
+      "summary": "63 points · 8 comments on HN",
+      "url": "https://www.guidelabs.ai/post/steerling-8b-base-model-release/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47131225",
+      "score": 63,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "Making Wolfram Tech Available as a Foundation Tool for LLM Systems",
+      "summary": "108 points · 54 comments on HN",
+      "url": "https://writings.stephenwolfram.com/2026/02/making-wolfram-tech-available-as-a-foundation-tool-for-llm-systems/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47129727",
+      "score": 108,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "“Car Wash” test with 53 models",
+      "summary": "138 points · 147 comments on HN",
+      "url": "https://opper.ai/blog/car-wash-test",
+      "hnUrl": "https://news.ycombinator.com/item?id=47128138",
+      "score": 138,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 23",
+      "headline": "Why we no longer evaluate SWE-bench Verified",
+      "summary": "SWE-bench Verified is increasingly contaminated and mismeasures frontier coding progress. Our analysis shows flawed tests and training leakage. We recommend SWE-bench Pro.",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "FreeBSD doesn't have Wi-Fi driver for my old MacBook, so AI built one for me",
+      "summary": "309 points · 260 comments on HN",
+      "url": "https://vladimir.varank.in/notes/2026/02/freebsd-brcmfmac/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47129361",
+      "score": 309,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
       "time": "Feb 22",
-      "headline": "We hid backdoors in ~40MB binaries and asked AI + Ghidra to find them",
-      "summary": "200 points · 89 comments on HN",
-      "url": "https://quesma.com/blog/introducing-binaryaudit/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47111440",
-      "score": 200,
+      "headline": "OpenAI announces Frontier Alliance Partners",
+      "summary": "OpenAI announces Frontier Alliance Partners to help enterprises move from AI pilots to production with secure, scalable agent deployments.",
+      "url": "https://openai.com/index/frontier-alliance-partners",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "Ladybird adopts Rust, with help from AI",
+      "summary": "1124 points · 611 comments on HN",
+      "url": "https://ladybird.org/posts/adopting-rust/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47120899",
+      "score": 1124,
       "type": "hn"
     },
     {
@@ -37,6 +88,17 @@
       "type": "rss"
     },
     {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "Iowa farmers are leading the fight for repair",
+      "summary": "58 points · 10 comments on HN",
+      "url": "https://www.ifixit.com/News/115722/iowa-farmers-are-leading-the-fight-for-repair",
+      "hnUrl": "https://news.ycombinator.com/item?id=47131506",
+      "score": 58,
+      "type": "hn"
+    },
+    {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Feb 19",
@@ -44,6 +106,17 @@
       "summary": "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.",
       "url": "https://openai.com/index/advancing-independent-research-ai-alignment",
       "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "Show HN: Sowbot – Open-hardware agricultural robot (ROS2, RTK GPS)",
+      "summary": "140 points · 40 comments on HN",
+      "url": "https://sowbot.co.uk/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47123894",
+      "score": 140,
+      "type": "hn"
     },
     {
       "source": "OpenAI News",
@@ -55,66 +128,59 @@
       "type": "rss"
     },
     {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Feb 13",
-      "headline": "GPT-5.2 derives a new result in theoretical physics",
-      "summary": "A new preprint shows GPT-5.2 proposing a new formula for a gluon amplitude, later formally proved and verified by OpenAI and academic collaborators.",
-      "url": "https://openai.com/index/new-result-theoretical-physics",
-      "type": "rss"
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 23",
+      "headline": "SIM (YC X25) Is Hiring the Best Engineers in San Francisco",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://www.ycombinator.com/companies/sim/jobs/Rj8TVRM-software-engineer-platform",
+      "hnUrl": "https://news.ycombinator.com/item?id=47128740",
+      "score": 1,
+      "type": "hn"
     },
     {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Feb 13",
-      "headline": "Introducing Lockdown Mode and Elevated Risk labels in ChatGPT",
-      "summary": "Introducing Lockdown Mode and Elevated Risk labels in ChatGPT to help organizations defend against prompt injection and AI-driven data exfiltration.",
-      "url": "https://openai.com/index/introducing-lockdown-mode-and-elevated-risk-labels-in-chatgpt",
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 23",
+      "headline": "A Meta AI security researcher said an OpenClaw agent ran amok on her inbox",
+      "summary": "The viral X post from an AI security researcher reads like satire. But it's really a word of warning about what can go wrong when handing tasks to an AI agent.",
+      "url": "https://techcrunch.com/2026/02/23/a-meta-ai-security-researcher-said-an-openclaw-agent-ran-amok-on-her-inbox/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Feb 22",
-      "headline": "Can the creator economy stay afloat in a flood of AI slop?",
-      "summary": "On the latest episode of Equity, we debated what’s next for the creator economy, and whether there will be any room for the next generation of creators to stand out.",
-      "url": "https://techcrunch.com/2026/02/22/can-the-creator-economy-stay-afloat-in-a-flood-of-ai-slop/",
+      "time": "Feb 23",
+      "headline": "Tesla&#8217;s battle with the California Department of Motor Vehicles isn&#8217;t over after all",
+      "summary": "Tesla has filed a lawsuit against the California DMV in the ongoing battle around Autopilot.",
+      "url": "https://techcrunch.com/2026/02/23/teslas-battle-with-the-california-department-of-motor-vehicles-isnt-over-after-all/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Feb 22",
-      "headline": "China&#8217;s brain-computer interface industry is racing ahead",
-      "summary": "China’s brain-computer interface industry is rapidly scaling from research to commercialization, driven by strong policy support, expanding clinical trials, and growing investor interest.",
-      "url": "https://techcrunch.com/2026/02/22/chinas-brain-computer-interface-industry-is-racing-ahead/",
+      "time": "Feb 23",
+      "headline": "With AI, investor loyalty is (almost) dead: At least a dozen OpenAI VCs now also back Anthropic",
+      "summary": "While some dual investors are understandable, others were more shocking, and signal the disregard of a longstanding ethical conflict-of-interest rule.",
+      "url": "https://techcrunch.com/2026/02/23/with-ai-investor-loyalty-is-almost-dead-at-least-a-dozen-openai-vcs-now-also-back-anthropic/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Feb 22",
-      "headline": "Move over, Apple: Meet the alternative app stores available in the EU and elsewhere",
-      "summary": "A list of some of the alternative app stores iPhone users in the EU can try today.",
-      "url": "https://techcrunch.com/2026/02/22/move-over-apple-meet-the-alternative-app-stores-available-in-the-eu-and-elsewhere/",
+      "time": "Feb 23",
+      "headline": "Ex-Apple team launches Acme Weather, a new take on weather forecasting",
+      "summary": "The team that sold their last app Dark Sky to Apple are back with Acme Weather, which offers alternative forecasts, rainbow and sunset alerts, and more.",
+      "url": "https://techcrunch.com/2026/02/23/ex-apple-team-launches-acme-weather-a-new-take-on-weather-forecasting/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Feb 21",
-      "headline": "Sam Altman would like to remind you that humans use a lot of energy, too",
-      "summary": "\"It also takes a lot of energy to train a human.\"",
-      "url": "https://techcrunch.com/2026/02/21/sam-altman-would-like-remind-you-that-humans-use-a-lot-of-energy-too/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 21",
-      "headline": "Wikipedia blacklists Archive.today after alleged DDoS attack",
-      "summary": "Wikipedia editors have decided to remove all links to Archive.today, a web archiving service that they said has been linked to more than 695,000 times across the online encyclopedia.",
-      "url": "https://techcrunch.com/2026/02/21/wikipedia-blacklists-archive-today-after-alleged-ddos-attack/",
+      "time": "Feb 23",
+      "headline": "Anthropic accuses Chinese AI labs of mining Claude as US debates AI chip exports",
+      "summary": "Anthropic accuses DeepSeek, Moonshot, and MiniMax of using 24,000 fake accounts to distill Claude’s AI capabilities, as U.S. officials debate export controls aimed at slowing China’s AI progress.",
+      "url": "https://techcrunch.com/2026/02/23/anthropic-accuses-chinese-ai-labs-of-mining-claude-as-us-debates-ai-chip-exports/",
       "type": "rss"
     }
   ]
