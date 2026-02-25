@@ -1,83 +1,93 @@
-# AI Digest — Tuesday, February 24, 2026
+# AI Digest — Wednesday, February 25, 2026
 
 ## What's Happening Right Now
 
-The AI coding agent space just crossed a threshold: it's stopped being an experiment and started being **infrastructure**. Cloudflare rebuilt Next.js in a week for $1,100 in tokens, Uber engineers are building AI versions of their executives to rehearse pitches, and a whole new ecosystem of open-source agent harnesses (Pi, Emdash) is fighting for share against Claude Code. Meanwhile, the benchmarks that proved agents were "working" (SWE-bench Verified) just got exposed as contaminated—which paradoxically *validates* the skeptics who said performance was overstated, while also clearing the way for honest evaluation of what's actually shipping.
+The AI agent narrative is bifurcating. On one side, agents are rapidly infiltrating production workflows—Jira now lets you assign work to AI the same way you do humans, Frontier Alliance Partners is explicitly helping enterprises scale agent deployments, and Claude Code Remote Control landed on HN with 207 points, signaling mainstream interest in agent orchestration. On the other, foundational cracks are showing: SWE-bench (the main coding benchmark) is contaminated with training data leakage and flawed test cases, the `.online` TLD registrar is mass-suspending domains on algorithmic Safe Browsing flags with no real appeal process, and the geopolitical order is fragmenting—the US State Department just ordered diplomats to actively oppose data sovereignty laws, which commenters see as accelerating "Balkanization of the Internet." The week's subtext: agents work, but the infrastructure and governance aren't ready yet.
 
-The tension beneath today's news is about **velocity versus craft**. When AI can rebuild a foundational framework like Next.js faster than the original maintainers can release features, it raises an awkward question for the developer ecosystem: what's code for anymore? Is it a thing you craft, or a thing you generate? OpenAI's new Frontier Alliance Partners program and the enterprise push for "secure, scalable agent deployments" suggest the industry has picked an answer: agents are moving from labs to production, and the friction points are no longer "can it write code?" but "can we trust it at scale?"
-
-The open-source rebellion is visible too—three separate HN launches this week (Moonshine for speech-to-text, Pi for agent harnesses, Emdash for agent development) all explicitly positioning as alternatives to closed proprietary systems.
+Vertical agent platforms are exploding—TeamOut for event planning, Harper (YC W25) for insurance brokerage raising $47M, Pi's coding harness hitting 492 HN points with commenters calling it their daily driver. Meanwhile, OpenAI is quietly repositioning: they're abandoning SWE-bench as a progress metric (calling it mismeasured), pivoting to SWE-bench Pro, and launching Frontier Alliance with enterprise focus. Claude Code Remote Control, though buggy (commenters report it keeps spinning after you press stop), signals that remote AI control is becoming table stakes.
 
 ## Key Stories
 
-### Cloudflare rebuilt Next.js with AI in one week
-- **Source**: [Cloudflare Blog](https://blog.cloudflare.com/vinext/)
-- **Why it matters**: $1,100 in tokens to rewrite a production framework in 7 days raises the question of whether maintaining complex codebases justifies the engineering overhead anymore. This is the real-world performance threshold where "AI can help" becomes "AI makes rewriting cheaper than maintaining."
-- **HN sentiment**: Mix of fascination and anxiety. Commenters noted Next.js is "at least two orders of magnitude" more complex than most projects, yet this still happened. Some worry about what this means for code quality long-term; others see it as validation that "code has become a tool to accomplish a task, not the goal itself." One sharp take: "The better you document your work, the stronger contracts you define, the easier it is for someone to clone your work"—hinting at open-source commodification.
-- **Keywords**: AI rewrite, next.js, vite, code as commodity, faster to rebuild than maintain, $1100 tokens
+### Claude Code Remote Control
+- **Source**: [Hacker News](https://news.ycombinator.com/item?id=47155267) (207 points)
+- **Why it matters**: Remote control of coding agents moves from nice-to-have to expected—this legitimizes the "agent orchestration from anywhere" use case and sets a UX baseline the ecosystem will have to match.
+- **HN sentiment**: Mixed skepticism. Commenters flag that it's "extremely clunky and buggy" (can't interrupt, UI disconnects, keeps spinning), but also recognize it's killing the market opportunity for third-party "Code on Your Phone" startups. One commenter plugged happy.engineering as a less buggy alternative. The consensus: great ambition, prerelease execution.
+- **Keywords**: agent control, remote AI, coding workflow, UX fragility
 
-### Show HN: Pi – a minimal terminal coding harness
-- **Source**: [HN](https://pi.dev)
-- **Why it matters**: Direct competitor to Claude Code that made "all the right design choices" per HN. The fact that it ships with "powerful defaults but skips features like sub-agents and plan mode" is philosophically interesting—it's arguing that depth is less important than speed and extensibility. Users report it's faster than ACP (Anthropic's Cloud Platform implicit reference?).
-- **HN sentiment**: Genuine enthusiasm. Commenters appreciate the "extension/hook architecture" that lets complex workflows (like planning) be modeled as plugins rather than native features. Someone using it for weeks says it works "to great effect." The tradeoff debate is civil—questioning whether you'd *want* sub-agents vs. discussion-based planning, but the answer isn't obvious.
-- **Keywords**: terminal harness, agent interface, extensible, lightweight, faster than competitors, minimal philosophy
+### Pi – A minimal terminal coding harness
+- **Source**: [Hacker News](https://news.ycombinator.com/item?id=47154801) (492 points)
+- **Why it matters**: Pi's RPC-driven extensibility and "no vendor lock-in" positioning is resonating hard—commenters say "no going back" after trying it, and the ecosystem is building integrations (Emacs packages, vibes support). This is the shape of the post-monolithic-harness future.
+- **HN sentiment**: Enthusiastic adoption culture. Commenters are shipping extensions and integrations, describing it as the moment they "made it their daily driver." One noted how open-source is shifting: "It's becoming passé to ask for feature requests and PRs—instead you download a skill file that tells the agent how to extend." This is aspirational for the community.
+- **Keywords**: coding harness, extensibility, agent ecosystem, RPC, skill files
 
-### Show HN: Emdash – Open-source agentic development environment
-- **Source**: [GitHub](https://github.com/generalaction/emdash)
-- **Why it matters**: Infrastructure for managing multiple agents (Claude Code users, Pi users, etc.). The worktree pre-warming pattern (keeping a pool of ready git worktrees for instant task assignment) is a clever engineering insight borrowed from database connection pooling. This is the layer that makes multi-agent coordination practical.
-- **HN sentiment**: Cautiously optimistic with engineering respect. Users report "finally got a productive worktree setup working" after rough edges, and the team is "shipping fast" and "vaporizing concerns on the fly." The deep technical observations (worktree pre-warming as connection pool pattern) suggest serious infrastructure thinkers using it. One note: the .deb package is broken with NODE_MODULE_VERSION issues, so adoption friction exists.
-- **Keywords**: agent orchestration, worktree management, development environment, multi-agent, infrastructure
-
-### Show HN: Moonshine Open-Weights STT models
-- **Source**: [GitHub](https://github.com/moonshine-ai/moonshine)
-- **Why it matters**: Open-weights speech-to-text that outperforms Whisper Large v3. For builders like Emily (who uses SuperWhisper locally), this is an alternative that runs on-device with better accuracy. Enables voice-driven agent interfaces without API dependencies.
-- **HN sentiment**: Impressed by the technical achievement, frustrated by installation UX (the "sudo pip install --break-system-packages" recommendation gets called out). Comparisons to Microsoft VibeVoice ASR. One user immediately planning to integrate it into a personal voice assistant project. Dealbreaker for some: "No LICENSE no go."
-- **Keywords**: open-weights, speech-to-text, whisper alternative, local inference, voice interface
-
-### OpenAI: Why we no longer evaluate SWE-bench Verified
+### Why OpenAI no longer evaluates SWE-bench Verified
 - **Source**: [OpenAI Blog](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified)
-- **Why it matters**: The benchmark that "proved" AI agents could solve software engineering tasks is dead. Contamination (training leakage, flawed tests) means it mismeasures progress. OpenAI recommends SWE-bench Pro instead. This is a **recalibration moment**—the field overfit to a metric, and now we restart on cleaner terrain.
-- **HN sentiment**: Not represented in today's digest, but the narrative is clear: this validates skeptics who questioned performance claims, while also forcing honest re-evaluation. It's uncomfortable but necessary.
-- **Keywords**: SWE-bench, contamination, benchmark decay, swe-bench pro, honest evaluation
+- **Why it matters**: SWE-bench was the benchmark everyone cited to show progress on code generation. OpenAI's admission that it's contaminated with training data and has flawed tests deflates a major progress narrative and signals the shift to SWE-bench Pro as the new standard. If the pro version sticks, everyone has to re-baseline.
+- **HN sentiment**: Not yet heavily discussed on HN proper, but this is the kind of methodological shift that reverberates—benchmarks that become unreliable tank confidence in a field's progress claims.
+- **Keywords**: benchmark integrity, SWE-bench, coding metrics, training contamination
 
-### Uber engineers built an AI version of their boss
-- **Source**: [TechCrunch](https://techcrunch.com/2026/02/24/uber-engineers-built-ai-version-of-boss-dara-khosrowshahi/)
-- **Why it matters**: Signals enterprise-grade AI agent adoption *inside* tech companies. If Uber engineers are shipping this, it means AI chatbots are crossing from "experimental" to "business process tool"—even for high-stakes activities like pitch rehearsal. It's the moment when AI agents become infrastructure that people actually depend on.
-- **HN sentiment**: Not heavily commented in today's feed, but the story itself is telling—this is now normalized enough that Uber's CEO cites it publicly.
-- **Keywords**: enterprise AI, agent adoption, internal tools, AI chatbot, business process
+### Jira's agents-in-Jira update
+- **Source**: [TechCrunch](https://techcrunch.com/2026/02/25/jiras-latest-update-allows-ai-agents-and-humans-to-work-side-by-side/)
+- **Why it matters**: Work assignment UI treating AI agents as first-class workers legitimizes agentic labor at the enterprise layer. Atlassian isn't offering a chatbot plugin—they're offering a work queue that accepts both human and AI workers. This is the shape of "agent as contractor" in enterprise software.
+- **HN sentiment**: Minimal HN discussion so far, but this is the quiet revolution—no flashy capabilities, just workflow integration.
+- **Keywords**: agents as workers, enterprise agents, work assignment, Atlassian
 
 ### OpenAI Frontier Alliance Partners
 - **Source**: [OpenAI Blog](https://openai.com/index/frontier-alliance-partners)
-- **Why it matters**: Enterprise framework for "secure, scalable agent deployments." This is OpenAI's bet on how AI agents move from labs to production—through partnerships with enterprises. The implicit signal: agents are ready for production, and the next phase is operational maturity.
-- **Keywords**: enterprise adoption, secure deployment, scalability, frontier models
+- **Why it matters**: Explicit enterprise agent deployment program. OpenAI is racing to own the "agent deployment platform" narrative before someone else becomes the standard. This is production-focused, not research-focused—the business model is now about operational scale.
+- **HN sentiment**: Minimal discussion; this is a business announcement, not a technical one.
+- **Keywords**: enterprise agents, deployment, Frontier Alliance, production AI
 
-### Advancing independent research on AI alignment
-- **Source**: [OpenAI Blog](https://openai.com/index/advancing-independent-research-ai-alignment)
-- **Why it matters**: $7.5M to The Alignment Project signals that as agents get more capable, alignment gets taken seriously at the funding level. Context: agents that can run code autonomously create novel safety considerations (side effects, resource exhaustion, etc.) that didn't exist when AI was text-only.
-- **Keywords**: alignment, safety, AGI, independent research, $7.5M
+### US orders diplomats to fight data sovereignty initiatives
+- **Source**: [Reuters](https://www.reuters.com/sustainability/boards-policy-regulation/us-orders-diplomats-fight-data-sovereignty-initiatives-2026-02-25/) / [TechCrunch](https://techcrunch.com/2026/02/25/us-tells-diplomats-to-lobby-against-foreign-data-sovereignty-laws/) (52 HN points)
+- **Why it matters**: The geopolitical order is explicitly fragmenting. The US wants unrestricted data flows to US tech companies; other countries want sovereignty. This isn't a trade negotiation—it's a direct conflict over who controls AI training data, inference infrastructure, and user information.
+- **HN sentiment**: Skeptical and slightly alarmed. Commenters noted: "This just accelerates the Balkanization of the Internet," "I'm hoping tech companies in Europe and Asia become independent," and "How can you be so confrontational and still want people to give you business and data?" The sentiment is that this is unsustainable and will likely backfire.
+- **Keywords**: data sovereignty, geopolitics, internet fragmentation, US tech policy, China, Europe
 
----
+### Never Buy A .online Domain
+- **Source**: [0xsid.com](https://www.0xsid.com/blog/online-tld-is-pain) (285 HN points)
+- **Why it matters**: The `.online` TLD registrar (Radix) is suspending domains based on Google Safe Browsing flags with no meaningful appeal process. This reveals a single point of failure: if a large company's blacklist is treated as ground truth by a registrar, entire TLDs become unviable. Infrastructure fragility with real consequences.
+- **HN sentiment**: Horror at the precedent. Commenters flagged: "This basically makes the entire TLD unviable for serious use," "relying on Google Safe Browsing as a trigger for suspension is horrifying," and speculation that Radix may have created a negative feedback loop where Google's heuristics misinterpret rapid DNS disappearances as scammy behavior. One commenter noted Radix also owns `.store`, `.tech`, `.site`, `.fun`, `.pw`, `.host`, `.press`, `.space`, `.website`—so the problem may be broader.
+- **Keywords**: domain registrar, Safe Browsing, TLD risk, infrastructure fragility, DNS
+
+### Harper AI Insurance raises $47M
+- **Source**: [TechCrunch](https://techcrunch.com/2026/02/25/ai-insurance-brokerage-harper-raises-45m-series-a-and-seed/)
+- **Why it matters**: Vertical agent platforms are getting serious funding. Harper is AI-native insurance brokerage (not "insurance company with AI bolted on"), raised $47M combined Series A and seed. This validates the thesis that agents are most valuable when built into domain-specific workflows from day one.
+- **HN sentiment**: Minimal discussion; funding announcements don't drive engagement.
+- **Keywords**: vertical agents, AI insurance, domain-specific, Series A
+
+### LLMSkirmish – Real-time strategy game for AI agents
+- **Source**: [llmskirmish.com](https://llmskirmish.com/) (136 HN points)
+- **Why it matters**: Brings RTS game mechanics (partial observability, long-term planning, resource management, real-time adaptation) to agent benchmarking. This is a better testbed than static benchmarks like SWE-bench—it has emergent behavior and adversarial pressure. Reminds commenters of OpenAI Five.
+- **HN sentiment**: Excited but with UX complaints. Commenters noted the units are "just unnamed roombas with hard to read status indicators"—visualization matters for spectating. One quipped "A strange game. The only winning move is not to play." The underlying idea resonates; execution needs polish.
+- **Keywords**: agent benchmarks, RTS games, adversarial testing, emergent behavior
 
 ## Themes & Tensions
 
-**Open Source vs. Proprietary**: Three major open-source launches this week (Moonshine, Pi, Emdash) all position explicitly as alternatives to closed systems. The subtext: the AI agent market is consolidating around proprietary players (Claude Code, OpenAI), and the open-source community is fighting back with "good enough" tools that prioritize speed, transparency, and extensibility.
+**1. Production readiness vs. infrastructure maturity**
+Agents are moving into production (Jira, Frontier Alliance, enterprise deployments), but the underlying infrastructure is cracking: SWE-bench is contaminated, `.online` TLDs are getting nuked, Claude Code Remote Control is "extremely clunky and buggy." The consensus is that agents work; the tooling, governance, and standards aren't keeping pace.
 
-**Benchmarks Breaking Down**: SWE-bench Verified's collapse reveals the field benchmarked itself into a corner. We need honest, harder-to-game metrics. This creates a brief window of uncertainty—we *don't know* how good agents actually are at real work, we only know they're good at gaming their benchmarks.
+**2. Geopolitical fragmentation vs. global AI development**
+The US is actively lobbying to prevent data sovereignty laws, while Europe, Asia, and others are moving toward regulatory independence. This is hardening into an Internet split: US-controlled data flows vs. regional sovereignty. For developers building agents, this means compliance complexity and regional variants will become table stakes.
 
-**Code as Craft vs. Code as Commodity**: Cloudflare's Next.js rewrite (cheaper to rewrite than maintain) and Uber's internal AI agents (code generation as business process) both suggest code is becoming a commodity output rather than a scarce skill. This is playing out in real hiring and project decisions *right now*.
+**3. Vertical specialization vs. horizontal platforms**
+The week shows clear evidence of vertical dominance—Harper (insurance), TeamOut (events), Jira (work assignment)—each solving agent problems in a specific domain. But simultaneously, horizontal platforms like Pi and Claude Code Remote Control are being built as infrastructure. The winner will likely be a hybrid: horizontal orchestration layers with vertical integrations bolted on.
 
-**Enterprise Adoption Ramping Hard**: Frontier Alliance Partners, Emdash in production, Uber's AI boss, Cloudflare's rebuild—the inflection from "labs" to "shipping" happened quietly. Enterprises are making bets that AI agents are production-ready *now*, not "in 5 years."
-
----
+**4. Safety/alignment is de-emphasized, capability is highlighted**
+OpenAI's threat report (malicious uses) and Anthropic's regulatory pushback on safety both landed this week, but the loudest signals are about deployment velocity. Commenters noted on the safety question: "It's a branding update, nothing more." The capability race is winning the narrative.
 
 ## Context for Replies
 
-**If someone tweets about "AI coding agents finally working"**: They're probably reacting to Cloudflare or Uber stories. The key context: it's not that agents suddenly got better this week—it's that enterprises are now betting production dollars on them, which is a different milestone than capability. Counter-take: SWE-bench Verified just collapsed due to contamination, so we don't actually have clean benchmarks yet.
+**On Claude Code Remote Control**: If someone tweets excitement about remote coding, they're probably not aware it's buggy prerelease—context is that the feature exists but the UI disconnects, you can't interrupt it, and happy.engineering does it better today. Benchmark: 207 HN points suggests mainstream interest, but comments are skeptical about execution.
 
-**If someone defends "open-source AI beats Claude"**: They're likely referencing Pi, Emdash, or Moonshine. The honest take: these are solid alternatives for specific use cases (local inference, extensibility, cost), but they're not yet competing on the breadth of capabilities—more on philosophy (minimal, fast, local-first).
+**On Pi's dominance**: If someone tweets about coding harnesses or extensibility, Pi is clearly the momentum player—commenters are shipping integrations and calling it their daily driver. The differentiation is RPC-driven extensibility and skill files over traditional plugins. If defending a competitor, emphasize: Pi is self-extensible, which is why it's sticky.
 
-**If someone questions "can AI agents really be trusted for production?"**: OpenAI's $7.5M alignment bet and the security-focused language in Frontier Alliance Partners is the answer the industry is giving. The meta-message: yes, and we're betting money on it, but also funding alignment research in parallel because we're not *that* confident.
+**On data sovereignty geopolitics**: If someone tweets about "US tech dominance" or "decentralized internet," they're touching this diplomatic conflict. The key context: the Trump administration explicitly told diplomats to lobby *against* foreign data sovereignty laws, which is hardening the split. Europe and Asia are moving toward independence, not convergence. This is real fragmentation, not just rhetoric.
 
-**If someone says "benchmarks don't matter, just ship"**: SWE-bench Verified's failure is the cautionary tale. You can build on broken metrics for a while, but eventually product reality catches up. The field needs SWE-bench Pro or equivalent fast, or we'll have another reckoning.
+**On SWE-bench collapse**: If someone cites SWE-bench to claim progress on code generation, they're using an outdated metric—OpenAI publicly said it's contaminated and mismeasures progress. The field is migrating to SWE-bench Pro, but that resets the baseline. Implication: coding agent progress may be real, but we lost the benchmark that was tracking it.
 
-**If someone tweets about Next.js rewrite**: The real story isn't "AI wrote Next.js"—it's "rewriting from scratch is now cheaper than maintaining." That changes incentives for legacy frameworks and big codebases everywhere. It suggests we're entering an era where if your codebase is more than a few years old and unmaintained, AI rewrite is economically rational.
+**On agent-in-production**: If someone tweets about agents handling production work (Jira, TeamOut, Harper), the pattern is clear—agents are moving from chat to workflow assignment. This is the shift from "chat copilot" to "contractor." Jira's agents-in-Jira is the canonical example of how this integrates into existing enterprise systems.
+
+**On .online TLD**: If someone mentions domain risk or registrar issues, the context is Radix (the `.online` registrar) is suspending domains on Google Safe Browsing flags with no real appeal. This cascades: Radix owns ~12 other TLDs, so the problem is systemic. It's a cautionary tale about single points of failure in infrastructure.
+
+**On agent benchmarking**: If someone mentions RTS games or LLMSkirmish, they're likely contrasting with static benchmarks like SWE-bench. The pitch: RTS games have emergent behavior and adversarial pressure, which is more realistic than code completion tasks. This is a methodological shift in how we stress-test agents.
