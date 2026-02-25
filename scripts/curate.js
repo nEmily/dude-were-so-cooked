@@ -7,7 +7,7 @@
  *   - OpenAI blog RSS
  *   - Google DeepMind blog RSS
  *
- * Outputs: data/daily.json
+ * Outputs: public/data/daily.json + data/enriched.json (for synthesis)
  *
  * Usage:
  *   node scripts/curate.js
@@ -23,7 +23,12 @@ const path = require('path');
 // ── Config ────────────────────────────────────────────────────────────────────
 
 // Output goes inside public/data/ so GitHub Pages can serve it
-const OUTPUT_FILE = path.join(__dirname, '..', 'public', 'data', 'daily.json');
+// Date-keyed files for historical browsing: public/data/YYYY-MM-DD.json
+// Legacy daily.json is kept in sync for backwards compat
+const DATA_DIR = path.join(__dirname, '..', 'public', 'data');
+const OUTPUT_FILE = path.join(DATA_DIR, 'daily.json');
+const INDEX_FILE = path.join(DATA_DIR, 'index.json');
+const ENRICHED_FILE = path.join(__dirname, '..', 'data', 'enriched.json');
 
 const AI_KEYWORDS = [
   'ai', 'artificial intelligence', 'llm', 'gpt', 'claude', 'gemini',
@@ -37,6 +42,7 @@ const AI_KEYWORDS = [
 
 const MAX_HN_STORIES = 30;     // How many HN top stories to fetch details for
 const MAX_HN_RESULTS = 8;      // How many HN stories to include in output
+const MAX_HN_COMMENTS = 5;     // Top comments to fetch per story (for enriched output)
 const RSS_TIMEOUT_MS = 10000;  // RSS fetch timeout
 const HN_FETCH_TIMEOUT = 5000; // Per-story HN fetch timeout
 
@@ -142,6 +148,20 @@ function fmtDate(dateStr) {
 
 // ── Hacker News ───────────────────────────────────────────────────────────────
 
+async function fetchHNComments(story) {
+  if (!story.kids || story.kids.length === 0) return [];
+  const commentIds = story.kids.slice(0, MAX_HN_COMMENTS);
+  const commentPromises = commentIds.map(id =>
+    fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`, HN_FETCH_TIMEOUT)
+      .then(data => JSON.parse(data))
+      .catch(() => null)
+  );
+  const comments = (await Promise.all(commentPromises)).filter(Boolean);
+  return comments
+    .filter(c => c.text && !c.deleted && !c.dead)
+    .map(c => stripHtml(c.text).slice(0, 500));
+}
+
 async function fetchHNStories() {
   console.log('[HN] Fetching top stories list...');
   let topIds;
@@ -150,7 +170,7 @@ async function fetchHNStories() {
     topIds = JSON.parse(data).slice(0, MAX_HN_STORIES);
   } catch (e) {
     console.error('[HN] Failed to fetch top stories:', e.message);
-    return [];
+    return { dashboard: [], enriched: [] };
   }
 
   console.log(`[HN] Got ${topIds.length} story IDs, fetching details...`);
@@ -165,7 +185,13 @@ async function fetchHNStories() {
 
   console.log(`[HN] Found ${aiStories.length} AI-related stories out of ${stories.length} fetched`);
 
-  return aiStories.slice(0, MAX_HN_RESULTS).map(s => ({
+  const selected = aiStories.slice(0, MAX_HN_RESULTS);
+
+  // Fetch comments in parallel for enriched output
+  console.log(`[HN] Fetching top comments for ${selected.length} stories...`);
+  const commentsPerStory = await Promise.all(selected.map(s => fetchHNComments(s)));
+
+  const dashboard = selected.map(s => ({
     source: 'Hacker News',
     sourceColor: '#ff6600',
     time: fmtDate(new Date(s.time * 1000).toISOString()),
@@ -176,6 +202,19 @@ async function fetchHNStories() {
     score: s.score || 0,
     type: 'hn'
   }));
+
+  const enriched = selected.map((s, i) => ({
+    source: 'Hacker News',
+    headline: s.title,
+    url: s.url || `https://news.ycombinator.com/item?id=${s.id}`,
+    hnUrl: `https://news.ycombinator.com/item?id=${s.id}`,
+    score: s.score || 0,
+    commentCount: s.descendants || 0,
+    topComments: commentsPerStory[i],
+    type: 'hn'
+  }));
+
+  return { dashboard, enriched };
 }
 
 // ── RSS feeds ─────────────────────────────────────────────────────────────────
@@ -188,7 +227,9 @@ async function fetchRSSFeed(feed) {
     const aiItems = items.filter(i => isAIRelated(i.title + ' ' + i.description));
     console.log(`[RSS] ${feed.name}: ${aiItems.length}/${items.length} AI-related`);
 
-    return aiItems.slice(0, 5).map(i => ({
+    const selected = aiItems.slice(0, 5);
+
+    const dashboard = selected.map(i => ({
       source: feed.name,
       sourceColor: feed.sourceColor,
       time: fmtDate(i.pubDate),
@@ -197,9 +238,19 @@ async function fetchRSSFeed(feed) {
       url: i.link,
       type: 'rss'
     }));
+
+    const enriched = selected.map(i => ({
+      source: feed.name,
+      headline: i.title,
+      url: i.link,
+      fullDescription: stripHtml(i.description || ''),
+      type: 'rss'
+    }));
+
+    return { dashboard, enriched };
   } catch (e) {
     console.error(`[RSS] ${feed.name} failed:`, e.message);
-    return [];
+    return { dashboard: [], enriched: [] };
   }
 }
 
@@ -209,17 +260,18 @@ async function main() {
   console.log('=== dude-were-so-cooked curator ===');
   console.log('Started:', new Date().toISOString());
 
-  const [hnStories, ...rssResults] = await Promise.all([
+  const [hnResult, ...rssResults] = await Promise.all([
     fetchHNStories(),
     ...RSS_FEEDS.map(fetchRSSFeed)
   ]);
 
-  const rssStories = rssResults.flat();
+  const hnDashboard = hnResult.dashboard;
+  const rssDashboard = rssResults.flatMap(r => r.dashboard);
 
   // Interleave: alternate HN and RSS so the feed is varied
   const allStories = [];
-  const hnQueue = [...hnStories];
-  const rssQueue = [...rssStories];
+  const hnQueue = [...hnDashboard];
+  const rssQueue = [...rssDashboard];
 
   // Put top 3 HN first, then interleave
   for (let i = 0; i < 3 && hnQueue.length; i++) allStories.push(hnQueue.shift());
@@ -228,25 +280,63 @@ async function main() {
     if (hnQueue.length) allStories.push(hnQueue.shift());
   }
 
+  const now = new Date();
+  // Date key in local-ish format: use ISO date portion of UTC (cron runs during day, close enough)
+  const dateKey = now.toISOString().slice(0, 10); // e.g. "2026-02-24"
+
   const output = {
-    generatedAt: new Date().toISOString(),
-    date: new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+    generatedAt: now.toISOString(),
+    date: now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+    dateKey,
     storyCount: allStories.length,
-    hnCount: hnStories.length,
-    rssCount: rssStories.length,
+    hnCount: hnDashboard.length,
+    rssCount: rssDashboard.length,
     stories: allStories
   };
 
+  // Write legacy daily.json (backwards compat)
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2), 'utf8');
 
+  // Write date-keyed file: public/data/2026-02-24.json
+  const dateFile = path.join(DATA_DIR, dateKey + '.json');
+  fs.writeFileSync(dateFile, JSON.stringify(output, null, 2), 'utf8');
+  console.log(`Date file: ${dateFile}`);
+
+  // Update index.json: list of available date keys, newest first
+  let indexData = { dates: [] };
+  if (fs.existsSync(INDEX_FILE)) {
+    try { indexData = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8')); } catch {}
+  }
+  // Add today if not already present, dedupe, sort newest first
+  const dateSet = new Set(indexData.dates || []);
+  dateSet.add(dateKey);
+  indexData.dates = Array.from(dateSet).sort().reverse();
+  indexData.updatedAt = now.toISOString();
+  fs.writeFileSync(INDEX_FILE, JSON.stringify(indexData, null, 2), 'utf8');
+  console.log(`Index updated: ${indexData.dates.length} dates available`);
+
+  // Write enriched output for synthesis
+  const enrichedOutput = {
+    generatedAt: new Date().toISOString(),
+    stories: [
+      ...hnResult.enriched,
+      ...rssResults.flatMap(r => r.enriched)
+    ]
+  };
+
+  const enrichedDir = path.dirname(ENRICHED_FILE);
+  if (!fs.existsSync(enrichedDir)) fs.mkdirSync(enrichedDir, { recursive: true });
+  fs.writeFileSync(ENRICHED_FILE, JSON.stringify(enrichedOutput, null, 2), 'utf8');
+
   console.log('\n=== Done ===');
-  console.log(`Stories: ${allStories.length} (${hnStories.length} HN + ${rssStories.length} RSS)`);
+  console.log(`Stories: ${allStories.length} (${hnDashboard.length} HN + ${rssDashboard.length} RSS)`);
   console.log(`Output: ${OUTPUT_FILE}`);
+  console.log(`Enriched: ${ENRICHED_FILE}`);
   console.log(`Generated: ${output.generatedAt}`);
 
   // Print summary for notification scripts
   console.log('\n--- SUMMARY ---');
-  console.log(`${allStories.length} new AI stories today, ${hnStories.length} from HN, ${rssStories.length} from RSS feeds`);
+  console.log(`${allStories.length} new AI stories today, ${hnDashboard.length} from HN, ${rssDashboard.length} from RSS feeds`);
 }
 
 main().catch(e => {

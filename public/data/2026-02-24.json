@@ -1,0 +1,188 @@
+{
+  "generatedAt": "2026-02-24T23:30:02.381Z",
+  "date": "Tuesday, February 24, 2026",
+  "storyCount": 18,
+  "hnCount": 8,
+  "rssCount": 10,
+  "stories": [
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "Show HN: Moonshine Open-Weights STT models – higher accuracy than WhisperLargev3",
+      "summary": "38 points · 6 comments on HN",
+      "url": "https://github.com/moonshine-ai/moonshine",
+      "hnUrl": "https://news.ycombinator.com/item?id=47143755",
+      "score": 38,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "Pi – a minimal terminal coding harness",
+      "summary": "67 points · 30 comments on HN",
+      "url": "https://pi.dev",
+      "hnUrl": "https://news.ycombinator.com/item?id=47143754",
+      "score": 67,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "How we rebuilt Next.js with AI in one week",
+      "summary": "264 points · 74 comments on HN",
+      "url": "https://blog.cloudflare.com/vinext/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47142156",
+      "score": 264,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 24",
+      "headline": "Arvind KC appointed Chief People Officer",
+      "summary": "OpenAI appoints Arvind KC as Chief People Officer to help scale the company, strengthen its culture, and lead how work evolves in the age of AI.",
+      "url": "https://openai.com/index/arvind-kc-chief-people-officer",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "Show HN: Emdash – Open-source agentic development environment",
+      "summary": "86 points · 32 comments on HN",
+      "url": "https://github.com/generalaction/emdash",
+      "hnUrl": "https://news.ycombinator.com/item?id=47140322",
+      "score": 86,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 23",
+      "headline": "Why we no longer evaluate SWE-bench Verified",
+      "summary": "SWE-bench Verified is increasingly contaminated and mismeasures frontier coding progress. Our analysis shows flawed tests and training leakage. We recommend SWE-bench Pro.",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "Cell Service for the Fairly Paranoid",
+      "summary": "7 points · 3 comments on HN",
+      "url": "https://www.cape.co/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47144325",
+      "score": 7,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 22",
+      "headline": "OpenAI announces Frontier Alliance Partners",
+      "summary": "OpenAI announces Frontier Alliance Partners to help enterprises move from AI pilots to production with secure, scalable agent deployments.",
+      "url": "https://openai.com/index/frontier-alliance-partners",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 21",
+      "headline": "Build Your Own Forth Interpreter",
+      "summary": "37 points · 11 comments on HN",
+      "url": "https://codingchallenges.fyi/challenges/challenge-forth/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47101034",
+      "score": 37,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 20",
+      "headline": "Our First Proof submissions",
+      "summary": "We share our AI model’s proof attempts for the First Proof math challenge, testing research-grade reasoning on expert-level problems.",
+      "url": "https://openai.com/index/first-proof-submissions",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "Dream Recorder AI – a portal to your subconscious",
+      "summary": "8 points · 4 comments on HN",
+      "url": "https://dreamrecorder.ai/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47143976",
+      "score": 8,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Feb 19",
+      "headline": "Advancing independent research on AI alignment",
+      "summary": "OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.",
+      "url": "https://openai.com/index/advancing-independent-research-ai-alignment",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Feb 24",
+      "headline": "IRS Tactics Against Meta Open a New Front in the Corporate Tax Fight",
+      "summary": "171 points · 190 comments on HN",
+      "url": "https://www.nytimes.com/2026/02/24/business/irs-meta-corporate-taxes.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47136537",
+      "score": 171,
+      "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 24",
+      "headline": "Apple rolls out age verification tools worldwide to comply with growing web of child safety laws",
+      "summary": "Apple complies with new age assurance laws in the U.S. and abroad, including those that block users from downloading apps aimed at adults.",
+      "url": "https://techcrunch.com/2026/02/24/apple-rolls-out-age-verification-tools-worldwide-to-comply-with-growing-web-of-child-safety-laws/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 24",
+      "headline": "Uber engineers built an AI version of their boss",
+      "summary": "Uber CEO Dara Khosrowshahi said the company’s employees have gone all in on AI, going so far as to build a chatbot of him that they use to practice their pitches.",
+      "url": "https://techcrunch.com/2026/02/24/uber-engineers-built-ai-version-of-boss-dara-khosrowshahi/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 24",
+      "headline": "Former L3Harris Trenchant boss jailed for selling hacking tools to Russian broker",
+      "summary": "Peter Williams, the former head of U.S. hacking tools maker L3Harris Trenchant, was sentenced to seven years in prison for stealing and selling his former company’s hacking and surveillance tools to a",
+      "url": "https://techcrunch.com/2026/02/24/former-l3harris-trenchant-boss-jailed-for-selling-hacking-tools-to-russian-broker/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 24",
+      "headline": "Google’s new 1.9GW clean energy deal includes massive 100-hour battery",
+      "summary": "Form Energy's iron-air batteries will store wind and solar power to keep the data center running 24/7.",
+      "url": "https://techcrunch.com/2026/02/24/googles-new-1-9gw-clean-energy-deal-includes-massive-100-hour-battery/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Feb 24",
+      "headline": "CarGurus data breach affects 12.5 million accounts",
+      "summary": "Automotive marketplace CarGurus was the target of a data breach in which the names, email addresses, phone numbers, and physical addresses of millions of customers were stolen.",
+      "url": "https://techcrunch.com/2026/02/24/cargurus-data-breach-affects-12-5-million-accounts/",
+      "type": "rss"
+    }
+  ],
+  "dateKey": "2026-02-24"
+}

@@ -670,6 +670,156 @@
     font-size: 0.82rem;
   }
 
+  /* =================== */
+  /* DATE SECTION HEADERS */
+  /* =================== */
+  .date-section {
+    margin-top: 8px;
+  }
+  .date-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0 12px;
+    position: sticky;
+    top: 46px; /* below the section-nav */
+    z-index: 50;
+    background: var(--bg);
+  }
+  .date-section-header .date-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .date-section-header .date-label-today {
+    color: var(--accent);
+    font-size: 0.88rem;
+  }
+  .date-section-header .date-label-older {
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+  }
+  .date-section-header .date-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .date-section-header .date-count {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  /* Today badge on the header */
+  .today-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* Story cards in vertical feed */
+  .story-feed-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .story-feed-card:hover {
+    border-color: #333;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+  .story-feed-card.older {
+    opacity: 0.75;
+  }
+  .story-feed-card.older:hover {
+    opacity: 1;
+  }
+  @media (min-width: 900px) {
+    .story-feed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .story-feed-grid .story-feed-card {
+      margin-bottom: 0;
+    }
+  }
+  .story-feed-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .story-feed-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .story-feed-source {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .story-feed-time {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+  .story-feed-headline {
+    font-size: 0.92rem;
+    font-weight: 650;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .story-feed-summary {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .story-feed-link {
+    font-size: 0.68rem;
+    color: var(--blue);
+    text-decoration: none;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .story-feed-link:hover { text-decoration: underline; }
+
+  /* Infinite scroll sentinel + loader */
+  .feed-load-sentinel {
+    height: 1px;
+  }
+  .feed-loading-more {
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    display: none;
+  }
+  .feed-loading-more.visible { display: block; }
+  .feed-end-msg {
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    display: none;
+  }
+  .feed-end-msg.visible { display: block; }
+
   /* HN story tag */
   .tag-hn { background: rgba(255, 102, 0, 0.12); color: #ff6600; }
   .tag-news { background: var(--blue-dim); color: var(--blue); }
@@ -792,31 +942,27 @@
   </div>
 
   <!-- ============================================ -->
-  <!-- 2. TOP STORIES — Side Scroller               -->
+  <!-- 2. TOP STORIES — Date-grouped vertical feed  -->
   <!-- ============================================ -->
   <div id="top-stories">
     <div class="section-heading">Top Stories</div>
-    <div class="section-subheading">Horizontal scroll &mdash; drag, wheel, or use arrows. Every card sourced.</div>
+    <div class="section-subheading">Grouped by day. Scroll down for older stories.</div>
   </div>
 
-  <div class="card" style="padding: 20px 0;">
-    <div style="padding: 0 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-      <div class="section-title" style="margin-bottom:0;">Today's Headlines</div>
-      <div class="live-badge" id="live-badge" style="display:none;"><div class="live-dot"></div> Live data</div>
-    </div>
-    <div style="padding: 0 20px;">
-      <div class="scroller-container" id="stories-scroller-container">
-        <div class="scroller-wrapper" id="stories-scroller">
-          <!-- Populated from data/daily.json or hardcoded fallback -->
-          <div class="scroller-row" id="stories-row">
-            <div class="live-stories-loading">Loading stories...</div>
-          </div>
-        </div>
-        <button class="scroll-btn scroll-btn-left" data-dir="left" data-target="stories-scroller" aria-label="Scroll left">&#8249;</button>
-        <button class="scroll-btn scroll-btn-right" data-dir="right" data-target="stories-scroller" aria-label="Scroll right">&#8250;</button>
-      </div>
-    </div>
+  <!-- Live badge floats near header -->
+  <div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:4px;">
+    <div class="live-badge" id="live-badge" style="display:none;"><div class="live-dot"></div> Live data</div>
   </div>
+
+  <!-- Stories feed: date sections injected here by JS -->
+  <div id="stories-feed">
+    <div class="live-stories-loading" id="stories-initial-loading">Loading stories...</div>
+  </div>
+
+  <!-- Infinite scroll sentinel (observed by IntersectionObserver) -->
+  <div class="feed-load-sentinel" id="feed-sentinel"></div>
+  <div class="feed-loading-more" id="feed-loading-more">Loading older stories...</div>
+  <div class="feed-end-msg" id="feed-end-msg">You've reached the beginning of tracked history.</div>
 
   <!-- ============================================ -->
   <!-- 3. STACK RANK                                -->
@@ -1414,22 +1560,6 @@ var HARDCODED_STORIES = [
   }
 ];
 
-function renderStoryCard(story) {
-  var dotColor = story.sourceColor || '#4a9eff';
-  var tagClass = story.source && story.source.toLowerCase().includes('hacker news') ? 'tag-hn' : 'tag-news';
-  var tagLabel = story.source && story.source.toLowerCase().includes('hacker news') ? 'HN' : 'News';
-  return '<div class="story-scroll-card">' +
-    '<div class="story-source-row">' +
-      '<div class="story-source-dot" style="background:' + dotColor + ';"></div>' +
-      '<div class="story-source-name">' + escHtml(story.source || '') + '</div>' +
-      '<div class="story-time">' + escHtml(story.time || '') + '</div>' +
-    '</div>' +
-    '<div class="story-headline">' + escHtml(story.headline || '') + '</div>' +
-    (story.summary ? '<div class="story-summary">' + escHtml(story.summary) + '</div>' : '') +
-    '<a href="' + escHtml(story.url || '#') + '" target="_blank" class="story-link">Read &rarr;</a>' +
-  '</div>';
-}
-
 function escHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -1438,49 +1568,228 @@ function escHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
-function loadData() {
-  var row = document.getElementById('stories-row');
-  var badge = document.getElementById('data-badge');
-  var liveBadge = document.getElementById('live-badge');
-  var footerNote = document.getElementById('footer-data-note');
+// =============================================
+// DATE FEED: Render a story card (vertical feed)
+// =============================================
+function renderFeedStoryCard(story, isOlder) {
+  var dotColor = story.sourceColor || '#4a9eff';
+  return '<div class="story-feed-card' + (isOlder ? ' older' : '') + '">' +
+    '<div class="story-feed-meta">' +
+      '<div class="story-feed-dot" style="background:' + dotColor + ';"></div>' +
+      '<div class="story-feed-source">' + escHtml(story.source || '') + '</div>' +
+      (story.time ? '<div class="story-feed-time">' + escHtml(story.time) + '</div>' : '') +
+    '</div>' +
+    '<div class="story-feed-headline">' + escHtml(story.headline || '') + '</div>' +
+    (story.summary ? '<div class="story-feed-summary">' + escHtml(story.summary) + '</div>' : '') +
+    '<a href="' + escHtml(story.url || '#') + '" target="_blank" class="story-feed-link">Read &rarr;</a>' +
+  '</div>';
+}
 
-  // Try to load from data/daily.json (relative path works on GitHub Pages)
-  fetch('data/daily.json?' + Date.now())
+// =============================================
+// DATE FEED: Format a date key for display
+// =============================================
+function formatDateKey(dateKey, todayKey) {
+  if (dateKey === todayKey) return null; // handled specially
+  var parts = dateKey.split('-');
+  if (parts.length !== 3) return dateKey;
+  var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+  var todayParts = todayKey.split('-');
+  var yesterday = new Date(parseInt(todayParts[0]), parseInt(todayParts[1]) - 1, parseInt(todayParts[2]));
+  yesterday.setDate(yesterday.getDate() - 1);
+  var yKey = yesterday.toISOString().slice(0, 10);
+  if (dateKey === yKey) return 'Yesterday \u2014 ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+}
+
+// =============================================
+// DATE FEED: Render a date section into the feed
+// =============================================
+function renderDateSection(dateKey, stories, todayKey, isFirst) {
+  var feed = document.getElementById('stories-feed');
+  var section = document.createElement('div');
+  section.className = 'date-section';
+  section.dataset.dateKey = dateKey;
+
+  var isToday = dateKey === todayKey;
+  var labelText = isToday
+    ? 'Today \u2014 ' + new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+    : formatDateKey(dateKey, todayKey);
+  var labelClass = isToday ? 'date-label date-label-today' : 'date-label date-label-older';
+  var todayBadge = isToday ? '<span class="today-badge">NEW</span>' : '';
+
+  var headerHtml = '<div class="date-section-header">' +
+    '<div class="' + labelClass + '">' + escHtml(labelText) + '</div>' +
+    (isToday ? '<div>' + todayBadge + '</div>' : '') +
+    '<div class="date-rule"></div>' +
+    '<div class="date-count">' + stories.length + ' stories</div>' +
+  '</div>';
+
+  var cardsHtml = '<div class="story-feed-grid">' +
+    stories.map(function(s) { return renderFeedStoryCard(s, !isToday); }).join('') +
+  '</div>';
+
+  section.innerHTML = headerHtml + cardsHtml;
+  feed.appendChild(section);
+}
+
+// =============================================
+// INFINITE SCROLL: State + logic
+// =============================================
+var feedState = {
+  availableDates: [],    // all known date keys, newest first
+  loadedIndex: 0,        // next index into availableDates to load
+  todayKey: '',
+  loading: false,
+  exhausted: false
+};
+
+function getTodayKey() {
+  var d = new Date();
+  var y = d.getFullYear();
+  var m = String(d.getMonth() + 1).padStart(2, '0');
+  var day = String(d.getDate()).padStart(2, '0');
+  return y + '-' + m + '-' + day;
+}
+
+function loadNextDay() {
+  if (feedState.loading || feedState.exhausted) return;
+  if (feedState.loadedIndex >= feedState.availableDates.length) {
+    feedState.exhausted = true;
+    document.getElementById('feed-end-msg').classList.add('visible');
+    document.getElementById('feed-loading-more').classList.remove('visible');
+    return;
+  }
+
+  var dateKey = feedState.availableDates[feedState.loadedIndex];
+  feedState.loading = true;
+  document.getElementById('feed-loading-more').classList.add('visible');
+
+  fetch('data/' + dateKey + '.json?' + Date.now())
     .then(function(r) {
-      if (!r.ok) throw new Error('no data file');
+      if (!r.ok) throw new Error('no file for ' + dateKey);
       return r.json();
     })
     .then(function(data) {
-      var stories = (data && data.stories && data.stories.length > 0) ? data.stories : HARDCODED_STORIES;
-      var isLive = data && data.generatedAt;
+      feedState.loading = false;
+      feedState.loadedIndex++;
+      document.getElementById('feed-loading-more').classList.remove('visible');
 
-      // Render stories
-      row.innerHTML = stories.map(renderStoryCard).join('');
+      var stories = (data && data.stories && data.stories.length > 0) ? data.stories : [];
+      if (stories.length > 0) {
+        var isFirst = feedState.loadedIndex === 1;
+        renderDateSection(dateKey, stories, feedState.todayKey, isFirst);
+      }
 
-      // Update badges
-      if (isLive) {
+      // Update top-level badge on first load (today's data)
+      if (feedState.loadedIndex === 1 && data && data.generatedAt) {
+        var badge = document.getElementById('data-badge');
+        var liveBadge = document.getElementById('live-badge');
+        var footerNote = document.getElementById('footer-data-note');
         var genDate = new Date(data.generatedAt);
         badge.textContent = 'live data — ' + genDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
         badge.className = 'data-freshness';
         if (liveBadge) liveBadge.style.display = 'inline-flex';
         if (footerNote) {
-          var hnCount = data.hnCount || 0;
-          var rssCount = data.rssCount || 0;
-          footerNote.textContent = 'Live data: ' + stories.length + ' stories (' + hnCount + ' from HN, ' + rssCount + ' from RSS). Generated ' + genDate.toLocaleString() + '.';
+          footerNote.textContent = 'Live data from ' + (feedState.availableDates.length) + ' day(s). Latest: ' + genDate.toLocaleString() + '.';
         }
-      } else {
-        badge.textContent = 'baseline data';
-        badge.className = 'data-freshness stale';
-        if (footerNote) footerNote.textContent = 'Baseline data from daily.json. Run scripts/curate.js to refresh.';
+      }
+
+      // If no more dates available, show end message
+      if (feedState.loadedIndex >= feedState.availableDates.length) {
+        feedState.exhausted = true;
+        document.getElementById('feed-end-msg').classList.add('visible');
       }
     })
-    .catch(function() {
-      // Fallback: render hardcoded stories
-      row.innerHTML = HARDCODED_STORIES.map(renderStoryCard).join('');
-      badge.textContent = 'hardcoded data';
-      badge.className = 'data-freshness stale';
-      if (footerNote) footerNote.textContent = 'Hardcoded baseline data — run scripts/curate.js to refresh.';
+    .catch(function(err) {
+      feedState.loading = false;
+      feedState.loadedIndex++;
+      document.getElementById('feed-loading-more').classList.remove('visible');
+      console.warn('[feed] Could not load ' + dateKey + ':', err.message);
+      // Try to load the next one automatically
+      loadNextDay();
     });
+}
+
+// =============================================
+// DATA: Bootstrap — try index.json, fall back to daily.json
+// =============================================
+function loadData() {
+  var badge = document.getElementById('data-badge');
+  var footerNote = document.getElementById('footer-data-note');
+  feedState.todayKey = getTodayKey();
+
+  // Try index.json first (new multi-day setup)
+  fetch('data/index.json?' + Date.now())
+    .then(function(r) {
+      if (!r.ok) throw new Error('no index');
+      return r.json();
+    })
+    .then(function(idx) {
+      var dates = (idx && idx.dates && idx.dates.length > 0) ? idx.dates : [feedState.todayKey];
+      // Ensure today is always first even if index hasn't been updated yet
+      if (!dates.includes(feedState.todayKey)) {
+        dates = [feedState.todayKey].concat(dates);
+      }
+      feedState.availableDates = dates;
+      document.getElementById('stories-initial-loading').style.display = 'none';
+      // Load today immediately, then set up infinite scroll observer
+      loadNextDay();
+      setupInfiniteScroll();
+    })
+    .catch(function() {
+      // No index yet — fall back to daily.json as a single day
+      fetch('data/daily.json?' + Date.now())
+        .then(function(r) { if (!r.ok) throw new Error('no daily'); return r.json(); })
+        .then(function(data) {
+          var dateKey = (data && data.dateKey) ? data.dateKey : feedState.todayKey;
+          feedState.availableDates = [dateKey];
+          document.getElementById('stories-initial-loading').style.display = 'none';
+          var stories = (data && data.stories && data.stories.length > 0) ? data.stories : HARDCODED_STORIES;
+          renderDateSection(dateKey, stories, feedState.todayKey, true);
+          feedState.loadedIndex = 1;
+          feedState.exhausted = true;
+          document.getElementById('feed-end-msg').classList.add('visible');
+
+          if (data && data.generatedAt) {
+            var genDate = new Date(data.generatedAt);
+            badge.textContent = 'live data — ' + genDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            badge.className = 'data-freshness';
+            var liveBadge = document.getElementById('live-badge');
+            if (liveBadge) liveBadge.style.display = 'inline-flex';
+          } else {
+            badge.textContent = 'baseline data';
+            badge.className = 'data-freshness stale';
+          }
+        })
+        .catch(function() {
+          // Ultimate fallback: render hardcoded stories
+          document.getElementById('stories-initial-loading').style.display = 'none';
+          renderDateSection(feedState.todayKey, HARDCODED_STORIES, feedState.todayKey, true);
+          feedState.loadedIndex = 1;
+          feedState.exhausted = true;
+          document.getElementById('feed-end-msg').classList.add('visible');
+          badge.textContent = 'hardcoded data';
+          badge.className = 'data-freshness stale';
+          if (footerNote) footerNote.textContent = 'Hardcoded baseline data — run scripts/curate.js to refresh.';
+        });
+    });
+}
+
+// =============================================
+// INFINITE SCROLL: IntersectionObserver on sentinel
+// =============================================
+function setupInfiniteScroll() {
+  var sentinel = document.getElementById('feed-sentinel');
+  if (!sentinel || !window.IntersectionObserver) {
+    // Fallback: button-based load
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      loadNextDay();
+    }
+  }, { rootMargin: '200px' });
+  observer.observe(sentinel);
 }
 
 // Run on load
