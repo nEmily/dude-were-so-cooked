@@ -1604,7 +1604,7 @@ function formatDateKey(dateKey, todayKey) {
 // =============================================
 // DATE FEED: Render a date section into the feed
 // =============================================
-function renderDateSection(dateKey, stories, todayKey, isFirst) {
+function renderDateSection(dateKey, stories, todayKey) {
   var feed = document.getElementById('stories-feed');
   var section = document.createElement('div');
   section.className = 'date-section';
@@ -1676,8 +1676,7 @@ function loadNextDay() {
 
       var stories = (data && data.stories && data.stories.length > 0) ? data.stories : [];
       if (stories.length > 0) {
-        var isFirst = feedState.loadedIndex === 1;
-        renderDateSection(dateKey, stories, feedState.todayKey, isFirst);
+        renderDateSection(dateKey, stories, feedState.todayKey);
       }
 
       // Update top-level badge on first load (today's data)
@@ -1745,7 +1744,7 @@ function loadData() {
           feedState.availableDates = [dateKey];
           document.getElementById('stories-initial-loading').style.display = 'none';
           var stories = (data && data.stories && data.stories.length > 0) ? data.stories : HARDCODED_STORIES;
-          renderDateSection(dateKey, stories, feedState.todayKey, true);
+          renderDateSection(dateKey, stories, feedState.todayKey);
           feedState.loadedIndex = 1;
           feedState.exhausted = true;
           document.getElementById('feed-end-msg').classList.add('visible');
@@ -1764,7 +1763,7 @@ function loadData() {
         .catch(function() {
           // Ultimate fallback: render hardcoded stories
           document.getElementById('stories-initial-loading').style.display = 'none';
-          renderDateSection(feedState.todayKey, HARDCODED_STORIES, feedState.todayKey, true);
+          renderDateSection(feedState.todayKey, HARDCODED_STORIES, feedState.todayKey);
           feedState.loadedIndex = 1;
           feedState.exhausted = true;
           document.getElementById('feed-end-msg').classList.add('visible');

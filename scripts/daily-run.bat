@@ -2,7 +2,7 @@
 REM daily-run.bat - Called by Windows Task Scheduler
 REM Curates AI news, commits to git, sends Discord notification
 
-cd /d "C:\Users\emily\projects\dude-were-so-cooked"
+cd /d "%~dp0.."
 if errorlevel 1 (
     echo ERROR: Could not cd to project directory
     exit /b 1
@@ -25,6 +25,8 @@ if errorlevel 1 (
 
 REM Step 3: Stage the data files
 git add -f public\data\daily.json
+git add -f public\data\index.json
+git add -f public\data\*.json
 git add -f public\data\digest.md 2>NUL
 
 REM Step 4: Commit if there are staged changes

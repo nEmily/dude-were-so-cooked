@@ -152,8 +152,8 @@ async function fetchHNComments(story) {
   if (!story.kids || story.kids.length === 0) return [];
   const commentIds = story.kids.slice(0, MAX_HN_COMMENTS);
   const commentPromises = commentIds.map(id =>
-    fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`, HN_FETCH_TIMEOUT)
-      .then(data => JSON.parse(data))
+    globalThis.fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`, { signal: AbortSignal.timeout(HN_FETCH_TIMEOUT) })
+      .then(r => r.json())
       .catch(() => null)
   );
   const comments = (await Promise.all(commentPromises)).filter(Boolean);
