@@ -1,89 +1,115 @@
-# AI Digest — Wednesday, February 25, 2026
+# AI Digest — Thursday, February 26, 2026
 
 ## What's Happening Right Now
 
-The biggest story today is remote control infrastructure for AI agents becoming real. Claude Code Remote Control (465 HN points) shipped as a prerelease, letting developers direct coding agents from mobile and distributed environments—messy and buggy, but live. This lands in the same week OpenAI announced Frontier Alliance Partners for enterprise agent deployments, and just after Stack Influence released FDM1, a fully general computer action model trained on 11M hours of internet video. The narrative is clear: the industry has moved from "agents can code" to "agents can run production workflows across your infrastructure."
+Anthropic announced it's walking back its core safety commitments—the founding principle that differentiated it from OpenAI. Simultaneously, Google revealed that Gemini API access was unexpectedly enabled on legacy API keys that were never intended to be secrets, creating a security-by-surprise vulnerability. Meanwhile, enterprise tooling is accelerating: OpenAI is launching Frontier Alliance (agent deployment at scale), Figma integrated Codex for code-to-design workflows, and a new startup (Trace) just raised $3M to solve "AI agent adoption" in enterprise.
 
-Meanwhile, the measurement game is getting messier. OpenAI published a technical analysis (low-signal on HN: 0 comments) explaining why they stopped evaluating SWE-bench Verified—the canonical software engineering benchmark is now considered "increasingly contaminated" with training leakage and flawed tests. They're recommending SWE-bench Pro instead. This matters because it signals the old benchmarks are breaking under the weight of capable models, and standardized eval is harder than everyone thought.
+The pattern is clear: as AI companies scale, they're making pragmatic tradeoffs on the principles they championed. Safety, security, and ethics take a back seat to shipping faster and winning market share. For developers building on these platforms, the question isn't anymore whether Claude or GPT is "safer"—it's which platform moves fastest and integrates best with your workflow.
 
-On the business side, Nvidia posted record earnings and capital expenditures ("the demand for tokens in the world has gone completely exponential," per Jensen Huang), and the U.S. government is quietly fracturing: CISA is reportedly in "dire shape" under budget cuts, while the White House is pushing AI companies to absorb electricity rate hikes (most already said yes). These are structural tensions—who pays for the infrastructure to build safer AI?
+The other undercurrent: coding benchmarks are getting noisy. OpenAI announced they no longer evaluate SWE-bench Verified due to contamination and training leakage, recommending SWE-bench Pro instead. This matters because it signals that publicly available benchmarks are becoming less useful as proxy metrics for real progress. If you're evaluating models for coding tasks, official leaderboards are losing credibility.
 
 ## Key Stories
 
-### Claude Code Remote Control
-- **Source**: [Claude Code Docs](https://code.claude.com/docs/en/remote-control)
-- **Why it matters**: Remote control of coding agents is no longer theoretical—it's shipping, even if rough. This unlocks asynchronous workflows and distributed team use.
-- **HN sentiment**: Mixed-to-frustrated. Top comment: "extremely clunky and buggy prerelease... you can't interrupt Claude, at best it just keeps spinning." Users comparing it unfavorably to existing SSH/tmux workflows, but acknowledging the convenience play.
-- **Keywords**: remote agents, mobile coding, agent infrastructure, out-of-office dev ops
+### Anthropic ditches its core safety promise
+- **Source**: [CNN / Hacker News](https://www.cnn.com/2026/02/25/tech/anthropic-safety-policy-change) — 257 HN points, 131 comments
+- **Why it matters**: Anthropic was founded on the premise that safety should be the north star. If that changes, it signals a broader industry shift: when mission conflicts with profitability, mission loses.
+- **HN sentiment**: Mixed cynicism. Top comment about public benefit corporations being "a farce"—they look good until revenue pressures mount. A few thoughtful takes pointing out that Anthropic's heavy-handedness may have been justified. One reference to a LessWrong post from someone directly involved taking responsibility.
+- **Keywords**: safety-washing, PBC hypocrisy, safety theater, scaling vs values, corporate drift
 
-### The First Fully General Computer Action Model
-- **Source**: [Stack Influence](https://si.inc/posts/fdm1/)
-- **Why it matters**: 11M hours of training data on 11M labeled screens means computer-use models just became much more data-rich. The inverse dynamics approach (using a model to label more data) could be a scaling pattern for agent training.
-- **HN sentiment**: Impressed but measured. Author Neel is participating in comments. Main question: are inverse/forward models trained separately? Driving demo criticism ("maybe don't almost-hit pedestrians") suggests real-world safety questions.
-- **Keywords**: computer use models, inverse dynamics, vision-action models, scaling to production
+### Google API keys weren't secrets, but Gemini changed the rules
+- **Source**: [Truffle Security / Hacker News](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) — 954 HN points, 227 comments
+- **Why it matters**: This is textbook retroactive permission creep. Google created API keys for Firebase/Firestore (non-metered services), then—without opt-in—silently enabled Gemini API access. Now users' old keys expose new billing vectors. A massive technical gotcha.
+- **HN sentiment**: Angry engineers. "Mind-blowing, defies all security common sense." Frustration that Google did this unilaterally. Comments about older Android images still having usable hardcoded keys. Consensus: this is worse than traditional key leaks because the keys themselves weren't the problem—the permissions shift was.
+- **Keywords**: permission creep, silent API changes, Google security theater, API key exploit, retroactive access
 
-### Large-Scale Online Deanonymization with LLMs
-- **Source**: [Simon Lermen Substack](https://simonlermen.substack.com/p/large-scale-online-deanonymization)
-- **Why it matters**: LLMs can cluster and link pseudonymous identities across platforms at scale. This is not new (2008 Netflix paper cited), but LLMs make it faster and cheaper—privacy assumptions people built products on are breaking.
-- **HN sentiment**: Pragmatic and divided. Some argue "HN specifically only tracks people comfortable with linkage." Others raise acute concern: "At first I thought of how this would impact employment. But then I thought about how ICE has been tapping records..."
-- **Keywords**: deanonymization, LLM privacy, pseudonymity, surveillance, identity linking
+### How will OpenAI compete? (Benedict Evans)
+- **Source**: [Ben Evans Blog / Hacker News](https://www.ben-evans.com/benedictevans/2026/2/19/how-will-openai-compete-nkg2x) — 354 HN points, 499 comments
+- **Why it matters**: Thoughtful structural analysis of OpenAI's moat. Consensus: ChatGPT's ~1B user base is stickier than people think, but it's not defensible forever. Local models will eventually be "good enough." This frames the real competition: not capability race, but integration depth and user habit lock-in.
+- **HN sentiment**: Nuanced. Agreement that "user stickiness is underestimated." Concerns that in 5 years, current OpenAI will look like 1970s mainframes—useful but commoditized. One comment praising it as "the best article on OpenAI I've ever read" because it avoids sensationalism.
+- **Keywords**: OpenAI moat, local models, stickiness, integration depth, capability convergence
 
-### OpenAI Stops Evaluating SWE-bench Verified
-- **Source**: [OpenAI](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified)
-- **Why it matters**: The main coding benchmark for frontier models is now considered unreliable. Signals that eval infrastructure is struggling to keep pace with model improvement and that published benchmarks are contaminated faster than they're fixed.
-- **HN sentiment**: Minimal engagement (0 comments in feed), but silent acknowledgment that the measurement game is broken.
-- **Keywords**: SWE-bench, eval contamination, coding benchmarks, frontier models, benchmark gaming
+### OpenAI stops evaluating SWE-bench Verified
+- **Source**: [OpenAI Blog](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified)
+- **Why it matters**: SWE-bench Verified is contaminated with training leakage. OpenAI openly recommends SWE-bench Pro instead. If you care about real coding progress, benchmark rot just happened. This is a candid admission that public benchmarks can't be trusted once they're widely known.
+- **HN sentiment**: (Emerging, but signals integrity—openly admitting benchmark issues rather than hiding them)
+- **Keywords**: benchmark contamination, SWE-bench Pro, leaderboard rot, coding progress measurement, training leakage
 
-### OpenAI Frontier Alliance Partners
-- **Source**: [OpenAI](https://openai.com/index/frontier-alliance-partners)
-- **Why it matters**: Enterprise deployment infrastructure is being formalized—not "let's use ChatGPT API," but "here's how you move from pilots to production with secure, scalable agent deployments."
-- **HN sentiment**: Not on HN yet (from OpenAI blog feed).
-- **Keywords**: enterprise agents, production deployment, secure scaling, agent ops
+### OpenAI + Figma launch code-to-design Codex integration
+- **Source**: [OpenAI Blog](https://openai.com/index/figma-partnership), [TechCrunch](https://techcrunch.com/2026/02/26/figma-partners-with-openai-to-bake-in-support-for-codex/)
+- **Why it matters**: Figma integrated Claude Code last week; OpenAI is moving fast. The arms race for design-to-code is heating up. This is productionally significant: code-to-design is a real workflow gap that LLMs can solve, and whoever owns it wins developer mindshare.
+- **HN sentiment**: (Limited engagement yet, but clearly a competitive response to Anthropic's Figma integration)
+- **Keywords**: code-to-design, Figma + AI, design handoff automation, Anthropic vs OpenAI speed race
 
-### Nvidia Record Earnings & Capex
-- **Source**: [TechCrunch](https://techcrunch.com/2026/02/25/nvidia-earnings-record-capex-spend-ai/)
-- **Why it matters**: Token demand is "completely exponential" per Jensen Huang. Record capex means the semiconductor-as-bottleneck story continues. Infrastructure investment is frontloading the entire AI stack.
-- **HN sentiment**: Not on HN primary feed, but underlying narrative is settled: compute is growth.
-- **Keywords**: GPU capex, token demand, semiconductor bottleneck, hyperscaler spending
+### YC-backed companies scraping GitHub and spamming developers
+- **Source**: [Hacker News](https://news.ycombinator.com/item?id=47163885) — 280 HN points, 96 comments
+- **Why it matters**: Multiple YC companies (Flock, Aden, Cactus Compute, etc.) are scraping GitHub activity and cold-emailing developers. Violates GitHub ToS, but the real issue is hypocrisy: YC companies spamming YC-adjacent communities. Bad for the ecosystem's reputation.
+- **HN sentiment**: Frustrated developers. GitHub employee Martin confirmed they take action when caught, but it's "whack-a-mole." One comment: this is "top 1 or 2 worst marketing tactics you can use." The spam is condescending ("I see you're interested in on-device speech models...") and tone-deaf.
+- **Keywords**: GitHub spam, YC hypocrisy, developer spam, cold email failure, ToS violations, startup spam
 
-### Windows 11 Notepad Markdown Support
-- **Source**: [Windows Insider Blog](https://blogs.windows.com/windows-insider/2026/01/21/notepad-and-paint-updates-begin-rolling-out-to-windows-insiders/)
-- **Why it matters**: Microsoft is adding Markdown + Copilot integration to Notepad. Feature creep on a tool historically designed for simplicity.
-- **HN sentiment**: Cynical. Top comment: "step 1: remove wordpad, step 2: omg there's demand for features, step 3: turn notepad into wordpad, step 4: get a raise." Another: "The new workflow will be 'AI, I need to view this text file... Create an app...'"
-- **Keywords**: Notepad bloat, Copilot integration, feature creep, Markdown support
+### Agent Swarm – multi-agent self-learning teams
+- **Source**: [GitHub / Hacker News](https://github.com/desplega-ai/agent-swarm) — 49 HN points, 30 comments
+- **Why it matters**: OSS multi-agent orchestration with persistent memory across runs. Interesting architectural thinking on shared vs. personal memory. But limited real-world examples—beyond toy coding tasks (barely working C compiler, barely working browser).
+- **HN sentiment**: Skeptical. "Where do you apply this?" Questions about practical ROI. Appreciation for self-learning memory design, but no consensus on when this pattern is actually useful vs. over-engineered.
+- **Keywords**: multi-agent, agent memory, agent orchestration, swarm intelligence, practical limitations
 
-### .online Domain Risks
-- **Source**: [0xSid Blog](https://www.0xsid.com/blog/online-tld-is-pain)
-- **Why it matters**: Regulatory and spam filtering issues with the .online TLD (owned by Radix) make it unviable for serious use. Google Safe Browsing triggers suspension; spam filters flag it; Google Search Console matters more than expected.
-- **HN sentiment**: Angry at Google's role. Top: "That should be enough to trigger an antitrust case against Google and a split of its acts." Practical note: .online emails get spam-filtered at scale.
-- **Keywords**: TLD risks, Google Safe Browsing, domain reputation, .online problems
+### just-bash: Bash for Agents (Vercel Labs)
+- **Source**: [GitHub / Hacker News](https://github.com/vercel-labs/just-bash) — 18 HN points, 10 comments
+- **Why it matters**: A restricted bash environment for agents. Vercel building infrastructure for agentic code execution. The tension: bash is ancient and clunky for LLMs, but it's stable and universal. A pragmatic tradeoff.
+- **HN sentiment**: Mixed. Some argue agents should use Python, TypeScript, or Lua instead. Others defend bash for its stability and ubiquity across systems. Discussion of jail/sandboxing alternatives.
+- **Keywords**: agent bash, agentic execution, code sandboxing, agent runtimes
+
+### Trace raises $3M to solve AI agent adoption in enterprise
+- **Source**: [TechCrunch](https://techcrunch.com/2026/02/26/trace-raises-3-million-to-solve-the-agent-adoption-problem/) — YC-backed, fresh announcement
+- **Why it matters**: Directly addresses the "enterprise agent gap"—companies can prototype agents but struggle to productionize them. Early validation that this is a real market pain. Competitors: OpenAI Frontier Alliance (larger, official), existing Anthropic enterprise programs.
+- **HN sentiment**: (Limited engagement, but signals enterprise readiness as a venture category)
+- **Keywords**: enterprise agents, agent adoption, agent scaling, agent deployment, agent operations
+
+### OpenAI announces Frontier Alliance Partners
+- **Source**: [OpenAI Blog](https://openai.com/index/frontier-alliance-partners)
+- **Why it matters**: OpenAI's official program for enterprises moving from AI pilots to production agent deployments. Competitive response to growing demand. Signals that "agents in production" is now table stakes for enterprise sales.
+- **HN sentiment**: (Not yet significant HN engagement, but this is enterprise sales infrastructure)
+- **Keywords**: enterprise agents, Frontier Alliance, OpenAI enterprise, agent production, agent deployment
+
+---
 
 ## Themes & Tensions
 
-**Agent Infrastructure is Racing Faster Than Safety Measurement**
-Remote control for agents, fully general computer action models, and enterprise deployment partnerships are shipping simultaneously. But the canonical coding benchmark (SWE-bench) just got marked unreliable. We're building production infrastructure for capabilities we're not measuring reliably.
+**1. Mission Drift vs. Scale**
+Anthropic walks back safety. Google silently enables Gemini on old API keys. The pattern: founding principles (safety, security, differentiation) get compromised as companies scale and face competitive pressure. For developers, this means: pick your platform based on *current state*, not *stated values*, because stated values erode predictably under revenue pressure.
 
-**Privacy Assumptions Are Collapsing Under LLM Scale**
-Pseudonymity and deanonymization have been a tension for years, but LLMs made it a real-time threat. The defense (don't leave traces) is becoming impossible for ordinary people. Employment, immigration enforcement, and cancellation risks are all real downstream effects.
+**2. Integration Wars Replacing Capability Wars**
+OpenAI + Figma (Codex), Anthropic + Figma (Claude Code), competing enterprise partnerships. The coding model race is maturing—Claude and GPT are close enough that the winner will be whoever integrates deepest into your workflow. Capture happens in the IDE, design tool, or deployment platform, not in base model quality. The arms race has moved up the stack.
 
-**Government Decoupling from AI Safety Infrastructure**
-CISA budget cuts + OpenAI's Frontier Alliance = the private sector is now the primary institution for deployment safety/ops. The government is explicitly not keeping pace. This matters for what "responsible" even means in practice.
+**3. Benchmark Rot and Progress Opacity**
+SWE-bench Verified is contaminated. Public benchmarks are losing credibility as training data sources. The implication: progress metrics are about to get noisier, and claims of "better coding" will be harder to validate. This matters for anyone choosing between models or evaluating agent frameworks. Leaderboards can't be trusted anymore.
 
-**Measurement Gaming and Frontier Model Reality**
-SWE-bench Verified's collapse signals that benchmarks can't keep up with capable models. This makes it harder to assess progress honestly, and easier for companies to claim gains that might not hold up under scrutiny.
+**4. Enterprise Agent Readiness vs. Hype Gap**
+Trace ($3M, agent adoption), Frontier Alliance (OpenAI enterprise), Agent Swarm (OSS orchestration). There's real demand to productionize agents, but limited proven patterns. The gap between "we built an agent prototype" and "we deployed agents in production" is being filled by new startups and partnerships—because the AI companies themselves don't have the operational playbooks yet.
+
+---
 
 ## Context for Replies
 
-**If someone tweets about Claude Code Remote Control**, they're likely asking: "Does this mean agents can run unsupervised while I'm offline?" Context: Yes, but it's prerelease and buggy (can't interrupt, UI disconnects). Real-world alternative is still SSH/tmux for most people. The story is "capability," not "reliability."
+**If someone tweets about "Anthropic safety" or "Claude safety":**
+They're referencing the Feb 25 policy change. Context: Anthropic was founded on safety-first positioning, but is now relaxing guardrails. The HN reaction was cynical—"public benefit corporations are a joke; profit always wins." You can argue whether Anthropic's guardrails were too heavy-handed, but the signal is clear: they're deprioritizing safety to compete faster. Expect more of this as Anthropic scales.
 
-**If someone tweets about computer action models / "agents can use the internet,"** they're referencing FDM1 or similar. Key context: 11M hours of training data is massive, the inverse dynamics trick is clever (bootstrapping labels), but real-world driving demos nearly hit pedestrians. This is impressive and accident-prone.
+**If someone tweets "Google API keys," "Gemini API security," or "permission creep":**
+They're talking about Truffle Security's finding: Google gave Gemini API access to old Firebase keys retroactively, without opting users in. The keys themselves weren't "secrets," but Gemini is metered/paid. 954 HN points—massive technical anger. The core complaint: retroactive scope expansion and Google doing this unilaterally. This is a trust issue.
 
-**If someone tweets about deanonymization or "my HN posts can be linked to me,"** they're reacting to Simon Lermen's piece. Context: LLMs make it faster/cheaper, but the underlying risk (clustering metadata, public posts) has existed since 2008. The NEW risk is speed and scale—it's now practical for bad actors to do at volume.
+**If someone cites Benedict Evans on "OpenAI competition":**
+They're pulling from his thesis: OpenAI's ~1B users are stickier than you'd think, but not a durable moat. Local models will erode this. The real battleground is integration depth (IDE, design tools, agent platforms). It's a rebuttal to "OpenAI is doomed" takes—nuanced, data-driven, worth reading.
 
-**If someone tweets "SWE-bench is broken" or "coding evals are contaminated,"** they're reacting to OpenAI's quiet technical post. Context: Training data leakage into benchmarks is real, flawed tests exist, but the deeper issue is that frontier models improve faster than evals can be patched. This makes real-world metrics (customer code quality, production bugs) matter more than published numbers.
+**If someone tweets about "SWE-bench," "coding benchmarks," or "model evaluation":**
+They may reference OpenAI's announcement that SWE-bench Verified is compromised (training leakage, test contamination) and they're moving to SWE-bench Pro. This signals public coding benchmarks are losing credibility as progress metrics. If you're evaluating coding models, leaderboards just got noisier. Expect more benchmark migrations.
 
-**If someone tweets about enterprise AI deployment / "agents in prod,"** they're referencing Frontier Alliance Partners. Context: OpenAI + partners positioning this as the secure, compliant way to move from pilots to production. This is less "agents are ready" and more "we've built the management layer."
+**If someone posts "code-to-design," "design-to-code," or "Figma AI":**
+They're probably discussing this week's Figma + Codex integration (or last week's Figma + Claude Code). The arms race is on. Both OpenAI and Anthropic are racing to own the design-to-code workflow because it's a real productivity gap. Whoever wins this integration owns developer workflows.
 
-**If someone tweets about infrastructure costs or Nvidia capex,** context is: Jensen Huang explicitly said token demand is "completely exponential." This justifies record spending. The narrative is compute-will-scale-to-match-demand, but electricity and power delivery are now real constraints (hence White House rate hike negotiation).
+**If someone complains about "YC companies spamming," "GitHub spam," or "developer spam":**
+They're venting about Flock, Aden, Cactus Compute, etc. scraping GitHub activity and cold-emailing developers. Violates GitHub ToS, universally regarded as terrible marketing. GitHub employee confirmed: "we take action when we catch them, but it's whack-a-mole." The frustration is real and justified.
 
-**If someone tweets ".online domains are bad,"** context: Google Safe Browsing suspension + spam filtering = the TLD is effectively blacklisted by major platforms. Not a technical issue, but a governance/trust one. Radix (the registry) is caught in a vicious cycle where Google's suspension triggers more suspicion.
+**If someone tweets about "enterprise agents," "agent adoption," "agent production," or "agent ops":**
+Could mean: (1) OpenAI Frontier Alliance (official, large enterprise focus), (2) Trace (startup, $3M seed, focused on adoption problem), or (3) general problem: "agents work in demos but productionizing is hard." The market is signaling real demand but limited proven playbooks. This is an open opportunity for tooling.
+
+**If someone discusses "agent infrastructure," "agent runtimes," or mentions "just-bash":**
+They're likely debating bash vs. Python/TypeScript for agentic code execution. Vercel's just-bash is a restricted bash environment for agents—pragmatic (bash is universal) but contentious (bash is old). No consensus yet on what the standard should be, but Vercel shipping it signals the problem is real.
