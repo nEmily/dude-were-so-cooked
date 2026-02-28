@@ -2,100 +2,78 @@
 
 ## What's Happening Right Now
 
-The big story is a **government-led AI kingmaking moment**. OpenAI just landed $110B in new funding from SoftBank ($30B), NVIDIA ($30B), and Amazon ($50B) — but the real move is strategic. OpenAI has signed a deal to deploy its models on classified Pentagon networks, effectively becoming the de facto standard for US government AI. Meanwhile, Anthropic is being formally designated by the Department of Defense as a "supply-chain risk," locking it out of government contracts. The irony is sharp: Anthropic took explicit safety-first positions that OpenAI didn't, yet the government treats *Anthropic* as the threat. This is the first visible fork in the road — OpenAI betting on enterprise + government consolidation, Anthropic shut out of the most lucrative customer.
+Today marks a structural pivot in how AI gets deployed and controlled. OpenAI just announced a $110B funding round (SoftBank $30B, NVIDIA $30B, Amazon $50B) and simultaneously disclosed a Pentagon agreement, positioning itself as the enterprise/defense AI vendor. Anthropic took the opposite route—publicly refusing Pentagon cooperation—which unexpectedly vaulted Claude to #2 in the App Store as users interpreted the stance as principled. This isn't just PR theater: it reveals genuine divergence in how the two companies see their future (Anthropic: consumer/independent developers; OpenAI: government+enterprise+cloud infrastructure).
 
-Meanwhile, practitioners are asking harder questions about whether any of this actually works. A post questioning whether AI coding delivers ROI is climbing Hacker News. Security researchers are warning that AI agents can't be trusted without extreme sandboxing — OpenClaw has 800K lines of code and 70+ dependencies, creating an unsustainable attack surface. Google is silently banning Gemini users at scale with no explanation, users are losing access, and the fear is cascade damage (lose Gemini, lose your Google account). In contrast, Unsloth just released Dynamic 2.0 enabling 200k-context local inference on consumer GPUs at 60+ tokens/sec. The undercurrent: we're entering **regulatory fragmentation**. India blocked Supabase, the US fractured on AI (OpenAI wins, Anthropic loses, local models accelerate), and the era of "everyone uses the same model from one company" is visibly ending.
+Meanwhile, the actual technical landscape is shifting faster than the business drama. Qwen3.5 locally (on an M-series MacBook) now matches Claude Sonnet 4.5 performance, and Claude Code's latest MCP optimization cuts context output by 98%—reducing the infrastructure tax of agent-based coding. Both moves matter for the same reason: they redistribute power away from cloud monopolies toward developers. And underneath all this, there's an existential conversation (threads #5 and #8) about whether coding agents automate away programmer skill or just change what skill means—with real discomfort from people who learned to code the hard way.
 
 ## Key Stories
 
-### OpenAI Lands $110B Funding + Pentagon Deployment Deal
-- **Source**: [OpenAI — Scaling AI for everyone](https://openai.com/index/scaling-ai-for-everyone) | [OpenAI — Amazon Partnership](https://openai.com/index/amazon-partnership)
-- **Why it matters**: This is a watershed. The $110B round at a $730B pre-money valuation is capital, but the Pentagon deal is the crown jewel — government-backed de facto standardization. OpenAI becomes the official AI platform for classified US networks. This isn't a product win, it's a structural lock-in.
-- **HN sentiment**: Mixed worry and pragmatism. Some users canceling subscriptions ("voting with my wallet") over Pentagon entanglement. Others accepting inevitability: "the government will standardize on someone, might as well be the company that's ahead." One insightful take: if OpenAI had insisted on Anthropic's redlines, the Pentagon wouldn't have signed (implying OpenAI made concessions).
-- **Keywords**: openai $110B, pentagon ai deal, government standardization, softbank nvidia amazon, deepseek pressure, microsoft partnership
+### OpenAI Lands $110B Funding & Pentagon Deal
+- **Source**: [OpenAI announcements](https://openai.com/index/our-agreement-with-the-department-of-war) + [TechCrunch](https://techcrunch.com/2026/02/28/openais-sam-altman-announces-pentagon-deal-with-technical-safeguards/)
+- **Why it matters**: This is OpenAI securing both capital and government moat simultaneously. $110B at $730B pre-money valuation is legitimacy + runway. Pentagon deal signals defense contractors, intelligence agencies, and NATO allies will use OpenAI systems by default. Structurally locks in OpenAI's position as the "approved" AI vendor.
+- **HN sentiment**: Mixed wariness. Top comments parse the "all lawful purposes" language as dangerously loose—essentially allowing a government agency to define what's lawful. Users worried about military AI autonomy, though OpenAI claims guardrails exist.
+- **Keywords**: government AI, OpenAI funding, defense contracting, vendor lock-in, Pentagon deal
 
-### Anthropic Designated as Pentagon Supply-Chain Risk
-- **Source**: [TechCrunch — Pentagon moves to designate Anthropic](https://techcrunch.com/2026/02/27/pentagon-moves-to-designate-anthropic-as-a-supply-chain-risk/)
-- **Why it matters**: Asymmetric outcome: Anthropic took safety-first stances, OpenAI didn't. Government picks OpenAI. Trump administration is blunt: "We don't need it, we don't want it, and will not do business with them again." Anthropic is effectively locked out of the most lucrative contracts for the foreseeable future — not for capability reasons, but for political ones.
-- **HN sentiment**: Mostly anger at perceived targeting, some dark humor about how safety culture doesn't protect your market share. Defensive Anthropic supporters noting "maybe avoiding government entanglement is better anyway."
-- **Keywords**: anthropic blocked, pentagon policy, openai wins government, government ai contracts, policy risk, dario amodei
+### Anthropic's Claude Hits #2 App Store After Pentagon Refusal
+- **Source**: [TechCrunch](https://techcrunch.com/2026/02/28/anthropics-claude-rises-to-no-2-in-the-app-store-following-pentagon-dispute/)
+- **Why it matters**: Accidental brand win. By publicly refusing (or delaying) Pentagon work, Anthropic signaled alignment with independent developers and users skeptical of military AI. Claude climbing to #2 isn't because it's technically better than ChatGPT—it's because the *company's values* became a product differentiator. This matters for recruiting, for indie developer mind-share, and for the narrative that Anthropic builds AI for humans, not governments.
+- **HN sentiment**: Not in the feed yet, but context suggests satisfaction among developers who dislike OpenAI's military posture.
+- **Keywords**: Claude app, Anthropic ethics, Pentagon refusal, developer trust, app store rankings
 
-### Google Gemini Account Restrictions (Antigravity Ban Crisis)
-- **Source**: [GitHub — Addressing Antigravity Bans](https://github.com/google-gemini/gemini-cli/discussions/20632)
-- **Why it matters**: Users report account suspensions at scale with minimal explanation ("at least 16 days" of active complaints). The fear is cascade damage — lose Gemini access and risk your entire Google account (Gmail, Calendar, etc.). This exposes a critical platform vulnerability: Google can unilaterally revoke access with no appeal and collateral damage potential is existential.
-- **HN sentiment**: Anxious and practical. Top comments pivot to Windsurf ("no drama, excellent outputs, low cost") and the broader "why would you bet your workflow on Google?" One user: "digital death sentence" risk. The subtext is switching behavior — developers moving to alternatives.
-- **Keywords**: google gemini bans, account restrictions, google platform risk, windsurf alternative, platform lock-in, api reliability
+### Qwen3.5 Reaches Sonnet 4.5 Performance Locally
+- **Source**: [VentureBeat + HN](https://venturebeat.com/technology/alibabas-new-open-source-qwen3-5-medium-models-offer-sonnet-4-5-performance)
+- **Why it matters**: For a software engineer building agents, this is **transformative**. Running Qwen3.5-35B on an M3/M4 MacBook eliminates cloud API costs and latency. The parity claim is aggressive (HN commenters skeptical), but even if 80% accurate, this reshapes the economics: you no longer *need* Claude API or Gemini API for high-quality code generation. Open models + local inference = independence from cloud vendors.
+- **HN sentiment**: Skeptical. Comments note that benchmarks don't equal real-world usability, and previous "Sonnet parity" claims haven't held up. One user reported Opus/Gemini still outperform on their specific research question. But the direction is real.
+- **Keywords**: local LLMs, Qwen3.5, model parity, offline inference, MacBook AI, open source models
 
-### Don't Trust AI Agents (OpenClaw Security Audit)
-- **Source**: [Hacker News — Don't trust AI agents](https://nanoclaw.dev/blog/nanoclaw-security-model)
-- **Why it matters**: Audit of OpenClaw reveals 800K lines of code, 70+ dependencies, 53 config files — way too much surface to audit. The implication: giving an AI agent broad permissions is inherently dangerous because *the agent itself* is a supply-chain risk. This cuts directly against the "autonomous agents will do real work" hype. You can't trust code you don't understand.
-- **HN sentiment**: Thoughtful and guardrail-focused. Most upvoted take: "agents should only do recoverable actions by default — sandbox heavily, whitelist domains, time-box execution." Skeptics won't trust any agent with email or platform control, even if the agent's logic is "correct."
-- **Keywords**: agent security, agent safety, agent guardrails, open source risk, sandboxing, autonomous agents, supply chain
+### Stop Burning Your Context Window: MCP Output Optimization
+- **Source**: [mksg.lu](https://mksg.lu/blog/context-mode) + [HN discussion](https://news.ycombinator.com/item?id=47148025)
+- **Why it matters**: Claude Code developers get real. If you're spawning agents with 80+ MCP tools (git, file ops, web search, etc.), raw output floods your 200K context window fast. This project isolates MCP tool output into separate contexts, reducing token waste by 98%. For someone building coding agents at scale, this is a playbook for keeping context efficient. Directly applicable.
+- **HN sentiment**: Enthusiastic from MCP-heavy developers. Meta comment: "why do you need 80+ tools anyway?"—valid, but the optimization works regardless. Suggestions that subagents (like what Claude Code does) are already the answer.
+- **Keywords**: MCP, context window, token efficiency, Claude Code, agent infrastructure
 
-### What AI Coding Actually Costs You
-- **Source**: [TomWojcik — Finding the right amount of AI](https://tomwojcik.com/posts/2026-02-15/finding-the-right-amount-of-ai/)
-- **Why it matters**: The question nobody's been honest about: does AI make you *faster* or just feel faster? Post pushes back on the "90% of code written by AI in 6 months" prediction from March 2025 (Dario Amodei, which obviously didn't happen). Some developers report spending more time fixing AI code than they'd spend writing it manually. Others defend delegating boring work even if raw speed doesn't improve.
-- **HN sentiment**: Split across three camps. "I write all my code by hand" (ownership + skill mastery). "Skill atrophy is fine if it's not your core strength" (pragmatism). "Claude works great on novel problems but the article's graphs don't match my experience" (nuance). The consensus: "90% of code in 6 months" hype was always nonsense.
-- **Keywords**: claude productivity, ai coding benefits, code quality, developer workflow, skill atrophy, productivity myth
+### "747s and Coding Agents": The Pilot Analogy Debate
+- **Source**: [carlkolon.com](https://carlkolon.com/2026/02/27/engineering-747-coding-agents/) + [HN discussion](https://news.ycombinator.com/item?id=47148025)
+- **Why it matters**: This is the emotional/philosophical core of today's digest. Author argues that pilots train constantly on simulators *precisely because* autopilot exists—and we have no equivalent mandate for programmers. The implication: coding agents let you cruise on autopilot, atrophy your piloting skills, crash when you need to take over. HN commenters split between "yes, I'm losing the ability to code manually" and "no, agents change what mastery means." For an AI coding agent builder, this is the tension defining your industry right now.
+- **HN sentiment**: Personal, torn. Several comments from experienced engineers saying agents make them more *productive* but *worse at their job*. Younger commenters worried about learning programming in an agent-first world. The pilot analogy resonates.
+- **Keywords**: coding agents, skill erosion, autopilot metaphor, programmer training, career concerns
 
-### Unsloth Dynamic 2.0 — Local Models Accelerating
-- **Source**: [Unsloth — Dynamic 2.0 GGUFs](https://unsloth.ai/docs/basics/unsloth-dynamic-2.0-ggufs)
-- **Why it matters**: Qwen3.5 35B running at 200k context / 62 tokens-per-second on RTX5080 16GB (consumer hardware). This is the open-source response to $110B mega-rounds. You can now run frontier-adjacent models locally, privately, no per-token fees. The GGUF ecosystem is maturing. Won't replace Claude/GPT for professional work, but it's a credible alternative for meaningful use cases.
-- **HN sentiment**: Enthusiastic and appreciative. Users asking about vllm compatibility and real-world performance trade-offs (Q3 120B vs smaller Q4 models). Subtext: "Unsloth is doing more per-dollar innovation than the mega-funded companies."
-- **Keywords**: unsloth gguf, qwen local models, open source ai, private inference, model quantization, locally run llms
+### The Eternal Promise: Attempts to Eliminate Programmers (Historical)
+- **Source**: [ivanturkovic.com](https://www.ivanturkovic.com/2026/01/22/history-software-simplification-cobol-ai-hype/) + [HN discussion](https://news.ycombinator.com/item?id=47148025)
+- **Why it matters**: Context for the 747 debate. This piece catalogs 50 years of "programmers will be unnecessary soon" predictions (COBOL, 4GLs, no-code platforms, now LLMs). None eliminated programmers; they changed what "programmer" means. The real insight: democratization (spreadsheets, no-code) created *more* code, not less—and still needed skilled folks to guide the automation. Suggests current "will agents replace programmers" panic follows a script we've seen before.
+- **HN sentiment**: Interested, measured. Top comment highlights a 1982 book titled "Application Development Without Programmers" with prescient resignation: "the winds of change are sometimes irreversible." Spreadsheet formulas are a sleeper hit—millions of people coding without knowing it, often badly.
+- **Keywords**: programmer displacement, AI hype history, automation paradox, skill evolution, democratization
 
-### The Eternal Promise: Programmers Can Be Eliminated (Spoiler: No)
-- **Source**: [Hacker News — The Eternal Promise](https://www.ivanturkovic.com/2026/01/22/history-software-simplification-cobol-ai-hype/)
-- **Why it matters**: 60-year pattern exposed: 1960s COBOL promised to eliminate programmers. 1980s 4GLs promised the same. 2010s Salesforce/Zapier promised the same. 2024 Claude predicts same. The actual pattern: each tool *expands* what's possible, requiring *more* engineers, not fewer. Spreadsheet non-programmer adoption is proof — it created new categories of bugs, not job elimination. The hype keeps overshooting because capability expansion *looks like* automation.
-- **HN sentiment**: Vindicated and reflective. Split between "engineers are overhead until business needs to ship" and "software engineering is about domain exploration and tradeoff definition." One user noted: LLMs are actually *more* centralized than before (owned by big companies, impossible for individuals to train), so "democratization" is ironic.
-- **Keywords**: ai hype cycle, programmer displacement myth, dario amodei 90 percent, software engineering value, ai capabilities
-
-### OpenAI Fires Employee for Insider Trading
-- **Source**: [TechCrunch — OpenAI insider trading](https://techcrunch.com/2026/02/27/openai-fires-employee-for-using-confidential-info-on-prediction-markets/) | [Wired — OpenAI prediction market](https://www.wired.com/story/openai-fires-employee-insider-trading-polymarket-kalshi/)
-- **Why it matters**: Company discovered 77 suspicious positions across 60 wallets, 13 accounts created 40 hours before a major launch. Employee used confidential info (Browser launch timing, capability dates) to trade on Polymarket and Kalshi. First confirmed case of a major tech company firing for prediction market insider trading. Exposes structural problem: prediction markets can't police insider trading like stock markets can, so they attract exactly this behavior.
-- **HN sentiment**: Wry and dark. One comment: "This person obviously hid activity with new crypto accounts. Makes you think if you could inject malicious code into a popular npm package..." The subtext: everyone knows this is happening at scale but only catch the careless ones.
-- **Keywords**: insider trading, polymarket, prediction markets, kalshi, confidential information, crypto wallets
-
-### India Blocks Supabase (Developer Platform Disruption)
-- **Source**: [TechCrunch — India disrupts Supabase](https://techcrunch.com/2026/02/27/india-disrupts-access-to-popular-developer-platform-supabase-with-blocking-order/)
-- **Why it matters**: Supabase is one of the largest Postgres-as-a-service platforms; India is one of its biggest markets. Government block order creates "patchy access" — not a total blackout but functional disruption. This is regulatory fragmentation in action. Developers in India face reduced reliability, incentivizing migration to local alternatives or self-hosted solutions.
-- **HN sentiment**: Practical and frustrated. Immediate reaction: "time to migrate to local alternatives or self-hosted." The meta-question: will every developer platform need a regional fork eventually?
-- **Keywords**: supabase india block, platform disruption, regulatory fragmentation, backend-as-service, india policy
-
-### China's Humanoid Robot Industry Winning Early Market
-- **Source**: [TechCrunch — China humanoid robots](https://techcrunch.com/2026/02/28/why-chinas-humanoid-robot-industry-is-winning-the-early-market/)
-- **Why it matters**: Chinese firms shipping more humanoid units and iterating faster than US competitors. Matters for AI builders because robotics + AI converge — whoever ships first gets data, feedback loops, market traction. The pattern: US plans for 5 years, China ships and learns. This applies to AI, chips, and now robotics.
-- **HN sentiment**: Competitive acknowledgment. The takeaway: "by the time US companies finish planning, Chinese competitors already have 3 product cycles of real-world learning."
-- **Keywords**: china robots, humanoid robotics, manufacturing speed, product iteration, china vs us
+### Google Gemini Access Restrictions Frustrate Developers
+- **Source**: [github.com/google-gemini/gemini-cli #20632](https://github.com/google-gemini/gemini-cli/discussions/20632)
+- **Why it matters**: Google's Gemini bans people for "antigravity" queries (vague rule enforcement), users lose access, auto-unban doesn't fix it, banned again mysteriously. The sentiment: don't tie your primary account (Gmail, workspace) to a service that can revoke you with no transparency. Mirrors Anthropic's implicit promise: we won't randomly lock you out. Relevant to your infrastructure choices if you're building agent stacks—which cloud vendor won't abandon you?
+- **HN sentiment**: Frustrated. Comments about digital death sentences, desire for token-based subscriptions (use what you buy, stop pretending we have quotas), criticism of vague policies. A few defenses of Google's caution around misuse.
+- **Keywords**: Gemini bans, API access, developer trust, content policy, account security
 
 ## Themes & Tensions
 
-**1. Government Consolidation vs. Open-Source Resilience**  
-OpenAI just won the entire US government as a customer, which should be total victory. Yet Unsloth proves local open-source models run competitively on consumer hardware. Tension: centralization offers polish and support (and $110B), but decentralization offers privacy and resilience. Both paths accelerating simultaneously.
+**1. Centralization vs. Decentralization**
+OpenAI is consolidating (government deals, massive capital, cloud-first). Anthropic and open-source projects (Qwen, local inference) are betting on independence. The developer tooling reflects this: context optimization, local models, and open ecosystems vs. proprietary cloud APIs. You'll see this play out in which agents developers choose to build on.
 
-**2. Safety Stance as a Liability**  
-Anthropic took safety-first positions explicitly. OpenAI took pragmatic stances. Result: OpenAI gets $110B + Pentagon, Anthropic gets "supply-chain risk" designation. The uncomfortable question: in government-led AI races, does safety culture actually *hurt* your chances? If yes, the incentive structure is backwards.
+**2. Capability vs. Control**
+OpenAI: "We can handle defense use cases, trust us (legally)." Anthropic: "We won't take defense contracts, that's our red line." Google: "We'll ban you if we think you're abusing." This is playing out in real time, and developers are watching which vendor to trust.
 
-**3. Platform Dependency Risks Are Now Existential**  
-Google bans Gemini accounts with no appeal. India blocks Supabase. Agents can escape sandboxes. These aren't hypotheticals — they're happening this week. Response is fragmentation: developers moving to Windsurf, local models, self-hosted alternatives. Monoculture is visibly failing as a strategy.
+**3. Programmer as Autopilot vs. Programmer as Pilot**
+The 747 analogy cuts deep. If agents become reliable enough, does a programmer become someone who sets the autopilot and monitors the dashboard? Or do they atrophy? The historical data (COBOL → 4GLs → no-code) suggests the former, but the emotional reality (from HN comments) is genuine anxiety. For agent builders, this is your user's internal conflict.
 
-**4. Hype Cycles Keep Overshooting, But the Pattern Is Predictable**  
-Every 18 months someone predicts AI will eliminate programming. It never does. What actually happens: tools expand what's possible, requiring *more* engineers in new specialties (prompt engineering, agent safety, fine-tuning). The "enabler vs. builder" ratio shifts, but total demand keeps rising. The hype exhausts, but the underlying pattern (capability expansion → new specialties → more demand) is reliable.
+**4. Performance Parity Breaks Vendor Lock**
+When Qwen locally matches Sonnet, the calculus changes. APIs were valuable because they were better. If open models close that gap, you're choosing vendors on trust, privacy, and UX—not capability. This destabilizes OpenAI's moat.
 
 ## Context for Replies
 
-**"OpenAI just raised $110B and is now unstoppable"** — They're reacting to the valuation and coalition backing. Key context: this isn't just capital, it's a government-backed pick. The Pentagon deal (deploying on classified networks) is the strategic anchor — that's what makes this round dominant. Counter-narrative ready: Anthropic was explicitly excluded, suggesting government picks on relationship, not pure capability.
+- **"I'm concerned about OpenAI and the Pentagon"**: They just announced a deal with "technical safeguards" but HN notes the language is loose ("all lawful purposes" with a government that sets its own laws). Meanwhile, Anthropic's refusal positioned them as the ethical alternative—and it actually worked (Claude #2 App Store).
 
-**"Anthropic getting blocked from government contracts is unfair"** — They're angry about perceived political targeting. Key context: Anthropic explicitly said "we won't take Pentagon contracts unless conditions X, Y, Z," so the Pentagon responded "fine, OpenAI will do it." This isn't a safety victory — it's a market loss. The uncomfortable implication: government AI contracts may reward pragmatism over safety-first stances.
+- **"Local models are finally competitive"**: Qwen3.5-35B is matching Sonnet 4.5 on M-series Macs—though HN skeptics note benchmarks don't always translate to real-world results. Still, the trajectory matters: if you're building agent infra, local inference is becoming viable.
 
-**"I got banned from Gemini with no explanation"** — They're describing account lockouts and uncertainty about permanence. Key context: users are losing access with minimal transparency, and the fear is collateral damage (lose Gemini → lose Gmail). This has driven visible migration to Windsurf and alternatives. Subtext: Google's platform control is now a liability.
+- **"Are coding agents killing programmer skills?"**: This is *the* debate right now. The 747 analogy (pilots train constantly *because* autopilot exists) resonates, but history (COBOL, 4GLs, spreadsheets) suggests automation changes roles, doesn't eliminate them. Experienced engineers report feeling more productive but worse at manual coding—a real tension.
 
-**"AI agents are dangerous and untrustworthy"** — They're referencing the OpenClaw audit or broader safety sentiment. Key context: the concern isn't agent *intelligence*, it's that 800K lines of code and 70+ dependencies is itself an unsustainable attack surface. Even a "correct" agent running on unsafe code is unsafe. Practical response: extreme sandboxing (whitelisted domains, read-only access, time limits, separate credentials).
+- **"Google's Gemini bans are out of control"**: Vague policies, mysterious bans, auto-unbans that don't stick, users losing Gmail access. The lesson: don't tie your critical infrastructure to a vendor with opaque enforcement. Anthropic and open-source models look safer.
 
-**"AI will write 90% of code soon"** — They're either repeating Dario Amodei's March 2025 prediction (which didn't happen) or pushing back. Key context: hype keeps overshooting because tools that expand capability *look like* automation but actually expand the design space. Spreadsheet adoption didn't eliminate non-programmer jobs; it created new error categories.
+- **"Context windows are a bottleneck"**: Claude Code's MCP optimization (98% reduction) shows you can shave context waste significantly with isolation. Subagents already do this; the architecture matters for scaling agents.
 
-**"Local models are finally competitive"** — They're excited about Qwen3.5 at 200k context on consumer GPUs. Key context: this is the open-source response to mega-funding. You don't need $110B to run 35B-param models. Trade-offs: less polish, fewer features, smaller training budget. But privacy, ownership, cost all better.
-
-**"Developer platforms are getting blocked/restricted everywhere"** — They're describing Supabase in India or Gemini bans as part of a pattern. Key context: when one platform becomes unreliable (government action, account bans, rate limits), developers migrate to alternatives. Supabase's India block isn't isolated — it's regulatory fragmentation. Business implication: regional forks and self-hosted solutions are becoming table stakes for platform credibility.
-
-**"China is shipping robots faster than the US"** — They're pointing to manufacturing/iteration speed. Key context: Chinese firms already shipping humanoid units while US firms are in design phase. This pattern (China ships and iterates, US plans) repeats in AI and chips. With robotics + AI converging, whoever ships first gets data moats and real-world learning.
+- **"What's the Pentagon deal really about?"**: Structural moat. $110B funding + government as anchor customer = OpenAI becomes the approved vendor for defense, NATO, and enterprise. Anthropic's refusal signals they're betting on indie developers and consumer trust instead.
