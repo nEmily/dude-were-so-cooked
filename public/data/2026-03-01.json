@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-01T15:30:06.262Z",
+  "generatedAt": "2026-03-01T23:30:01.845Z",
   "date": "Sunday, March 1, 2026",
   "dateKey": "2026-03-01",
   "storyCount": 18,
@@ -10,33 +10,33 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 1",
-      "headline": "AI Made Writing Code Easier. It Made Being an Engineer Harder",
-      "summary": "134 points · 89 comments on HN",
-      "url": "https://www.ivanturkovic.com/2026/02/25/ai-made-writing-code-easier-engineering-harder/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47206824",
-      "score": 134,
+      "headline": "WebMCP is available for early preview",
+      "summary": "30 points · 18 comments on HN",
+      "url": "https://developer.chrome.com/blog/webmcp-epp",
+      "hnUrl": "https://news.ycombinator.com/item?id=47211249",
+      "score": 30,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 1",
-      "headline": "AI is making junior devs useless",
-      "summary": "34 points · 19 comments on HN",
-      "url": "https://beabetterdev.com/2026/03/01/ai-is-making-junior-devs-useless/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47206663",
-      "score": 34,
+      "headline": "Decision trees – the unreasonable power of nested decision rules",
+      "summary": "373 points · 65 comments on HN",
+      "url": "https://mlu-explain.github.io/decision-tree/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47204964",
+      "score": 373,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 28",
-      "headline": "Microgpt",
-      "summary": "1253 points · 219 comments on HN",
-      "url": "http://karpathy.github.io/2026/02/12/microgpt/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47202708",
-      "score": 1253,
+      "time": "Mar 1",
+      "headline": "Microgpt explained interactively",
+      "summary": "154 points · 19 comments on HN",
+      "url": "https://growingswe.com/blog/microgpt",
+      "hnUrl": "https://news.ycombinator.com/item?id=47205208",
+      "score": 154,
       "type": "hn"
     },
     {
@@ -51,12 +51,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 1",
-      "headline": "I built a demo of what AI chat will look like when it's \"free\" and ad-supported",
-      "summary": "203 points · 129 comments on HN",
-      "url": "https://99helpers.com/tools/ad-supported-chat",
-      "hnUrl": "https://news.ycombinator.com/item?id=47205890",
-      "score": 203,
+      "time": "Feb 25",
+      "headline": "Python Type Checker Comparison: Empty Container Inference",
+      "summary": "50 points · 30 comments on HN",
+      "url": "https://pyrefly.org/blog/container-inference-comparison/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47151367",
+      "score": 50,
       "type": "hn"
     },
     {
@@ -72,11 +72,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 1",
-      "headline": "Decision trees – the unreasonable power of nested decision rules",
-      "summary": "218 points · 35 comments on HN",
-      "url": "https://mlu-explain.github.io/decision-tree/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47204964",
-      "score": 218,
+      "headline": "Why XML tags are so fundamental to Claude",
+      "summary": "143 points · 98 comments on HN",
+      "url": "https://glthr.com/XML-fundamental-to-Claude",
+      "hnUrl": "https://news.ycombinator.com/item?id=47207236",
+      "score": 143,
       "type": "hn"
     },
     {
@@ -92,11 +92,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 1",
-      "headline": "Why XML Tags Are So Fundamental to Claude",
-      "summary": "9 points · 1 comments on HN",
-      "url": "https://glthr.com/XML-fundamental-to-Claude",
-      "hnUrl": "https://news.ycombinator.com/item?id=47207236",
-      "score": 9,
+      "headline": "How the Government Deceived Congress in the Debate over Surveillance Powers (2013)",
+      "summary": "55 points · 4 comments on HN",
+      "url": "https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived",
+      "hnUrl": "https://news.ycombinator.com/item?id=47210572",
+      "score": 55,
       "type": "hn"
     },
     {
@@ -111,12 +111,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Feb 26",
-      "headline": "Interview with Øyvind Kolås, GIMP developer (2017)",
-      "summary": "46 points · 8 comments on HN",
-      "url": "https://www.gimp.org/news/2026/02/22/%C3%B8yvind-kol%C3%A5s-interview-ww2017/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47168405",
-      "score": 46,
+      "time": "Feb 28",
+      "headline": "Microgpt",
+      "summary": "1648 points · 288 comments on HN",
+      "url": "http://karpathy.github.io/2026/02/12/microgpt/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47202708",
+      "score": 1648,
       "type": "hn"
     },
     {
@@ -131,13 +131,49 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 1",
-      "headline": "Ape Coding",
-      "summary": "14 points · 5 comments on HN",
-      "url": "https://rsaksida.com/blog/ape-coding/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47206798",
-      "score": 14,
+      "time": "Feb 26",
+      "headline": "Interview with Øyvind Kolås, GIMP developer (2017)",
+      "summary": "116 points · 48 comments on HN",
+      "url": "https://www.gimp.org/news/2026/02/22/%C3%B8yvind-kol%C3%A5s-interview-ww2017/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47168405",
+      "score": 116,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 1",
+      "headline": "Google looks to tackle longstanding RCS spam in India — but not alone",
+      "summary": "Google is integrating carrier-level filtering into RCS in India through a partnership with Airtel to strengthen protections against spam.",
+      "url": "https://techcrunch.com/2026/03/01/google-looks-to-tackle-longstanding-rcs-spam-in-india-but-not-alone/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 1",
+      "headline": "Investors spill what they aren&#8217;t looking for anymore in AI SaaS companies",
+      "summary": "TechCrunch spoke with VCs to learn what investors aren't looking for in AI SaaS startups anymore.",
+      "url": "https://techcrunch.com/2026/03/01/investors-spill-what-they-arent-looking-for-anymore-in-ai-saas-companies/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 1",
+      "headline": "OpenAI reveals more details about its agreement with the Pentagon",
+      "summary": "By CEO Sam Altman’s own admission, OpenAI’s deal with the Department of Defense was “definitely rushed,” and “the optics don’t look good.”",
+      "url": "https://techcrunch.com/2026/03/01/openai-shares-more-details-about-its-agreement-with-the-pentagon/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 1",
+      "headline": "Honor says its &#8216;Robot phone&#8217; with moving camera can dance to music",
+      "summary": "Honor first teased its &#8220;Robot phone&#8221; with a movable camera arm earlier this year. Ahead of the Mobile World Congress (MWC) in Barcelona, the Chinese company provided more details about the",
+      "url": "https://techcrunch.com/2026/03/01/honor-says-its-robot-phone-with-moving-camera-can-dance-to-music/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -146,42 +182,6 @@
       "headline": "Anthropic’s Claude rises to No. 1 in the App Store following Pentagon dispute",
       "summary": "Anthropic’s chatbot Claude seems to have benefited from the attention around the company’s fraught negotiations with the Pentagon.",
       "url": "https://techcrunch.com/2026/03/01/anthropics-claude-rises-to-no-2-in-the-app-store-following-pentagon-dispute/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 28",
-      "headline": "The trap Anthropic built for itself",
-      "summary": "Anthropic, OpenAI, Google DeepMind and others have long promised to govern themselves responsibly. Now, in the absence of rules, there's not a lot to protect them.",
-      "url": "https://techcrunch.com/2026/02/28/the-trap-anthropic-built-for-itself/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 28",
-      "headline": "The billion-dollar infrastructure deals powering the AI boom",
-      "summary": "Here's everything we know about the biggest AI infrastructure projects, including major spending from Meta, Oracle, Microsoft, Google, and OpenAI.",
-      "url": "https://techcrunch.com/2026/02/28/billion-dollar-infrastructure-deals-ai-boom-data-centers-openai-oracle-nvidia-microsoft-google-meta/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 28",
-      "headline": "OpenAI’s Sam Altman announces Pentagon deal with ‘technical safeguards’",
-      "summary": "OpenAI's CEO claims its new defense contract includes protections addressing the same issues that became a flashpoint for Anthropic.",
-      "url": "https://techcrunch.com/2026/02/28/openais-sam-altman-announces-pentagon-deal-with-technical-safeguards/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Feb 28",
-      "headline": "Xiaomi launches 17 Ultra smartphone, an AirTag clone, and an ultra slim powerbank",
-      "summary": "We round up everything Xiaomi announced at its Mobile World Congress event.",
-      "url": "https://techcrunch.com/2026/02/28/xiaomi-launches-17-ultra-smartphone-an-airtag-clone-and-an-ultra-slim-powerbank/",
       "type": "rss"
     }
   ]
