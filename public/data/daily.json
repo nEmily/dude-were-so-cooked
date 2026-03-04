@@ -1,9 +1,144 @@
 {
-  "generatedAt": "2026-03-04T15:30:11.686Z",
+  "generatedAt": "2026-03-04T23:30:02.333Z",
   "date": "Wednesday, March 4, 2026",
   "dateKey": "2026-03-04",
-  "storyCount": 0,
-  "hnCount": 0,
-  "rssCount": 0,
-  "stories": []
+  "storyCount": 14,
+  "hnCount": 4,
+  "rssCount": 10,
+  "stories": [
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 4",
+      "headline": "BMW Group to deploy humanoid robots in production in Germany for the first time",
+      "summary": "37 points · 28 comments on HN",
+      "url": "https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en",
+      "hnUrl": "https://news.ycombinator.com/item?id=47253892",
+      "score": 37,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 4",
+      "headline": "NanoGPT Slowrun: Language Modeling with Limited Data, Infinite Compute",
+      "summary": "101 points · 13 comments on HN",
+      "url": "https://qlabs.sh/slowrun",
+      "hnUrl": "https://news.ycombinator.com/item?id=47251259",
+      "score": 101,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 4",
+      "headline": "Roboflow (YC S20) Is Hiring a Security Engineer for AI Infra",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://roboflow.com/careers",
+      "hnUrl": "https://news.ycombinator.com/item?id=47251163",
+      "score": 1,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 4",
+      "headline": "Extending single-minus amplitudes to gravitons",
+      "summary": "A new preprint extends single-minus amplitudes to gravitons, with GPT-5.2 Pro helping derive and verify nonzero graviton tree amplitudes in quantum gravity.",
+      "url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 4",
+      "headline": "Qwen3.5 Fine-Tuning Guide – Unsloth Documentation",
+      "summary": "242 points · 60 comments on HN",
+      "url": "https://unsloth.ai/docs/models/qwen3.5/fine-tune",
+      "hnUrl": "https://news.ycombinator.com/item?id=47246296",
+      "score": 242,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 3",
+      "headline": "Understanding AI and learning outcomes",
+      "summary": "OpenAI introduces the Learning Outcomes Measurement Suite to assess AI’s impact on student learning across diverse educational environments over time.",
+      "url": "https://openai.com/index/understanding-ai-and-learning-outcomes",
+      "type": "rss"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 3",
+      "headline": "How Axios uses AI to help deliver high-impact local journalism",
+      "summary": "Axios COO Allison Murphy explains how the company uses AI to support local reporters, streamline newsroom workflows, and deliver high-impact local journalism at scale.",
+      "url": "https://openai.com/index/axios-allison-murphy",
+      "type": "rss"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 3",
+      "headline": "GPT-5.3 Instant System Card",
+      "summary": null,
+      "url": "https://openai.com/index/gpt-5-3-instant-system-card",
+      "type": "rss"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 3",
+      "headline": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
+      "summary": null,
+      "url": "https://openai.com/index/gpt-5-3-instant",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 4",
+      "headline": "Anthropic CEO Dario Amodei calls OpenAI&#8217;s messaging around military deal &#8216;straight up lies,&#8217; report says",
+      "summary": "Anthropic gave up its contract with the Pentagon over AI safety disagreements -- then, OpenAI swooped in.",
+      "url": "https://techcrunch.com/2026/03/04/anthropic-ceo-dario-amodei-calls-openais-messaging-around-military-deal-straight-up-lies-report-says/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 4",
+      "headline": "Apple Music to add Transparency Tags to distinguish AI music, says report",
+      "summary": "The label or distributor has to opt in to tagging their music as AI, so it's unclear how effective this intervention will be.",
+      "url": "https://techcrunch.com/2026/03/04/apple-music-to-add-transparency-tags-to-distinguish-ai-music-says-report/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 4",
+      "headline": "US and EU police shut down LeakBase, a site accused of sharing stolen passwords and hacking tools",
+      "summary": "Authorities say LeakBase was \"one of the world’s largest online forums for cybercriminals,\" and maintained an archive of hacked databases containing hundreds of millions of passwords.",
+      "url": "https://techcrunch.com/2026/03/04/u-s-and-eu-police-shut-down-leakbase-a-site-accused-of-sharing-stolen-passwords-and-hacking-tools/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 4",
+      "headline": "Google Search rolls out Gemini&#8217;s Canvas in AI Mode to all US users",
+      "summary": "Canvas in AI Mode is available to U.S. users in English for creating plans, projects, apps, and more.",
+      "url": "https://techcrunch.com/2026/03/04/https-techcrunch-com-2026-03-04-google-search-rolls-out-geminis-canvas-in-ai-mode-to-all-us-users/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 4",
+      "headline": "Decagon completes first tender offer at $4.5B valuation",
+      "summary": "The AI-powered customer support startup is the latest example of a fast-growing, young company that's providing employee liquidity.",
+      "url": "https://techcrunch.com/2026/03/04/decagon-completes-first-tender-offer-at-4-5b-valuation/",
+      "type": "rss"
+    }
+  ]
 }
