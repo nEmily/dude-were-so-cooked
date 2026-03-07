@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-07T15:30:02.389Z",
+  "generatedAt": "2026-03-07T23:30:02.720Z",
   "date": "Saturday, March 7, 2026",
   "dateKey": "2026-03-07",
   "storyCount": 18,
@@ -9,34 +9,54 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 6",
-      "headline": "Tell HN: I'm 60 years old. Claude Code has re-ignited a passion",
-      "summary": "743 points · 630 comments on HN",
-      "url": "https://news.ycombinator.com/item?id=47282777",
-      "hnUrl": "https://news.ycombinator.com/item?id=47282777",
-      "score": 743,
-      "type": "hn"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 5",
-      "headline": "Self-Portrait by Ernst Mach (1886)",
-      "summary": "23 points · 1 comments on HN",
-      "url": "https://publicdomainreview.org/collection/self-portrait-by-ernst-mach-1886/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47268838",
-      "score": 23,
+      "time": "Mar 7",
+      "headline": "A decade of Docker containers",
+      "summary": "207 points · 143 comments on HN",
+      "url": "https://cacm.acm.org/research/a-decade-of-docker-containers/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47289311",
+      "score": 207,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 7",
-      "headline": "Uploading Pirated Books via BitTorrent Qualifies as Fair Use, Meta Argues",
-      "summary": "188 points · 112 comments on HN",
-      "url": "https://torrentfreak.com/uploading-pirated-books-via-bittorrent-qualifies-as-fair-use-meta/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47285960",
-      "score": 188,
+      "headline": "LLM Writing Tropes.md",
+      "summary": "27 points · 8 comments on HN",
+      "url": "https://tropes.fyi/tropes-md",
+      "hnUrl": "https://news.ycombinator.com/item?id=47291513",
+      "score": 27,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 4",
+      "headline": "In 1985 Maxell built a bunch of life-size robots for its bad floppy ad",
+      "summary": "41 points · 3 comments on HN",
+      "url": "https://buttondown.com/suchbadtechads/archive/maxell-life-size-robots/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47247644",
+      "score": 41,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 6",
+      "headline": "How Descript enables multilingual video dubbing at scale",
+      "summary": "Descript uses OpenAI models to scale multilingual video dubbing, optimizing translations for both meaning and timing so dubbed speech sounds natural across languages.",
+      "url": "https://openai.com/index/descript",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 7",
+      "headline": "Ask HN: Would you use a job board where every listing is verified?",
+      "summary": "13 points · 24 comments on HN",
+      "url": "https://news.ycombinator.com/item?id=47291699",
+      "hnUrl": "https://news.ycombinator.com/item?id=47291699",
+      "score": 13,
       "type": "hn"
     },
     {
@@ -52,31 +72,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 7",
-      "headline": "US economy sheds 92,000 jobs in February in sharp slide",
-      "summary": "143 points · 37 comments on HN",
-      "url": "https://www.ft.com/content/6542bd0c-59ca-493b-ab5d-2d69e4e00cae",
-      "hnUrl": "https://news.ycombinator.com/item?id=47286933",
-      "score": 143,
-      "type": "hn"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 6",
-      "headline": "How Descript enables multilingual video dubbing at scale",
-      "summary": "Descript uses OpenAI models to scale multilingual video dubbing, optimizing translations for both meaning and timing so dubbed speech sounds natural across languages.",
-      "url": "https://openai.com/index/descript",
-      "type": "rss"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 6",
-      "headline": "LLMs work best when the user defines their acceptance criteria first",
-      "summary": "318 points · 225 comments on HN",
-      "url": "https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code",
-      "hnUrl": "https://news.ycombinator.com/item?id=47283337",
-      "score": 318,
+      "headline": "Autoresearch: Agents researching on single-GPU nanochat training automatically",
+      "summary": "13 points · 3 comments on HN",
+      "url": "https://github.com/karpathy/autoresearch",
+      "hnUrl": "https://news.ycombinator.com/item?id=47291123",
+      "score": 13,
       "type": "hn"
     },
     {
@@ -91,32 +91,32 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 5",
-      "headline": "Migrating from Heroku to Magic Containers",
-      "summary": "13 points · 2 comments on HN",
-      "url": "https://bunny.net/blog/migrating-from-heroku-to-magic-containers/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47260712",
-      "score": 13,
+      "time": "Mar 7",
+      "headline": "SigNoz (YC W21, open source Datadog) Is Hiring across roles",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://signoz.io/careers",
+      "hnUrl": "https://news.ycombinator.com/item?id=47289357",
+      "score": 1,
       "type": "hn"
     },
     {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Mar 5",
-      "headline": "GPT-5.4 Thinking System Card",
-      "summary": null,
-      "url": "https://openai.com/index/gpt-5-4-thinking-system-card",
+      "headline": "Reasoning models struggle to control their chains of thought, and that’s good",
+      "summary": "OpenAI introduces CoT-Control and finds reasoning models struggle to control their chains of thought, reinforcing monitorability as an AI safety safeguard.",
+      "url": "https://openai.com/index/reasoning-models-chain-of-thought-controllability",
       "type": "rss"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 7",
-      "headline": "LLM Doesn't Write Correct Code. It Writes Plausible Code",
-      "summary": "7 points · 0 comments on HN",
-      "url": "https://twitter.com/KatanaLarp/status/2029928471632224486",
-      "hnUrl": "https://news.ycombinator.com/item?id=47288046",
-      "score": 7,
+      "time": "Mar 5",
+      "headline": "Self-Portrait by Ernst Mach (1886)",
+      "summary": "85 points · 15 comments on HN",
+      "url": "https://publicdomainreview.org/collection/self-portrait-by-ernst-mach-1886/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47268838",
+      "score": 85,
       "type": "hn"
     },
     {
@@ -131,13 +131,31 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 6",
-      "headline": "Sarvam 105B, the first competitive Indian open source LLM",
-      "summary": "125 points · 39 comments on HN",
-      "url": "https://www.sarvam.ai/blogs/sarvam-30b-105b",
-      "hnUrl": "https://news.ycombinator.com/item?id=47285422",
-      "score": 125,
+      "time": "Mar 7",
+      "headline": "Verification debt: the hidden cost of AI-generated code",
+      "summary": "68 points · 65 comments on HN",
+      "url": "https://fazy.medium.com/agentic-coding-ais-adolescence-b0d13452f981",
+      "hnUrl": "https://news.ycombinator.com/item?id=47289406",
+      "score": 68,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 7",
+      "headline": "OpenAI robotics lead Caitlin Kalinowski quits in response to Pentagon deal",
+      "summary": "Hardware executive Caitlin Kalinowski announced today that in response to OpenAI's controversial agreement with the Department of Defense, she’s resigned from her role leading the company's robotics t",
+      "url": "https://techcrunch.com/2026/03/07/openai-robotics-lead-caitlin-kalinowski-quits-in-response-to-pentagon-deal/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 7",
+      "headline": "OpenAI delays ChatGPT’s ‘adult mode’ again",
+      "summary": "The feature, which will give verified adult users access to erotica and other adult content, had already been delayed from December.",
+      "url": "https://techcrunch.com/2026/03/07/openai-delays-chatgpts-adult-mode-again/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -164,24 +182,6 @@
       "headline": "Microsoft, Google, Amazon say Anthropic Claude remains available to non-defense customers",
       "summary": "Trump's Department of War feud with Anthropic won't impact other companies that are using Claude via Microsoft and Google products.",
       "url": "https://techcrunch.com/2026/03/06/microsoft-anthropic-claude-remains-available-to-customers-except-the-defense-department/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 6",
-      "headline": "Anthropic&#8217;s Claude found 22 vulnerabilities in Firefox over two weeks",
-      "summary": "In a recent security partnership with Mozilla, Anthropic found 22 separate vulnerabilities in Firefox — 14 of them classified as \"high-severity.\"",
-      "url": "https://techcrunch.com/2026/03/06/anthropics-claude-found-22-vulnerabilities-in-firefox-over-two-weeks/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 6",
-      "headline": "Anthropic&#8217;s Pentagon deal is a cautionary tale for startups chasing federal contracts",
-      "summary": "The Pentagon has officially designated Anthropic a supply-chain risk after the two failed to agree on how much control the military should have over its AI models, including its use in autonomous weap",
-      "url": "https://techcrunch.com/video/anthropics-pentagon-deal-is-a-cautionary-tale-for-startups-chasing-federal-contracts/",
       "type": "rss"
     }
   ]
