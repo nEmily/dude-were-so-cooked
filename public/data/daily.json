@@ -1,42 +1,42 @@
 {
-  "generatedAt": "2026-03-08T15:30:01.832Z",
+  "generatedAt": "2026-03-08T23:30:01.910Z",
   "date": "Sunday, March 8, 2026",
   "dateKey": "2026-03-08",
-  "storyCount": 18,
-  "hnCount": 8,
+  "storyCount": 15,
+  "hnCount": 5,
   "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 8",
-      "headline": "SWE-CI: Evaluating Agent Capabilities in Maintaining Codebases via CI",
-      "summary": "90 points · 23 comments on HN",
-      "url": "https://arxiv.org/abs/2603.03823",
-      "hnUrl": "https://news.ycombinator.com/item?id=47295537",
-      "score": 90,
+      "headline": "Agent Safehouse – macOS-native sandboxing for local agents",
+      "summary": "196 points · 44 comments on HN",
+      "url": "https://agent-safehouse.dev/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47301085",
+      "score": 196,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 4",
-      "headline": "Rijksmuseum researchers discover new painting by Rembrandt van Rijn",
-      "summary": "84 points · 17 comments on HN",
-      "url": "https://www.rijksmuseum.nl/en/press/press-releases/rijksmuseum-researchers-discover-new-painting-by-rembrandt-van-rijn",
-      "hnUrl": "https://news.ycombinator.com/item?id=47249139",
-      "score": 84,
+      "time": "Mar 8",
+      "headline": "We should revisit literate programming in the agent era",
+      "summary": "87 points · 42 comments on HN",
+      "url": "https://silly.business/blog/we-should-revisit-literate-programming-in-the-agent-era/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47300747",
+      "score": 87,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 7",
-      "headline": "Cloud VM benchmarks 2026",
-      "summary": "286 points · 130 comments on HN",
-      "url": "https://devblog.ecuadors.net/cloud-vm-benchmarks-2026-performance-price-1i1m.html",
-      "hnUrl": "https://news.ycombinator.com/item?id=47293119",
-      "score": 286,
+      "time": "Mar 8",
+      "headline": "Show HN: I built a real-time OSINT dashboard pulling 15 live global feeds",
+      "summary": "137 points · 61 comments on HN",
+      "url": "https://github.com/BigBodyCobain/Shadowbroker",
+      "hnUrl": "https://news.ycombinator.com/item?id=47300102",
+      "score": 137,
       "type": "hn"
     },
     {
@@ -51,12 +51,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 7",
-      "headline": "How to run Qwen 3.5 locally",
-      "summary": "305 points · 90 comments on HN",
-      "url": "https://unsloth.ai/docs/models/qwen3.5",
-      "hnUrl": "https://news.ycombinator.com/item?id=47292522",
-      "score": 305,
+      "time": "Mar 8",
+      "headline": "Living human brain cells play DOOM on a CL1 [video]",
+      "summary": "124 points · 110 comments on HN",
+      "url": "https://www.youtube.com/watch?v=yRV8fSw6HaE",
+      "hnUrl": "https://news.ycombinator.com/item?id=47297919",
+      "score": 124,
       "type": "hn"
     },
     {
@@ -71,12 +71,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 7",
-      "headline": "Warn about PyPy being unmaintained",
-      "summary": "260 points · 132 comments on HN",
-      "url": "https://github.com/astral-sh/uv/pull/17643",
-      "hnUrl": "https://news.ycombinator.com/item?id=47293415",
-      "score": 260,
+      "time": "Mar 8",
+      "headline": "The changing goalposts of AGI and timelines",
+      "summary": "319 points · 218 comments on HN",
+      "url": "https://mlumiste.com/general/openai-charter/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47299009",
+      "score": 319,
       "type": "hn"
     },
     {
@@ -89,17 +89,6 @@
       "type": "rss"
     },
     {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 6",
-      "headline": "Some Words on WigglyPaint",
-      "summary": "66 points · 5 comments on HN",
-      "url": "https://beyondloom.com/blog/onwigglypaint.html",
-      "hnUrl": "https://news.ycombinator.com/item?id=47283365",
-      "score": 66,
-      "type": "hn"
-    },
-    {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Mar 5",
@@ -109,35 +98,31 @@
       "type": "rss"
     },
     {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 4",
-      "headline": "From RGB to L*a*b* color space (2024)",
-      "summary": "67 points · 25 comments on HN",
-      "url": "https://kaizoudou.com/from-rgb-to-lab-color-space/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47245061",
-      "score": 67,
-      "type": "hn"
-    },
-    {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Mar 5",
-      "headline": "GPT-5.4 Thinking System Card",
-      "summary": null,
-      "url": "https://openai.com/index/gpt-5-4-thinking-system-card",
+      "headline": "Reasoning models struggle to control their chains of thought, and that’s good",
+      "summary": "OpenAI introduces CoT-Control and finds reasoning models struggle to control their chains of thought, reinforcing monitorability as an AI safety safeguard.",
+      "url": "https://openai.com/index/reasoning-models-chain-of-thought-controllability",
       "type": "rss"
     },
     {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 7",
-      "headline": "A decade of Docker containers",
-      "summary": "329 points · 235 comments on HN",
-      "url": "https://cacm.acm.org/research/a-decade-of-docker-containers/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47289311",
-      "score": 329,
-      "type": "hn"
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 8",
+      "headline": "Will the Pentagon’s Anthropic controversy scare startups away from defense work?",
+      "summary": "On the latest episode of TechCrunch’s Equity podcast, we discussed what the controversy means for other startups seeking to work with the federal government.",
+      "url": "https://techcrunch.com/2026/03/08/will-the-pentagons-anthropic-controversy-scare-startups-away-from-defense-work/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 8",
+      "headline": "Owner of ICE detention facility sees big opportunity in AI man camps",
+      "summary": "AI data center developers are increasingly relying on a style of camp popularized as housing for men working in remote oil fields.",
+      "url": "https://techcrunch.com/2026/03/08/owner-of-ice-detention-facility-sees-big-opportunity-in-ai-man-camps/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -164,24 +149,6 @@
       "headline": "OpenAI hardware exec Caitlin Kalinowski quits in response to Pentagon deal",
       "summary": "Hardware executive Caitlin Kalinowski announced today that in response to OpenAI's controversial agreement with the Department of Defense, she’s resigned from her role leading the company's robotics t",
       "url": "https://techcrunch.com/2026/03/07/openai-robotics-lead-caitlin-kalinowski-quits-in-response-to-pentagon-deal/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 7",
-      "headline": "OpenAI delays ChatGPT’s ‘adult mode’ again",
-      "summary": "The feature, which will give verified adult users access to erotica and other adult content, had already been delayed from December.",
-      "url": "https://techcrunch.com/2026/03/07/openai-delays-chatgpts-adult-mode-again/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 6",
-      "headline": "Robinhood’s startup fund stumbles in NYSE debut",
-      "summary": "The fund currently offers retail investors exposure to eight startups, including Mercor, Ramp, and Stripe, with plans to expand its portfolio.",
-      "url": "https://techcrunch.com/2026/03/06/robinhoods-startup-fund-stumbles-in-nyse-debut/",
       "type": "rss"
     }
   ]
