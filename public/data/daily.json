@@ -1,42 +1,62 @@
 {
-  "generatedAt": "2026-03-09T15:30:01.906Z",
+  "generatedAt": "2026-03-09T23:30:01.760Z",
   "date": "Monday, March 9, 2026",
   "dateKey": "2026-03-09",
-  "storyCount": 14,
-  "hnCount": 4,
+  "storyCount": 16,
+  "hnCount": 6,
   "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 8",
-      "headline": "US Court of Appeals: TOS may be updated by email, use can imply consent [pdf]",
-      "summary": "387 points · 302 comments on HN",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/memoranda/2026/03/03/25-403.pdf",
-      "hnUrl": "https://news.ycombinator.com/item?id=47305461",
-      "score": 387,
+      "time": "Mar 9",
+      "headline": "Is legal the same as legitimate: AI reimplementation and the erosion of copyleft",
+      "summary": "277 points · 306 comments on HN",
+      "url": "https://writings.hongminhee.org/2026/03/legal-vs-legitimate/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47310160",
+      "score": 277,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 9",
-      "headline": "Show HN: VS Code Agent Kanban: Task Management for the AI-Assisted Developer",
-      "summary": "50 points · 21 comments on HN",
-      "url": "https://www.appsoftware.com/blog/introducing-vs-code-agent-kanban-task-management-for-the-ai-assisted-developer",
-      "hnUrl": "https://news.ycombinator.com/item?id=47307169",
-      "score": 50,
+      "headline": "The first airplane fatality",
+      "summary": "36 points · 4 comments on HN",
+      "url": "https://www.amusingplanet.com/2026/03/thomas-selfridge-first-airplane-fatality.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47315079",
+      "score": 36,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 8",
-      "headline": "Agent Safehouse – macOS-native sandboxing for local agents",
-      "summary": "714 points · 165 comments on HN",
-      "url": "https://agent-safehouse.dev/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47301085",
-      "score": 714,
+      "time": "Mar 9",
+      "headline": "Launch HN: Terminal Use (YC W26) – Vercel for filesystem-based agents",
+      "summary": "70 points · 52 comments on HN",
+      "url": "https://news.ycombinator.com/item?id=47311657",
+      "hnUrl": "https://news.ycombinator.com/item?id=47311657",
+      "score": 70,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 9",
+      "headline": "OpenAI to acquire Promptfoo",
+      "summary": "OpenAI is acquiring Promptfoo, an AI security platform that helps enterprises identify and remediate vulnerabilities in AI systems during development.",
+      "url": "https://openai.com/index/openai-to-acquire-promptfoo",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 9",
+      "headline": "Fixfest is a global gathering of repairers, tinkerers, and activists",
+      "summary": "131 points · 15 comments on HN",
+      "url": "https://fixfest.therestartproject.org/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47312329",
+      "score": 131,
       "type": "hn"
     },
     {
@@ -51,12 +71,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 8",
-      "headline": "Living human brain cells play DOOM on a CL1 [video]",
-      "summary": "230 points · 223 comments on HN",
-      "url": "https://www.youtube.com/watch?v=yRV8fSw6HaE",
-      "hnUrl": "https://news.ycombinator.com/item?id=47297919",
-      "score": 230,
+      "time": "Mar 9",
+      "headline": "Jolla on track to ship new phone with Sailfish OS, user-replaceable battery",
+      "summary": "178 points · 115 comments on HN",
+      "url": "https://liliputing.com/the-new-jolla-phone-with-sailfish-os-is-on-track-to-start-shipping-in-the-first-half-of-2026/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47311456",
+      "score": 178,
       "type": "hn"
     },
     {
@@ -69,21 +89,23 @@
       "type": "rss"
     },
     {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 9",
+      "headline": "Algebraic topology: knots links and braids",
+      "summary": "60 points · 7 comments on HN",
+      "url": "https://aeb.win.tue.nl/at/algtop-5.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47309605",
+      "score": 60,
+      "type": "hn"
+    },
+    {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Mar 5",
       "headline": "How Balyasny Asset Management built an AI research engine for investing",
       "summary": "See how Balyasny built an AI research system with GPT-5.4, rigorous model evaluation, and agent workflows to transform investment analysis at scale.",
       "url": "https://openai.com/index/balyasny-asset-management",
-      "type": "rss"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 5",
-      "headline": "Introducing GPT-5.4",
-      "summary": "Introducing GPT-5.4, OpenAI’s most most capable and efficient frontier model for professional work, with state-of-the-art coding, computer use, tool search, and 1M-token context.",
-      "url": "https://openai.com/index/introducing-gpt-5-4",
       "type": "rss"
     },
     {
@@ -99,45 +121,45 @@
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 9",
-      "headline": "Sandberg, Clegg join Nscale board as this &#8216;Stargate Norway&#8217; startup hits $14.6B  valuation",
-      "summary": "Nvidia-backed British AI infrastructure startup Nscale has raised another megaround of $2 billion.",
-      "url": "https://techcrunch.com/2026/03/09/sandberg-clegg-join-nscale-board-as-this-stargate-norway-startup-hits-14-6b-valuation/",
+      "headline": "Electric air taxis are about to take flight in 26 states",
+      "summary": "The federal government has selected eight proposals to test electric aircraft across 26 states.",
+      "url": "https://techcrunch.com/2026/03/09/electric-air-taxis-are-about-to-take-flight-in-26-states/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 9",
-      "headline": "Zoox starts mapping Dallas and Phoenix for its robotaxis",
-      "summary": "It's a precursor to launching robotaxis in those cities, though the Amazon-owned company is still waiting for federal approval to commercially operate its purpose-built AV.",
-      "url": "https://techcrunch.com/2026/03/09/zoox-starts-mapping-dallas-and-phoenix-for-its-robotaxis/",
+      "headline": "OpenAI and Google employees rush to Anthropic&#8217;s defense in DOD lawsuit",
+      "summary": "More than 30 OpenAI and Google DeepMind employees signed onto a statement supporting Anthropic's lawsuit against the Defense Department after the agency labeled the AI firm a supply-chain risk, accord",
+      "url": "https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Mar 8",
-      "headline": "Will the Pentagon’s Anthropic controversy scare startups away from defense work?",
-      "summary": "On the latest episode of TechCrunch’s Equity podcast, we discussed what the controversy means for other startups seeking to work with the federal government.",
-      "url": "https://techcrunch.com/2026/03/08/will-the-pentagons-anthropic-controversy-scare-startups-away-from-defense-work/",
+      "time": "Mar 9",
+      "headline": "Anthropic launches code review tool to check flood of AI-generated code",
+      "summary": "Anthropic launched Code Review in Claude Code, a multi-agent system that automatically analyzes AI-generated code, flags logic errors, and helps enterprise developers manage the growing volume of code",
+      "url": "https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool-to-check-flood-of-ai-generated-code/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Mar 8",
-      "headline": "Owner of ICE detention facility sees big opportunity in AI man camps",
-      "summary": "AI data center developers are increasingly relying on a style of camp popularized as housing for men working in remote oil fields.",
-      "url": "https://techcrunch.com/2026/03/08/owner-of-ice-detention-facility-sees-big-opportunity-in-ai-man-camps/",
+      "time": "Mar 9",
+      "headline": "Bluesky CEO Jay Graber steps down",
+      "summary": "Graber explained that, as a more mature company, Bluesky needs a \"seasoned operator focused on scaling and execution.\" Graber said she feels better suited to building Bluesky's technology itself.",
+      "url": "https://techcrunch.com/2026/03/09/bluesky-ceo-jay-graber-steps-down/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
-      "time": "Mar 7",
-      "headline": "A roadmap for AI, if anyone will listen",
-      "summary": "The Pro-Human Declaration was finalized before last week's Pentagon-Anthropic standoff, but the collision of the two events wasn’t lost on anyone involved.",
-      "url": "https://techcrunch.com/2026/03/07/a-roadmap-for-ai-if-anyone-will-listen/",
+      "time": "Mar 9",
+      "headline": "Periwinkle is making self-hosted social media on Bluesky&#8217;s AT Protocol even easier",
+      "summary": "Periwinkle offers managed hosting for AT Protocol users who want social media accounts on their own domains, with backups, storage, and migration tools.",
+      "url": "https://techcrunch.com/2026/03/09/periwinkle-at-protocol-bluesky-self-hosted-social-media/",
       "type": "rss"
     }
   ]
