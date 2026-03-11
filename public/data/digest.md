@@ -1,89 +1,83 @@
-# AI Digest — Sunday, March 1, 2026
+# AI Digest — Wednesday, March 11, 2026
 
 ## What's Happening Right Now
 
-The AI world is fracturing along clear ideological lines. OpenAI announced a landmark $110B funding round (SoftBank $30B, NVIDIA $30B, Amazon $50B) while simultaneously revealing details of its controversial Pentagon contract—which Sam Altman himself admits has "optics don't look good." Meanwhile, the developer community's actual enthusiasm is flowing elsewhere: Karpathy's microgpt (a 500-line GPT from scratch) exploded to 1,648 upvotes with 288 comments, sparking translations to C++, Rust, and interactive visualizations. The signal is clear: capability at any cost (OpenAI's path) versus interpretability and efficiency-first (where the community energy is).
-
-There's a third thread accelerating: the infrastructure for AI agents accessing the real web. Chrome just released WebMCP—a machine-readable protocol letting websites expose APIs to agents—but adoption faces a paradox: sites have spent years building walls against automation (Cloudflare, CAPTCHAs), and few will voluntarily expose internal systems. Meanwhile, Claude jumped to #1 on the App Store, likely riding backlash against OpenAI's defense partnerships. For AI agent builders, today's news is really about choosing sides: capability-first with compromises, or safety-forward with slower growth.
+There's a widening gap between what AI coding agents *benchmark* as and what they *actually deliver*. Metr's analysis of SWE-bench-passing PRs found that many would never make it past code review in real projects—a stark reminder that "solved benchmark" ≠ "production ready." Meanwhile, the community is establishing hard governance: Hacker News is now enforcing a no-AI-generated-comments rule (2,311 points, 866 comments), signaling that platforms are drawing lines around authenticity. But here's the tension: despite skepticism about agent quality and trust, major companies are shipping agents at scale. Rakuten cut MTTR in half with Codex, Wayfair is automating catalog curation, and Zendesk just acquired Forethought to embed agentic AI into customer service. The infrastructure is also shifting—BitNet's 1.58-bit quantization and Perplexity's Personal Computer (running on a local Mac mini, not cloud) suggest the competitive edge is moving toward local, efficient deployment rather than API-dependent clouds.
 
 ## Key Stories
 
-### Karpathy's Microgpt: "Micro" Movement Overtakes Mega-Scale
-- **Source**: [Karpathy's Blog](http://karpathy.github.io/2026/02/12/microgpt/)
-- **Why it matters**: A 500-line GPT implementation generated 1,648 upvotes and catalyzed immediate community translations to C++, Rust, and interactive visualizations. This signals that pedagogical value and interpretability now compete with raw capability for mindshare. For agents, it's a reminder that focused, small models often outperform large ones in production.
-- **HN sentiment**: Enthusiasm for the "micro" philosophy. Top comment: "We're seeing diminishing returns from just making models bigger, and increasing returns from making them smaller and more focused." Practical takes: small decision trees were "two orders of magnitude" faster than neural nets at inference time. This is about real constraints, not theory.
-- **Keywords**: microgpt, interpretable AI, model efficiency, tinylm, educational ML, transformer fundamentals, Karpathy
+### SWE-Bench Passing PRs Would Not Actually Merge Into Main
+- **Source**: [Metr](https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/)
+- **Why it matters**: Benchmark results are misleading the field. Agents scoring well on SWE-bench produce code that real maintainers would reject—exposing the gap between synthetic benchmarks and production standards.
+- **HN sentiment**: Skeptical. Commenters noted that many highly-rated local models produce "pure rubbish" in practice. One called it "AI archeology" to review mid-2024 agents.
+- **Keywords**: benchmark theater, code quality, swe-bench, ai agents, production-ready
 
-### Claude's XML Architecture: How Delimiters Shape Model Thinking
-- **Source**: [glthr analysis](https://glthr.com/XML-fundamental-to-Claude)
-- **Why it matters**: Deep explanation of why Claude uses XML tags as semantic boundaries (tool calls, reasoning blocks, code). If you're building agents, understanding this is critical—it explains how Claude internally parses structured information. This is not just prompt engineering trivia; it's foundational architecture.
-- **HN sentiment**: Mixed. Defenders note XML provides explicit structure that prevents content confusion; skeptics worry it's Claude-specific and hurts cross-model compatibility. One take: "This is a human problem (parsing boundaries), not fundamentally a tokenization problem."
-- **Keywords**: Claude internals, XML prompting, structured outputs, prompt engineering, semantic delimiters, LLM architecture
+### Hacker News Bans AI-Generated Comments
+- **Source**: [HN Guidelines](https://news.ycombinator.com/newsguidelines.html#generated)
+- **Why it matters**: A major tech community is explicitly rejecting AI-generated participation, signaling that authenticity and human judgment matter. This will shape how AI agents are perceived in developer spaces.
+- **HN sentiment**: Strong support (2,311 points, 866 comments). Commenters emphasized that HN exists for "conversation between humans" and that the policy establishes culture. Some noted the irony that good writers and LLMs produce similar text (semicolons, em-dashes).
+- **Keywords**: ai culture, authenticity, community governance, llm detection
 
-### WebMCP: Google's Protocol for Machine-Readable Web
-- **Source**: [Chrome Developer Blog](https://developer.chrome.com/blog/webmcp-epp)
-- **Why it matters**: Chrome is shipping a standardized protocol for websites to expose AI-agent-readable APIs. This is the infrastructure layer that could unlock agents accessing real websites. But adoption friction is real: sites have to explicitly expose internals, creating scraping and security concerns.
-- **HN sentiment**: Deeply skeptical consensus. Top comment nails the paradox: "Do websites want to prevent automated tooling (Cloudflare, CAPTCHAs) or enable automation? You can't have both." Most commenters expect low adoption—the UX benefit of "making flight booking easier" doesn't justify the security risk.
-- **Keywords**: webmcp, agent APIs, machine-readable web, agent infrastructure, web automation standards, Claude tooling
+### Rakuten Reduces MTTR 50% with Codex
+- **Source**: [OpenAI](https://openai.com/index/rakuten)
+- **Why it matters**: Real enterprise adoption showing measurable ROI—50% faster issue resolution, automated CI/CD reviews, full-stack builds in weeks. This is agent adoption *actually working*.
+- **HN sentiment**: Not heavily discussed yet, but aligns with pragmatic agent deployment rather than hype.
+- **Keywords**: codex, agent adoption, mttr, devops, enterprise ai
 
-### OpenAI's $110B Funding Round + Pentagon Partnership Details
-- **Source**: [OpenAI Blog](https://openai.com/index/scaling-ai-for-everyone); [TechCrunch](https://techcrunch.com/2026/03/01/openai-shares-more-details-about-its-agreement-with-the-pentagon/)
-- **Why it matters**: OpenAI raised $110B at $730B pre-money ($30B SoftBank, $30B NVIDIA, $50B Amazon—note Amazon's position in defense infrastructure). Simultaneously, Altman confirmed the Pentagon deal is proceeding despite acknowledged PR problems. This is OpenAI betting that capability + military adoption outweighs brand risk.
-- **HN sentiment**: Limited HN engagement (these are official announcements), but broader tech community sentiment leans resignation-with-concern. The optics admission suggests awareness but no course correction.
-- **Keywords**: OpenAI funding, Pentagon AI deal, defense contracts, military AI, DoD partnerships, AI policy, Altman
+### Personal Computer by Perplexity
+- **Source**: [Perplexity](https://www.perplexity.ai/personal-computer-waitlist)
+- **Why it matters**: A dedicated Mac mini running an agentic AI 24/7, connected to local apps and Perplexity servers. Represents a shift from "ask the AI once" to "ambient agent living with you." Challenges OpenAI's cloud-dependent model.
+- **HN sentiment**: Skeptical. Commenters questioned the $1.6M labor-savings claims and noted phones/desktops already do "living with you." Also: critique of serif fonts and nostalgic marketing covering weak substance.
+- **Keywords**: personal ai, mac mini, ambient agents, perplexity, 24/7 execution
 
-### Claude Rises to #1 App Store Following Pentagon Controversy
-- **Source**: [TechCrunch](https://techcrunch.com/2026/03/01/anthropics-claude-rises-to-no-2-in-the-app-store-following-pentagon-dispute/)
-- **Why it matters**: While OpenAI commits to military partnerships, Anthropic's Claude jumped to the top App Store ranking. Users are voting with downloads—safety-first positioning is now a *feature*, not a liability. For AI agent builders, this is a market signal about which company has user trust.
-- **HN sentiment**: Implicit narrative is "good optics matter," but limited direct discussion. The data point speaks louder than comments.
-- **Keywords**: Claude adoption, Anthropic vs OpenAI, user trust, AI ethics, safety positioning, app store trends
+### "I Was Interviewed by an AI Bot for a Job"
+- **Source**: [The Verge](https://www.theverge.com/featured-video/892850/i-was-interviewed-by-an-ai-bot-for-a-job)
+- **Why it matters**: Exposes the dehumanization risk—if companies deploy agents for first-round screening, candidates see inauthentic evaluation while being expected to be authentic. Trust asymmetry.
+- **HN sentiment**: Frustrated. Commenters noted that if a company won't show up for an interview, it bodes ill for working there. One called hiring "a complete hellscape" with frequent etiquette breakdowns.
+- **Keywords**: ai hiring, dehumanization, interview automation, trust asymmetry
 
-### Microgpt Explained Interactively
-- **Source**: [Growing SWE Blog](https://growingswe.com/blog/microgpt)
-- **Why it matters**: Community-built interactive visualization of Karpathy's microgpt pipeline (tokenization → inference). This accelerates learning—users can tweak parameters and see outputs in real-time. It's pedagogy as infrastructure, which matters for onboarding new AI engineers to fundamentals.
-- **HN sentiment**: Appreciation for interactivity with notes that it assumes some baseline ML knowledge ("too advanced for true beginners").
-- **Keywords**: interactive learning, GPT fundamentals, AI education, tokenization, transformers explained
+### Designing AI Agents to Resist Prompt Injection
+- **Source**: [OpenAI](https://openai.com/index/designing-agents-to-resist-prompt-injection)
+- **Why it matters**: As agents ship in production (Rakuten, Wayfair, Zendesk), prompt injection becomes a real threat vector. OpenAI is publishing defenses—constraining risky actions, protecting sensitive data. This is the security playbook emerging.
+- **HN sentiment**: Not heavily discussed in HN but part of broader agent safety maturation.
+- **Keywords**: prompt injection, agent security, safety steering
 
-### Python Type Checking: Container Inference Strategies
-- **Source**: [Pyrefly Blog](https://pyrefly.org/blog/container-inference-comparison/)
-- **Why it matters**: Comparison of how mypy, pyright, and others handle type inference for empty containers (e.g., `x = []`). Niche but relevant: Python's dynamic nature creates real friction with static typing. For agents written in Python, type safety is becoming more important as agents grow in complexity.
-- **HN sentiment**: Technical pragmatism. Recognition that "type annotations steer Python into a sane subset of the language"—a good thing, even if imperfect.
-- **Keywords**: python typing, mypy, pyright, type inference, static analysis, python tooling
+### BitNet: 100B Param 1-Bit Model Inference on Local CPUs
+- **Source**: [GitHub/Microsoft](https://github.com/microsoft/BitNet)
+- **Why it matters**: Enables 1.58-bit quantization for 100B+ parameter inference on consumer hardware. This is the efficiency arms race—if Perplexity's local model and BitNet work, cloud-dependent agent architectures become optional.
+- **HN sentiment**: Mixed. Commenters noted the title is misleading (no trained 100B model, just inference framework), but the engineering is solid. Memory bandwidth bottleneck is real—but 1.58-bit approach is clever.
+- **Keywords**: quantization, local inference, bitnet, efficiency, 1-bit models
 
-### Decision Trees: Unreasonable Interpretability Power
-- **Source**: [MLU Explain](https://mlu-explain.github.io/decision-tree/)
-- **Why it matters**: Interactive explanation of decision trees connects to the broader "micro" trend: at CERN (2010), boosted decision trees dominated over neural networks for high-stakes physics analysis because they were interpretable and fast. Relevant reminder: not everything needs deep learning. For agent decision logic, interpretability is often a feature, not a bug.
-- **HN sentiment**: Nostalgic + practical. "The killer feature of DTs is how fast they can be" — war stories from production systems where small, interpretable models beat large neural nets on latency and explainability.
-- **Keywords**: decision trees, interpretable ML, model efficiency, random forests, classical ML, explainability
+### Zendesk Acquires Forethought (Agentic Customer Service)
+- **Source**: [TechCrunch](https://techcrunch.com/2026/03/11/zendesk-acquires-agentic-customer-service-startup-forethought/)
+- **Why it matters**: Major CRM/helpdesk consolidation around agentic AI. Zendesk betting that agent-driven support is the future. Forethought was 2018 Battlefield winner—8 years of product validation before acquisition.
+- **HN sentiment**: Not yet heavily discussed, but signals enterprise agent adoption maturing.
+- **Keywords**: agentic support, zendesk, forethought, customer service agents
 
 ## Themes & Tensions
 
-### **Capability vs. Responsibility: The Great Divergence**
-OpenAI is racing toward scale and military partnerships ($110B, Pentagon contracts) while acknowledging optics problems but proceeding anyway. Anthropic is betting safety-first—and the market is rewarding it (Claude #1 App Store). This isn't abstract philosophy anymore; it's a concrete market signal. For AI agent builders, your choice of foundation model now broadcasts your values.
+**Benchmark Theater vs. Production Reality**
+SWE-bench passing rates are high; actual code quality for merging is low. This pattern (agents look good on metrics, fail in practice) will haunt the field until benchmarks better approximate real-world acceptance criteria.
 
-### **"Micro" Overtaking "Mega": Efficiency Beats Brute Force**
-Karpathy's 500-line GPT got more developer enthusiasm than OpenAI's $110B announcement. The industry's learning edge is now in interpretability, efficiency, and pedagogy—not raw parameters. Small models are faster to iterate on, easier to understand, and often better for production. This inverts the scaling narrative that dominated 2023–2024.
+**Local vs. Cloud Deployment**
+BitNet and Perplexity Personal Computer are making local, efficient agent deployment viable. This threatens OpenAI's and other cloud providers' moat, but also means AI agents stop being SaaS and become infrastructure. The winner is whoever makes 24/7 local agents reliable.
 
-### **The WebMCP Paradox: Automation Yes or No?**
-Chrome wants websites to be machine-readable for agents, but sites have spent years building anti-automation walls (Cloudflare, CAPTCHAs). The tension remains unresolved: do websites want agents or not? Without adoption, WebMCP is infrastructure in search of a problem.
+**Human Trust in Agent Handoffs**
+HN bans AI comments; job candidates reject AI interviewers; developers skeptical of AI-reviewed code. But Rakuten, Wayfair, Zendesk are shipping agents at scale. Trust isn't dead—it's selective. Agents work when they handle routine, low-stakes tasks (code review automation, catalog tagging). They fail when they're the *only* human interface (job interviews).
 
-### **Proprietary Optimization vs. Cross-Model Portability**
-Claude's XML architecture is training-optimized for Claude specifically. If you hardcode XML prompts, you're betting on Claude's dominance. Building cross-model agents requires different thinking. This is a long-term question for the industry: converge on standards or optimize per-model?
+**Agent Governance Hardening**
+OpenAI publishing prompt injection defenses, HN establishing AI comment rules, enterprises adding agent policies. The wild-west of "deploy anything" is ending. Governance structures are emerging fast.
 
 ## Context for Replies
 
-**If someone tweets about the Pentagon deal or "$110B funding":** They're usually referencing OpenAI's military contracts + mega-funding round, or they're comparing it to Anthropic's refusal. Key context: Altman admitted the optics are bad but OpenAI is committed to defense partnerships. This is now the primary OpenAI/Anthropic differentiator. If they mention Amazon being an investor, note that Amazon is itself a defense contractor ecosystem player.
+**On SWE-bench scores:** If someone tweets "AI agent passed SWE-bench," pushback likely references Metr's analysis—benchmark-passing code gets rejected in real reviews because agents miss maintainability, testing practices, and project conventions. The counter: benchmarks are improving, but they're still synthetic.
 
-**If someone tweets about "microgpt" or "Karpathy's latest":** They're talking about a 500-line GPT implementation that became a teaching tool (1,600+ upvotes). The implicit message: interpretability and efficiency are now as valuable as scale. If they mention "translated to Rust/C++," they're part of a wave turning pedagogical code into production tools.
+**On HN's AI comment ban:** This is *not* a ban on using AI to write better; it's a ban on shipping AI-generated output as-is. The cultural signal: "we value human deliberation." Expect other communities (Reddit, Discourse) to follow.
 
-**If someone mentions "Claude #1 App Store" or "Anthropic beating OpenAI":** The context is the Pentagon backlash. Users are reading the news and voting with downloads. This signals safety/ethics positioning is now *competitive advantage*, not weakness. It's a concrete market data point about user trust.
+**On Perplexity Personal Computer:** If promoted, expect skepticism on the $1.6M savings claim (no third-party audit) and questions about lock-in (your agent lives on their Mac mini, calls their servers). Counter: if it actually works 24/7, that's fundamentally different from chatbot-style interfaces.
 
-**If someone asks about WebMCP:** Odds are 70/30 split between "this is the future of agent infrastructure" (optimists) and "sites will never expose their APIs" (skeptics). The real question: will adoption happen? History suggests low adoption for proprietary platform-specific protocols.
+**On prompt injection resistance:** This is emerging as *the* security conversation for agent deployments. Any mention of agents in production should ask: "Have you simulated prompt injection scenarios?" It's the 2026 equivalent of "did you sanitize that SQL input?"
 
-**If someone discusses Claude's XML architecture in a prompt engineering context:** They're likely asking "should I always structure prompts as XML?" The answer is nuanced: XML helps Claude parse structure, but it's Claude-specific. Building for cross-model use requires different approaches. If they're building agents, understanding Claude's preference is important for optimization but shouldn't lock you in.
+**On AI hiring bots:** The frame is "dehumanization asymmetry"—candidates must be authentic; companies hide behind automation. Expect pushback to accelerate if more companies deploy these without transparency.
 
-**If someone asks about Python typing or decision trees:** They're usually solving a real problem (type safety in agent code, or choosing between neural vs. classical ML for decision logic). Both problems have good solutions now; it's about picking the right tool.
-
----
-
-*Digest compiled March 1, 2026. Build wisely.*
+**On Zendesk/Forethought:** Enterprise agents work in *contained* domains (customer support tickets have limited branching). Expect more consolidation around "agents for known problems" rather than "agents for open-ended dev work."
