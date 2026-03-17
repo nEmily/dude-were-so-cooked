@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-03-17T15:30:02.677Z",
+  "generatedAt": "2026-03-17T23:30:02.744Z",
   "date": "Tuesday, March 17, 2026",
   "dateKey": "2026-03-17",
-  "storyCount": 13,
-  "hnCount": 3,
+  "storyCount": 16,
+  "hnCount": 6,
   "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 16",
-      "headline": "Leanstral: Open-source agent for trustworthy coding and formal proof engineering",
-      "summary": "652 points · 156 comments on HN",
-      "url": "https://mistral.ai/news/leanstral",
-      "hnUrl": "https://news.ycombinator.com/item?id=47404796",
-      "score": 652,
+      "time": "Mar 17",
+      "headline": "Unsloth Studio",
+      "summary": "107 points · 27 comments on HN",
+      "url": "https://unsloth.ai/docs/new/studio",
+      "hnUrl": "https://news.ycombinator.com/item?id=47414032",
+      "score": 107,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 12",
-      "headline": "How long does it take to get last liquid drops from kitchen containers?",
-      "summary": "24 points · 9 comments on HN",
-      "url": "https://www.brown.edu/news/2026-03-04/kitchen-fluid-dynamics",
-      "hnUrl": "https://news.ycombinator.com/item?id=47358335",
-      "score": 24,
+      "time": "Mar 17",
+      "headline": "'The Secret Agent': Exploring a Vibrant, yet Violent Brazil (2025)",
+      "summary": "110 points · 49 comments on HN",
+      "url": "https://theasc.com/articles/the-secret-agent-cinematography",
+      "hnUrl": "https://news.ycombinator.com/item?id=47414440",
+      "score": 110,
       "type": "hn"
     },
     {
@@ -33,10 +33,50 @@
       "sourceColor": "#ff6600",
       "time": "Mar 17",
       "headline": "Ryugu asteroid samples contain all DNA and RNA building blocks",
-      "summary": "64 points · 50 comments on HN",
+      "summary": "163 points · 92 comments on HN",
       "url": "https://phys.org/news/2026-03-ryugu-asteroid-samples-dna-rna.html",
       "hnUrl": "https://news.ycombinator.com/item?id=47411480",
-      "score": 64,
+      "score": 163,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 17",
+      "headline": "Introducing GPT-5.4 mini and nano",
+      "summary": "GPT-5.4 mini and nano are smaller, faster versions of GPT-5.4 optimized for coding, tool use, multimodal reasoning, and high-volume API and sub-agent workloads.",
+      "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 17",
+      "headline": "Spice Data (YC S19) Is Hiring a Product Specialist",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://www.ycombinator.com/companies/spice-data/jobs/P0e9MKz-product-specialist-new-grad",
+      "hnUrl": "https://news.ycombinator.com/item?id=47415350",
+      "score": 1,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Mar 16",
+      "headline": "Equipping workers with insights about compensation",
+      "summary": "New research shows Americans send nearly 3 million daily messages to ChatGPT asking about compensation and earnings, helping close the wage information gap.",
+      "url": "https://openai.com/index/equipping-workers-with-insights-about-compensation",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 16",
+      "headline": "Toward automated verification of unreviewed AI-generated code",
+      "summary": "81 points · 67 comments on HN",
+      "url": "https://peterlavigne.com/writing/verifying-ai-generated-code",
+      "hnUrl": "https://news.ycombinator.com/item?id=47397367",
+      "score": 81,
       "type": "hn"
     },
     {
@@ -47,6 +87,17 @@
       "summary": "A deep dive into why Codex Security doesn’t rely on traditional SAST, instead using AI-driven constraint reasoning and validation to find real vulnerabilities with fewer false positives.",
       "url": "https://openai.com/index/why-codex-security-doesnt-include-sast",
       "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 17",
+      "headline": "Mistral AI Releases Forge",
+      "summary": "29 points · 0 comments on HN",
+      "url": "https://mistral.ai/news/forge",
+      "hnUrl": "https://news.ycombinator.com/item?id=47418295",
+      "score": 29,
+      "type": "hn"
     },
     {
       "source": "OpenAI News",
@@ -67,66 +118,48 @@
       "type": "rss"
     },
     {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 11",
-      "headline": "Wayfair boosts catalog accuracy and support speed with OpenAI",
-      "summary": "Wayfair uses OpenAI models to improve ecommerce support and product catalog accuracy, automating ticket triage and enhancing millions of product attributes at scale.",
-      "url": "https://openai.com/index/wayfair",
-      "type": "rss"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 11",
-      "headline": "From model to agent: Equipping the Responses API with a computer environment",
-      "summary": "How OpenAI built an agent runtime using the Responses API, shell tool, and hosted containers to run secure, scalable agents with files, tools, and state.",
-      "url": "https://openai.com/index/equip-responses-api-computer-environment",
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 17",
+      "headline": "Kalshi&#8217;s legal troubles pile up, as Arizona files first ever criminal charges over &#8216;illegal gambling business&#8217;",
+      "summary": "It's the latest salvo in an escalating battle between state regulators and an industry that claims it's not beholden to them.",
+      "url": "https://techcrunch.com/2026/03/17/kalshis-legal-troubles-pile-up-as-arizona-files-first-ever-criminal-charges-over-illegal-gambling-business/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 17",
-      "headline": "AI&#8217;s &#8216;boys&#8217; club&#8217; could widen the wealth gap for women, says Rana el Kaliouby",
-      "summary": "AI investor Rana el Kaliouby warns that if women are shut out of AI funding and leadership, the consequences will be grim.",
-      "url": "https://techcrunch.com/2026/03/17/ais-boys-club-could-widen-the-wealth-gap-for-women-says-rana-el-kaliouby/",
+      "headline": "Mistral bets on ‘build-your-own AI’ as it takes on OpenAI, Anthropic in the enterprise",
+      "summary": "Mistral Forge lets enterprises train custom AI models from scratch on their own data, challenging rivals that rely on fine-tuning and retrieval-based approaches.",
+      "url": "https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 17",
-      "headline": "World launches tool to verify humans behind AI shopping agents",
-      "summary": "As AI agents take the reins for online shoppers, Sam Altman's unconventional startup is looking to expand its verification offerings to support agentic commerce.",
-      "url": "https://techcrunch.com/2026/03/17/world-launches-tool-to-verify-humans-behind-ai-shopping-agents/",
+      "headline": "Why Garry Tan&#8217;s Claude Code setup has gotten so much love, and hate",
+      "summary": "Thousands of people are trying Garry Tan's Claude Code setup, which was shared on GitHub. And everyone has an opinion: even Claude, ChatGPT, and Gemini.",
+      "url": "https://techcrunch.com/2026/03/17/why-garry-tans-claude-code-setup-has-gotten-so-much-love-and-hate/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 17",
-      "headline": "MacBook Neo, AirPods Max 2, iPhone 17e, and everything else Apple announced this month",
-      "summary": "From a new iPhone to a budget-friendly MacBook, Apple announced a series of new products this week.",
-      "url": "https://techcrunch.com/2026/03/17/everything-apple-announced-macbook-neo-iphone-17e-ipad-air/",
+      "headline": "The Pentagon is developing alternatives to Anthropic, report says",
+      "summary": "After their dramatic falling-out, it doesn't seem as though Anthropic and the Pentagon are getting back together.",
+      "url": "https://techcrunch.com/2026/03/17/the-pentagon-is-developing-alternatives-to-anthropic-report-says/",
       "type": "rss"
     },
     {
       "source": "TechCrunch",
       "sourceColor": "#4a9eff",
       "time": "Mar 17",
-      "headline": "Niv-AI exits stealth to wring more power performance out of GPUs",
-      "summary": "The company raised $12 million in seed funding to measure and manage GPU power surges.",
-      "url": "https://techcrunch.com/2026/03/17/niv-ai-exits-stealth-to-wring-more-power-performance-out-of-gpus/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 17",
-      "headline": "Gamma adds AI image generation tools in bid to take on Canva and Adobe",
-      "summary": "The company's new product, called Gamma Imagine, will let users employ text prompts to create brand-specific assets like interactive charts and visualizations, marketing collateral, social graphics, a",
-      "url": "https://techcrunch.com/2026/03/17/gamma-adds-ai-image-generation-tools-in-bid-to-take-on-canva-and-adobe/",
+      "headline": "BuzzFeed debuts AI slop apps in bid for new revenue",
+      "summary": "BuzzFeed unveiled new AI-powered social apps at SXSW, but its demos drew muted reactions.",
+      "url": "https://techcrunch.com/2026/03/17/buzzfeed-ai-slop-apps-sxsw-bf-island-conjure/",
       "type": "rss"
     }
   ]
