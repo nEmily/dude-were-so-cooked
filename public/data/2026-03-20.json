@@ -1,42 +1,42 @@
 {
-  "generatedAt": "2026-03-20T15:30:07.125Z",
+  "generatedAt": "2026-03-20T23:30:03.077Z",
   "date": "Friday, March 20, 2026",
   "dateKey": "2026-03-20",
-  "storyCount": 12,
-  "hnCount": 7,
-  "rssCount": 5,
+  "storyCount": 18,
+  "hnCount": 8,
+  "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 20",
-      "headline": "HP realizes that mandatory 15-minute support call wait times isn't good support",
-      "summary": "108 points · 53 comments on HN",
-      "url": "https://arstechnica.com/gadgets/2025/02/misguided-hp-customer-support-approach-included-forced-15-minute-call-wait-times/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47454164",
-      "score": 108,
+      "headline": "OpenCode – The open source AI coding agent",
+      "summary": "272 points · 122 comments on HN",
+      "url": "https://opencode.ai/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47460525",
+      "score": 272,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 16",
-      "headline": "Video Encoding and Decoding with Vulkan Compute Shaders in FFmpeg",
-      "summary": "65 points · 21 comments on HN",
-      "url": "https://www.khronos.org/blog/video-encoding-and-decoding-with-vulkan-compute-shaders-in-ffmpeg",
-      "hnUrl": "https://news.ycombinator.com/item?id=47407293",
-      "score": 65,
+      "time": "Mar 20",
+      "headline": "France's aircraft carrier located in real time by Le Monde through fitness app",
+      "summary": "437 points · 371 comments on HN",
+      "url": "https://www.lemonde.fr/en/international/article/2026/03/20/stravaleaks-france-s-aircraft-carrier-located-in-real-time-by-le-monde-through-fitness-app_6751640_4.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47453942",
+      "score": 437,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 19",
-      "headline": "Google details new 24-hour process to sideload unverified Android apps",
-      "summary": "1037 points · 1093 comments on HN",
-      "url": "https://arstechnica.com/gadgets/2026/03/google-details-new-24-hour-process-to-sideload-unverified-android-apps/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47442690",
-      "score": 1037,
+      "time": "Mar 20",
+      "headline": "Attention Residuals",
+      "summary": "96 points · 18 comments on HN",
+      "url": "https://github.com/MoonshotAI/Attention-Residuals",
+      "hnUrl": "https://news.ycombinator.com/item?id=47458595",
+      "score": 96,
       "type": "hn"
     },
     {
@@ -52,11 +52,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 20",
-      "headline": "Super Micro Shares Plunge 25% After Co-Founder Charged in $2.5B Smuggling Plot",
-      "summary": "15 points · 0 comments on HN",
-      "url": "https://www.forbes.com/sites/tylerroush/2026/03/20/super-micro-shares-plunge-25-after-co-founder-charged-in-25-billion-ai-chip-smuggling-plot/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47455365",
-      "score": 15,
+      "headline": "Show HN: Baltic shadow fleet tracker – live AIS, cable proximity alerts",
+      "summary": "16 points · 2 comments on HN",
+      "url": "https://github.com/FormerLab/shadow-fleet-tracker-light",
+      "hnUrl": "https://news.ycombinator.com/item?id=47460528",
+      "score": 16,
       "type": "hn"
     },
     {
@@ -71,12 +71,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 19",
-      "headline": "Push events into a running session with channels",
-      "summary": "373 points · 218 comments on HN",
-      "url": "https://code.claude.com/docs/en/channels",
-      "hnUrl": "https://news.ycombinator.com/item?id=47448524",
-      "score": 373,
+      "time": "Mar 20",
+      "headline": "Show HN: I made an email app inspired by Arc browser",
+      "summary": "37 points · 19 comments on HN",
+      "url": "https://demo.define.app",
+      "hnUrl": "https://news.ycombinator.com/item?id=47458348",
+      "score": 37,
       "type": "hn"
     },
     {
@@ -91,12 +91,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 19",
-      "headline": "Show HN: Three new Kitten TTS models – smallest less than 25MB",
-      "summary": "491 points · 166 comments on HN",
-      "url": "https://github.com/KittenML/KittenTTS",
-      "hnUrl": "https://news.ycombinator.com/item?id=47441546",
-      "score": 491,
+      "time": "Mar 18",
+      "headline": "Parallel Perl – Autoparallelizing interpreter with JIT",
+      "summary": "93 points · 35 comments on HN",
+      "url": "https://perl.petamem.com/gpw2026/perl-mit-ai-gpw2026.html#/4/1/1",
+      "hnUrl": "https://news.ycombinator.com/item?id=47424592",
+      "score": 93,
       "type": "hn"
     },
     {
@@ -111,12 +111,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 16",
-      "headline": "FSF statement on copyright infringement lawsuit Bartz v. Anthropic",
-      "summary": "173 points · 76 comments on HN",
-      "url": "https://www.fsf.org/blogs/licensing/2026-anthropic-settlement",
-      "hnUrl": "https://news.ycombinator.com/item?id=47403905",
-      "score": 173,
+      "time": "Mar 20",
+      "headline": "Launch HN: Sitefire (YC W26) – Automating actions to improve AI visibility",
+      "summary": "32 points · 20 comments on HN",
+      "url": "https://news.ycombinator.com/item?id=47457472",
+      "hnUrl": "https://news.ycombinator.com/item?id=47457472",
+      "score": 32,
       "type": "hn"
     },
     {
@@ -126,6 +126,62 @@
       "headline": "Equipping workers with insights about compensation",
       "summary": "New research shows Americans send nearly 3 million daily messages to ChatGPT asking about compensation and earnings, helping close the wage information gap.",
       "url": "https://openai.com/index/equipping-workers-with-insights-about-compensation",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Mar 16",
+      "headline": "Video Encoding and Decoding with Vulkan Compute Shaders in FFmpeg",
+      "summary": "144 points · 53 comments on HN",
+      "url": "https://www.khronos.org/blog/video-encoding-and-decoding-with-vulkan-compute-shaders-in-ffmpeg",
+      "hnUrl": "https://news.ycombinator.com/item?id=47407293",
+      "score": 144,
+      "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 20",
+      "headline": "Microsoft rolls back some of its Copilot AI bloat on Windows",
+      "summary": "The company is reducing Copilot entry points on Windows, starting with Photos, Widgets, Notepad, and other apps.",
+      "url": "https://techcrunch.com/2026/03/20/microsoft-rolls-back-some-of-its-copilot-ai-bloat-on-windows/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 20",
+      "headline": "What happened at Nvidia GTC: NemoClaw, Robot Olaf, and a $1 trillion bet",
+      "summary": "CEO&#160;Jensen Huang took the stage at&#160;Nvidia&#8217;s GTC conference&#160;this week in his signature leather jacket to deliver a two-and-a-half-hour keynote, projecting&#160;$1 trillion&#160;in ",
+      "url": "https://techcrunch.com/video/what-happened-at-nvidia-gtc-nemoclaw-robot-olaf-and-a-1-trillion-bet/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 20",
+      "headline": "A French Navy officer accidentally leaked the location of an aircraft carrier by logging his run on Strava",
+      "summary": "A French naval officer went on a run around the deck of the Charles de Gaulle aircraft carrier, inadvertently leaking the warship's location when he uploaded the workout to Strava.",
+      "url": "https://techcrunch.com/2026/03/20/a-french-navy-officer-accidentally-leaked-the-location-of-an-aircraft-carrier-by-logging-his-run-on-strava/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 20",
+      "headline": "WordPress.com now lets AI agents write and publish posts, and more",
+      "summary": "New AI agents on WordPress.com could lower barriers to publishing while increasing machine-generated content across the web.",
+      "url": "https://techcrunch.com/2026/03/20/wordpress-com-now-lets-ai-agents-write-and-publish-posts-and-more/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 20",
+      "headline": "US accuses Iran&#8217;s government of operating hacktivist group that hacked Stryker",
+      "summary": "The U.S. Justice Department said an Iranian security ministry operates the fake activist persona known as Handala, which claimed responsibility for the destructive hack targeting medical tech giant St",
+      "url": "https://techcrunch.com/2026/03/20/u-s-accuses-irans-government-of-operating-hacktivist-group-that-hacked-stryker/",
       "type": "rss"
     }
   ]
