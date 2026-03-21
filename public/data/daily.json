@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T15:30:07.239Z",
+  "generatedAt": "2026-03-21T23:30:02.742Z",
   "date": "Saturday, March 21, 2026",
   "dateKey": "2026-03-21",
   "storyCount": 18,
@@ -9,34 +9,34 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 20",
-      "headline": "OpenCode – Open source AI coding agent",
-      "summary": "1036 points · 489 comments on HN",
-      "url": "https://opencode.ai/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47460525",
-      "score": 1036,
+      "time": "Mar 21",
+      "headline": "Tinybox- offline AI device 120B parameters",
+      "summary": "218 points · 125 comments on HN",
+      "url": "https://tinygrad.org/#tinybox",
+      "hnUrl": "https://news.ycombinator.com/item?id=47470773",
+      "score": 218,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 17",
-      "headline": "Meta's Omnilingual MT for 1,600 Languages",
-      "summary": "55 points · 10 comments on HN",
-      "url": "https://ai.meta.com/research/publications/omnilingual-mt-machine-translation-for-1600-languages/?_fb_noscript=1",
-      "hnUrl": "https://news.ycombinator.com/item?id=47421749",
-      "score": 55,
+      "headline": "The paddle wheel aircraft carriers of Lake Michigan",
+      "summary": "26 points · 3 comments on HN",
+      "url": "https://signoregalilei.com/2026/03/08/the-paddle-wheel-aircraft-carriers-of-lake-michigan/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47415179",
+      "score": 26,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 17",
-      "headline": "Mamba-3",
-      "summary": "213 points · 42 comments on HN",
-      "url": "https://www.together.ai/blog/mamba-3",
-      "hnUrl": "https://news.ycombinator.com/item?id=47419391",
-      "score": 213,
+      "time": "Mar 18",
+      "headline": "ZJIT removes redundant object loads and stores",
+      "summary": "67 points · 10 comments on HN",
+      "url": "https://railsatscale.com/2026-03-18-how-zjit-removes-redundant-object-loads-and-stores/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47431625",
+      "score": 67,
       "type": "hn"
     },
     {
@@ -52,11 +52,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 21",
-      "headline": "Blocking Internet Archive Won't Stop AI, but Will Erase Web's Historical Record",
-      "summary": "266 points · 69 comments on HN",
-      "url": "https://www.eff.org/deeplinks/2026/03/blocking-internet-archive-wont-stop-ai-it-will-erase-webs-historical-record",
-      "hnUrl": "https://news.ycombinator.com/item?id=47464818",
-      "score": 266,
+      "headline": "No evidence cannabis helps anxiety, depression, or PTSD",
+      "summary": "119 points · 102 comments on HN",
+      "url": "https://www.sciencedaily.com/releases/2026/03/260319044656.htm",
+      "hnUrl": "https://news.ycombinator.com/item?id=47470750",
+      "score": 119,
       "type": "hn"
     },
     {
@@ -72,11 +72,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 21",
-      "headline": "Major leap towards reanimation after death as mammal's brain preserved",
-      "summary": "16 points · 7 comments on HN",
-      "url": "https://www.newscientist.com/article/2520204-major-leap-towards-reanimation-after-death-as-mammals-brain-preserved/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47467300",
-      "score": 16,
+      "headline": "Thinking Fast, Slow, and Artificial: How AI Is Reshaping Human Reasoning",
+      "summary": "80 points · 48 comments on HN",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646",
+      "hnUrl": "https://news.ycombinator.com/item?id=47467913",
+      "score": 80,
       "type": "hn"
     },
     {
@@ -91,12 +91,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 20",
-      "headline": "Attention Residuals",
-      "summary": "204 points · 28 comments on HN",
-      "url": "https://github.com/MoonshotAI/Attention-Residuals",
-      "hnUrl": "https://news.ycombinator.com/item?id=47458595",
-      "score": 204,
+      "time": "Mar 17",
+      "headline": "Meta's Omnilingual MT for 1,600 Languages",
+      "summary": "111 points · 31 comments on HN",
+      "url": "https://ai.meta.com/research/publications/omnilingual-mt-machine-translation-for-1600-languages/?_fb_noscript=1",
+      "hnUrl": "https://news.ycombinator.com/item?id=47421749",
+      "score": 111,
       "type": "hn"
     },
     {
@@ -111,12 +111,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 18",
-      "headline": "Cryptography in Home Entertainment (2004)",
-      "summary": "66 points · 36 comments on HN",
-      "url": "https://mathweb.ucsd.edu/~crypto/Projects/MarkBarry/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47431653",
-      "score": 66,
+      "time": "Mar 21",
+      "headline": "Hawaii's worst flooding in 20 years threatens dam, prompts evacuations",
+      "summary": "50 points · 16 comments on HN",
+      "url": "https://www.nbcnews.com/weather/floods/hawaii-worst-flooding-in-20-years-rcna264573",
+      "hnUrl": "https://news.ycombinator.com/item?id=47470658",
+      "score": 50,
       "type": "hn"
     },
     {
@@ -131,13 +131,31 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 21",
-      "headline": "Just make it hard to fail",
-      "summary": "14 points · 11 comments on HN",
-      "url": "https://nekolucifer.substack.com/p/just-make-it-really-hard-to-fail",
-      "hnUrl": "https://news.ycombinator.com/item?id=47466922",
-      "score": 14,
+      "time": "Mar 17",
+      "headline": "Mamba-3",
+      "summary": "269 points · 50 comments on HN",
+      "url": "https://www.together.ai/blog/mamba-3",
+      "hnUrl": "https://news.ycombinator.com/item?id=47419391",
+      "score": 269,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 21",
+      "headline": "Publisher pulls horror novel ‘Shy Girl’ over AI concerns",
+      "summary": "Hachette Book Group said it will not be publishing “Shy Girl” over concerns that artificial intelligence was used to generate the text.",
+      "url": "https://techcrunch.com/2026/03/21/publisher-pulls-horror-novel-shy-girl-over-ai-concerns/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 21",
+      "headline": "Why Wall Street wasn&#8217;t won over by Nvidia&#8217;s big conference",
+      "summary": "Despite investor fears of an AI bubble, Nvidia's latest conference shows that most in the industry aren't concerned by that possibility.",
+      "url": "https://techcrunch.com/2026/03/21/why-wall-street-wasnt-won-over-by-nvidias-big-conference/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -164,24 +182,6 @@
       "headline": "Microsoft rolls back some of its Copilot AI bloat on Windows",
       "summary": "The company is reducing Copilot entry points on Windows, starting with Photos, Widgets, Notepad, and other apps.",
       "url": "https://techcrunch.com/2026/03/20/microsoft-rolls-back-some-of-its-copilot-ai-bloat-on-windows/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 20",
-      "headline": "What happened at Nvidia GTC: NemoClaw, Robot Olaf, and a $1 trillion bet",
-      "summary": "CEO&#160;Jensen Huang took the stage at&#160;Nvidia&#8217;s GTC conference&#160;this week in his signature leather jacket to deliver a two-and-a-half-hour keynote, projecting&#160;$1 trillion&#160;in ",
-      "url": "https://techcrunch.com/video/what-happened-at-nvidia-gtc-nemoclaw-robot-olaf-and-a-1-trillion-bet/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 20",
-      "headline": "A French Navy officer accidentally leaked the location of an aircraft carrier by logging his run on Strava",
-      "summary": "A French naval officer went on a run around the deck of the Charles de Gaulle aircraft carrier, inadvertently leaking the warship's location when he uploaded the workout to Strava.",
-      "url": "https://techcrunch.com/2026/03/20/a-french-navy-officer-accidentally-leaked-the-location-of-an-aircraft-carrier-by-logging-his-run-on-strava/",
       "type": "rss"
     }
   ]
