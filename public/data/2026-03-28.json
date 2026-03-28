@@ -1,42 +1,42 @@
 {
-  "generatedAt": "2026-03-28T15:30:01.774Z",
+  "generatedAt": "2026-03-28T23:30:01.928Z",
   "date": "Saturday, March 28, 2026",
   "dateKey": "2026-03-28",
-  "storyCount": 18,
-  "hnCount": 8,
+  "storyCount": 16,
+  "hnCount": 6,
   "rssCount": 10,
   "stories": [
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 28",
-      "headline": "Britain today generating 90%+ of electricity from renewables",
-      "summary": "244 points · 164 comments on HN",
-      "url": "https://grid.iamkate.com/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47553484",
-      "score": 244,
+      "headline": "Further human + AI + proof assistant work on Knuth's \"Claude Cycles\" problem",
+      "summary": "125 points · 84 comments on HN",
+      "url": "https://twitter.com/BoWang87/status/2037648937453232504",
+      "hnUrl": "https://news.ycombinator.com/item?id=47557166",
+      "score": 125,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 28",
-      "headline": "AI chatbots are \"Yes-Men\" that reinforce bad relationship decisions, study finds",
-      "summary": "86 points · 75 comments on HN",
+      "headline": "AI overly affirms users asking for personal advice",
+      "summary": "489 points · 379 comments on HN",
       "url": "https://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research",
       "hnUrl": "https://news.ycombinator.com/item?id=47554773",
-      "score": 86,
+      "score": 489,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 28",
-      "headline": "CERN uses tiny AI models burned into silicon for real-time LHC data filtering",
-      "summary": "191 points · 95 comments on HN",
-      "url": "https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering",
-      "hnUrl": "https://news.ycombinator.com/item?id=47552562",
-      "score": 191,
+      "headline": "The first 40 months of the AI era",
+      "summary": "80 points · 24 comments on HN",
+      "url": "https://lzon.ca/posts/other/thoughts-ai-era/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47557185",
+      "score": 80,
       "type": "hn"
     },
     {
@@ -52,11 +52,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Mar 28",
-      "headline": "Folk are getting dangerously attached to AI that always tells them they're right",
-      "summary": "34 points · 15 comments on HN",
-      "url": "https://www.theregister.com/2026/03/27/sycophantic_ai_risks/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47555090",
-      "score": 34,
+      "headline": "InpharmD (YC W21) Is Hiring – Senior Ruby on Rails Developer",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://inpharmd.com/jobs/senior-ruby-on-rails-engineer",
+      "hnUrl": "https://news.ycombinator.com/item?id=47558305",
+      "score": 1,
       "type": "hn"
     },
     {
@@ -71,12 +71,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 27",
-      "headline": "Go hard on agents, not on your filesystem",
-      "summary": "473 points · 271 comments on HN",
-      "url": "https://jai.scs.stanford.edu/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47550282",
-      "score": 473,
+      "time": "Mar 28",
+      "headline": "CERN uses ultra-compact AI models on FPGAs for real-time LHC data filtering",
+      "summary": "296 points · 130 comments on HN",
+      "url": "https://theopenreader.org/Journalism:CERN_Uses_Tiny_AI_Models_Burned_into_Silicon_for_Real-Time_LHC_Data_Filtering",
+      "hnUrl": "https://news.ycombinator.com/item?id=47552562",
+      "score": 296,
       "type": "hn"
     },
     {
@@ -93,10 +93,10 @@
       "sourceColor": "#ff6600",
       "time": "Mar 25",
       "headline": "Paper Tape Is All You Need – Training a Transformer on a 1976 Minicomputer",
-      "summary": "71 points · 10 comments on HN",
+      "summary": "131 points · 21 comments on HN",
       "url": "https://github.com/dbrll/ATTN-11",
       "hnUrl": "https://news.ycombinator.com/item?id=47518568",
-      "score": 71,
+      "score": 131,
       "type": "hn"
     },
     {
@@ -109,17 +109,6 @@
       "type": "rss"
     },
     {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 28",
-      "headline": "Toma (YC W24) is hiring a Senior/Staff Eng to build AI automotive coworkers",
-      "summary": "1 points · 0 comments on HN",
-      "url": "https://www.ycombinator.com/companies/toma/jobs/2lrQI7S-sr-staff-software-engineer",
-      "hnUrl": "https://news.ycombinator.com/item?id=47553796",
-      "score": 1,
-      "type": "hn"
-    },
-    {
       "source": "OpenAI News",
       "sourceColor": "#4caf50",
       "time": "Mar 24",
@@ -129,15 +118,40 @@
       "type": "rss"
     },
     {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 27",
-      "headline": "Anatomy of the .claude/ folder",
-      "summary": "541 points · 236 comments on HN",
-      "url": "https://blog.dailydoseofds.com/p/anatomy-of-the-claude-folder",
-      "hnUrl": "https://news.ycombinator.com/item?id=47543139",
-      "score": 541,
-      "type": "hn"
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 28",
+      "headline": "Bluesky leans into AI with Attie, an app for building custom feeds",
+      "summary": "Bluesky’s new app Attie uses AI to help people build custom feeds the open social networking protocol atproto.",
+      "url": "https://techcrunch.com/2026/03/28/bluesky-leans-into-ai-with-attie-an-app-for-building-custom-feeds/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 28",
+      "headline": "Stanford study outlines dangers of asking AI chatbots for personal advice",
+      "summary": "While there’s been plenty of debate about AI sycophancy, a new study by Stanford computer scientists attempts to measure how harmful that tendency might be.",
+      "url": "https://techcrunch.com/2026/03/28/stanford-study-outlines-dangers-of-asking-ai-chatbots-for-personal-advice/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 28",
+      "headline": "Elon Musk’s last co-founder reportedly leaves xAI",
+      "summary": "All but two of Musk's 11 xAI co-founders departed before this week.",
+      "url": "https://techcrunch.com/2026/03/28/elon-musks-last-co-founder-reportedly-leaves-xai/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Mar 28",
+      "headline": "These iPad apps will make you wish you had more free time",
+      "summary": "We’ve compiled a list of some of the best iPad apps for creativity that are available on the App Store.",
+      "url": "https://techcrunch.com/2026/03/28/best-ipad-apps-for-unleashing-and-exploring-your-creativity/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -146,42 +160,6 @@
       "headline": "Anthropic&#8217;s Claude popularity with paying consumers is skyrocketing",
       "summary": "Estimates for total Claude consumer users are all over the map (we've seen figures ranging from 18 million to 30 million). Anthropic hasn't disclosed this data, but a spokesperson did tell TechCrunch ",
       "url": "https://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 28",
-      "headline": "Let’s take a look at the retro tech making a comeback",
-      "summary": "Boomboxes, instant cameras, and even landlines are making a comeback. Here are the coolest retro-inspired devices available.",
-      "url": "https://techcrunch.com/2026/03/28/lets-take-a-look-at-the-retro-tech-making-a-comeback/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 27",
-      "headline": "Physical Intelligence is reportedly in talks to raise $1 billion, again",
-      "summary": "The deal would effectively double the company's $5.6 billion valuation in just four months.",
-      "url": "https://techcrunch.com/2026/03/27/physical-intelligence-is-reportedly-in-talks-to-raise-1-billion-again/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 27",
-      "headline": "Why SoftBank’s new $40B loan points to a 2026 OpenAI IPO",
-      "summary": "Wall Street giants JPMorgan and Goldman Sachs are extending a 12-month, unsecured loan to the Japanese conglomerate.",
-      "url": "https://techcrunch.com/2026/03/27/why-softbanks-new-40b-loan-points-to-a-2026-openai-ipo/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Mar 27",
-      "headline": "Memory chip giant SK hynix could help end &#8216;RAMmageddon&#8217; with blockbuster US IPO",
-      "summary": "SK hynix’s potential U.S. listing could raise $10-$14 billion to help it build more capacity, encourage others to follow, and end the 'RAMmageddon' memory shortage.",
-      "url": "https://techcrunch.com/2026/03/27/memory-chip-giant-sk-hynix-could-help-end-rammageddon-with-blockbuster-us-ipo/",
       "type": "rss"
     }
   ]
