@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T15:30:03.612Z",
+  "generatedAt": "2026-04-02T23:30:01.901Z",
   "date": "Thursday, April 2, 2026",
   "dateKey": "2026-04-02",
   "storyCount": 18,
@@ -10,33 +10,73 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Apr 2",
-      "headline": "Qwen3.6-Plus: Towards Real World Agents",
-      "summary": "75 points · 32 comments on HN",
+      "headline": "Google releases Gemma 4 open models",
+      "summary": "1006 points · 314 comments on HN",
+      "url": "https://deepmind.google/models/gemma/gemma-4/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47616361",
+      "score": 1006,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Apr 2",
+      "headline": "Tailscale's new macOS home",
+      "summary": "261 points · 122 comments on HN",
+      "url": "https://tailscale.com/blog/macos-notch-escape",
+      "hnUrl": "https://news.ycombinator.com/item?id=47618189",
+      "score": 261,
+      "type": "hn"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Apr 2",
+      "headline": "Cursor 3",
+      "summary": "246 points · 207 comments on HN",
+      "url": "https://cursor.com/blog/cursor-3",
+      "hnUrl": "https://news.ycombinator.com/item?id=47618084",
+      "score": 246,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Apr 2",
+      "headline": "OpenAI acquires TBPN",
+      "summary": "OpenAI acquires TBPN to accelerate global conversations around AI and support independent media, expanding dialogue with builders, businesses, and the broader tech community.",
+      "url": "https://openai.com/index/openai-acquires-tbpn",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Apr 2",
+      "headline": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
+      "summary": "120 points · 53 comments on HN",
+      "url": "https://blog.danieldavies.com/2004/05/d-squared-digest-one-minute-mba.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47617415",
+      "score": 120,
+      "type": "hn"
+    },
+    {
+      "source": "OpenAI News",
+      "sourceColor": "#4caf50",
+      "time": "Apr 2",
+      "headline": "Codex now offers more flexible pricing for teams",
+      "summary": "Codex now includes pay-as-you-go pricing for ChatGPT Business and Enterprise, providing teams a more flexible option to start and scale adoption.",
+      "url": "https://openai.com/index/codex-flexible-pricing-for-teams",
+      "type": "rss"
+    },
+    {
+      "source": "Hacker News",
+      "sourceColor": "#ff6600",
+      "time": "Apr 2",
+      "headline": "Qwen3.6-Plus: Towards real world agents",
+      "summary": "396 points · 138 comments on HN",
       "url": "https://qwen.ai/blog?id=qwen3.6",
       "hnUrl": "https://news.ycombinator.com/item?id=47615002",
-      "score": 75,
-      "type": "hn"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Apr 2",
-      "headline": "Lemonade by AMD: a fast and open source local LLM server using GPU and NPU",
-      "summary": "199 points · 54 comments on HN",
-      "url": "https://lemonade-server.ai",
-      "hnUrl": "https://news.ycombinator.com/item?id=47612724",
-      "score": 199,
-      "type": "hn"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Apr 2",
-      "headline": "Significant Raise of Reports",
-      "summary": "134 points · 69 comments on HN",
-      "url": "https://lwn.net/Articles/1065620/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47611921",
-      "score": 134,
+      "score": 396,
       "type": "hn"
     },
     {
@@ -51,12 +91,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 1",
-      "headline": "Email obfuscation: What works in 2026?",
-      "summary": "251 points · 75 comments on HN",
-      "url": "https://spencermortensen.com/articles/email-obfuscation/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47609694",
-      "score": 251,
+      "time": "Apr 2",
+      "headline": "ParadeDB (YC S23) Is Hiring Database Internal Engineers (Rust)",
+      "summary": "1 points · 0 comments on HN",
+      "url": "https://paradedb.notion.site/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47620857",
+      "score": 1,
       "type": "hn"
     },
     {
@@ -72,11 +112,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Apr 2",
-      "headline": "The SpaceX IPO: retail investor notes",
-      "summary": "31 points · 10 comments on HN",
-      "url": "https://report.bearblog.dev/the-spacex-ipo-will-be-the-perfect-storm-of-retail-investor-fallacies/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47612775",
-      "score": 31,
+      "headline": "Lemonade by AMD: a fast and open source local LLM server using GPU and NPU",
+      "summary": "413 points · 94 comments on HN",
+      "url": "https://lemonade-server.ai",
+      "hnUrl": "https://news.ycombinator.com/item?id=47612724",
+      "score": 413,
       "type": "hn"
     },
     {
@@ -91,53 +131,49 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Mar 31",
-      "headline": "Mercor says it was hit by cyberattack tied to compromise LiteLLM",
-      "summary": "105 points · 31 comments on HN",
-      "url": "https://techcrunch.com/2026/03/31/mercor-says-it-was-hit-by-cyberattack-tied-to-compromise-of-open-source-litellm-project/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47596739",
-      "score": 105,
-      "type": "hn"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 27",
-      "headline": "STADLER reshapes knowledge work at a 230-year-old company",
-      "summary": "Learn how STADLER uses ChatGPT to transform knowledge work, saving time and accelerating productivity across 650 employees.",
-      "url": "https://openai.com/index/stadler",
-      "type": "rss"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
-      "time": "Mar 31",
-      "headline": "On the trail of ancient art, deep in the Sahara",
-      "summary": "5 points · 1 comments on HN",
-      "url": "https://www.ft.com/content/524ed21e-5c35-489e-ae0b-90d40b4cf28a",
-      "hnUrl": "https://news.ycombinator.com/item?id=47588103",
-      "score": 5,
-      "type": "hn"
-    },
-    {
-      "source": "OpenAI News",
-      "sourceColor": "#4caf50",
-      "time": "Mar 25",
-      "headline": "Inside our approach to the Model Spec",
-      "summary": "Learn how OpenAI’s Model Spec serves as a public framework for model behavior, balancing safety, user freedom, and accountability as AI systems advance.",
-      "url": "https://openai.com/index/our-approach-to-the-model-spec",
-      "type": "rss"
-    },
-    {
-      "source": "Hacker News",
-      "sourceColor": "#ff6600",
       "time": "Apr 2",
-      "headline": "Telli (YC F24) is hiring engineers, designers, and more (on-site, Berlin)",
-      "summary": "1 points · 0 comments on HN",
-      "url": "http://hi.telli.com/join-us",
-      "hnUrl": "https://news.ycombinator.com/item?id=47611044",
-      "score": 1,
+      "headline": "OpenAI Acquires TBPN",
+      "summary": "128 points · 112 comments on HN",
+      "url": "https://openai.com/index/openai-acquires-tbpn/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47617376",
+      "score": 128,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Apr 2",
+      "headline": "OpenAI acquires TBPN, the buzzy founder-led business talk show",
+      "summary": "TBPN, Silicon Valley's cult-favorite tech podcast, will operate independently, even as it's overseen by chief political operative Chris Lehane.",
+      "url": "https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Apr 2",
+      "headline": "ElevenLabs releases a new AI-powered music-generation app",
+      "summary": "ElevenMusic lets users create and remix songs using text prompts. The new app suggests ElevenLabs wants to be more than just a voice model company.",
+      "url": "https://techcrunch.com/2026/04/02/elevenlabs-releases-a-new-ai-powered-music-generation-app/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Apr 2",
+      "headline": "NASA astronauts prove that sending an email really is rocket science",
+      "summary": "NASA Artemis II commander Reid Wiseman faced the most earthly possible conflict while in outer space: his Outlook wasn't working.",
+      "url": "https://techcrunch.com/2026/04/02/nasa-artemis-microsoft-outlook-astronauts/",
+      "type": "rss"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Apr 2",
+      "headline": "Microsoft takes on AI rivals with three new foundational models",
+      "summary": "MAI released models that can transcribe voice into text as well as generate audio and images after the group's formation six months ago.",
+      "url": "https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -146,42 +182,6 @@
       "headline": "United&#8217;s mobile app now shows TSA wait times at select airports",
       "summary": "The TSA wait times feature is one of many new additions to the United app, including automatic rebooking assistance and real-time time weather radar maps.",
       "url": "https://techcrunch.com/2026/04/02/uniteds-mobile-app-now-shows-tsa-wait-times-at-select-airports/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Apr 2",
-      "headline": "Tesla’s cheaper vehicles aren’t helping its declining sales",
-      "summary": "The company's deliveries in the first quarter were just 6% higher than last year, and Tesla now faces a third straight year of falling sales.",
-      "url": "https://techcrunch.com/2026/04/02/tesla-deliveries-cheaper-vehicles-model-y-3-sales/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Apr 2",
-      "headline": "Exclusive: Beehiiv expands into podcasting, taking aim at Patreon",
-      "summary": "One way Beehiiv is convincing creators to switch from rivals like Substack and Patreon is by not taking a cut of revenue.",
-      "url": "https://techcrunch.com/2026/04/02/beehiiv-expands-into-podcasts-taking-aim-at-patreon-substack-newsletters/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Apr 1",
-      "headline": "De-fi platform Drift suspends deposits and withdrawals after millions in crypto stolen in hack",
-      "summary": "Blockchain trackers put the cryptocurrency heist in the hundreds of millions of dollars and is already on track to be the largest crypto theft in 2026 so far.",
-      "url": "https://techcrunch.com/2026/04/01/de-fi-platform-drift-suspends-deposits-and-withdrawals-after-millions-in-crypto-stolen-in-hack/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Apr 1",
-      "headline": "Anthropic took down thousands of GitHub repos trying to yank its leaked source code — a move the company says was an accident",
-      "summary": "Anthropic executives said it was an accident and retracted the bulk of the takedown notices.",
-      "url": "https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/",
       "type": "rss"
     }
   ]
