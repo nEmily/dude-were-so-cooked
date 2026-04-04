@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-04T15:30:01.855Z",
+  "generatedAt": "2026-04-04T23:30:01.823Z",
   "date": "Saturday, April 4, 2026",
   "dateKey": "2026-04-04",
   "storyCount": 18,
@@ -9,34 +9,34 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 3",
-      "headline": "Tell HN: Anthropic no longer allowing Claude Code subscriptions to use OpenClaw",
-      "summary": "877 points · 684 comments on HN",
-      "url": "https://news.ycombinator.com/item?id=47633396",
-      "hnUrl": "https://news.ycombinator.com/item?id=47633396",
-      "score": 877,
+      "time": "Apr 4",
+      "headline": "How many products does Microsoft have named 'Copilot'?",
+      "summary": "302 points · 166 comments on HN",
+      "url": "https://teybannerman.com/strategy/2026/03/31/how-many-microsoft-copilot-are-there.html",
+      "hnUrl": "https://news.ycombinator.com/item?id=47642569",
+      "score": 302,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Apr 4",
-      "headline": "Components of a Coding Agent",
-      "summary": "9 points · 0 comments on HN",
-      "url": "https://magazine.sebastianraschka.com/p/components-of-a-coding-agent",
-      "hnUrl": "https://news.ycombinator.com/item?id=47638810",
-      "score": 9,
+      "headline": "LLM Wiki – example of an \"idea file\"",
+      "summary": "17 points · 2 comments on HN",
+      "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+      "hnUrl": "https://news.ycombinator.com/item?id=47640875",
+      "score": 17,
       "type": "hn"
     },
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 1",
-      "headline": "Training mRNA Language Models Across 25 Species for $165",
-      "summary": "17 points · 5 comments on HN",
-      "url": "https://news.ycombinator.com/item?id=47606244",
-      "hnUrl": "https://news.ycombinator.com/item?id=47606244",
-      "score": 17,
+      "time": "Apr 4",
+      "headline": "Show HN: I made open source, zero power PCB hackathon badges",
+      "summary": "23 points · 2 comments on HN",
+      "url": "https://github.com/KaiPereira/Overglade-Badges",
+      "hnUrl": "https://news.ycombinator.com/item?id=47639303",
+      "score": 23,
       "type": "hn"
     },
     {
@@ -51,12 +51,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 3",
-      "headline": "Claude Code Found a Linux Vulnerability Hidden for 23 Years",
-      "summary": "178 points · 105 comments on HN",
-      "url": "https://mtlynch.io/claude-code-found-linux-vulnerability/",
-      "hnUrl": "https://news.ycombinator.com/item?id=47633855",
-      "score": 178,
+      "time": "Apr 4",
+      "headline": "Show HN: sllm – Split a GPU node with other developers, unlimited tokens",
+      "summary": "105 points · 62 comments on HN",
+      "url": "https://sllm.cloud",
+      "hnUrl": "https://news.ycombinator.com/item?id=47639779",
+      "score": 105,
       "type": "hn"
     },
     {
@@ -72,11 +72,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Apr 4",
-      "headline": "Mbodi AI (YC P25) Is Hiring",
-      "summary": "1 points · 0 comments on HN",
-      "url": "https://www.ycombinator.com/companies/mbodi-ai/jobs/mf9L3sy-senior-robotics-engineer-systems-controls",
-      "hnUrl": "https://news.ycombinator.com/item?id=47638270",
-      "score": 1,
+      "headline": "Components of a Coding Agent",
+      "summary": "139 points · 54 comments on HN",
+      "url": "https://magazine.sebastianraschka.com/p/components-of-a-coding-agent",
+      "hnUrl": "https://news.ycombinator.com/item?id=47638810",
+      "score": 139,
       "type": "hn"
     },
     {
@@ -92,11 +92,11 @@
       "source": "Hacker News",
       "sourceColor": "#ff6600",
       "time": "Apr 3",
-      "headline": "OpenClaw privilege escalation vulnerability",
-      "summary": "465 points · 216 comments on HN",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33579",
-      "hnUrl": "https://news.ycombinator.com/item?id=47628608",
-      "score": 465,
+      "headline": "Emotion concepts and their function in a large language model",
+      "summary": "129 points · 125 comments on HN",
+      "url": "https://www.anthropic.com/research/emotion-concepts-function",
+      "hnUrl": "https://news.ycombinator.com/item?id=47636435",
+      "score": 129,
       "type": "hn"
     },
     {
@@ -111,12 +111,12 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 3",
-      "headline": "Run Linux containers on Android, no root required",
-      "summary": "180 points · 61 comments on HN",
-      "url": "https://github.com/ExTV/Podroid",
-      "hnUrl": "https://news.ycombinator.com/item?id=47633131",
-      "score": 180,
+      "time": "Apr 1",
+      "headline": "Electrical Transformer Manufacturing Is Throttling the Electrified Future",
+      "summary": "54 points · 44 comments on HN",
+      "url": "https://www.bloomberg.com/features/2025-bottlenecks-transformers/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47604887",
+      "score": 54,
       "type": "hn"
     },
     {
@@ -131,13 +131,22 @@
     {
       "source": "Hacker News",
       "sourceColor": "#ff6600",
-      "time": "Apr 2",
-      "headline": "We replaced RAG with a virtual filesystem for our AI documentation assistant",
-      "summary": "355 points · 137 comments on HN",
-      "url": "https://www.mintlify.com/blog/how-we-built-a-virtual-filesystem-for-our-assistant",
-      "hnUrl": "https://news.ycombinator.com/item?id=47618223",
-      "score": 355,
+      "time": "Apr 3",
+      "headline": "Claude Code Found a Linux Vulnerability Hidden for 23 Years",
+      "summary": "345 points · 224 comments on HN",
+      "url": "https://mtlynch.io/claude-code-found-linux-vulnerability/",
+      "hnUrl": "https://news.ycombinator.com/item?id=47633855",
+      "score": 345,
       "type": "hn"
+    },
+    {
+      "source": "TechCrunch",
+      "sourceColor": "#4a9eff",
+      "time": "Apr 4",
+      "headline": "Anthropic says Claude Code subscribers will need to pay extra for OpenClaw usage",
+      "summary": "It’s about to become more expensive for Claude Code subscribers to use Anthropic’s coding assistant with OpenClaw and other third-party tools.",
+      "url": "https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/",
+      "type": "rss"
     },
     {
       "source": "TechCrunch",
@@ -173,15 +182,6 @@
       "headline": "OpenAI executive shuffle includes new role for COO Brad Lightcap to lead &#8216;special projects&#8217;",
       "summary": "In addition to Lightcap's new role, OpenAI CMO Kate Rouch will be stepping away from the company to focus on cancer recovery, with a plan to return when her health allows.",
       "url": "https://techcrunch.com/2026/04/03/openai-executive-shuffle-new-roles-coo-brad-lightcap-fidji-simo-kate-rouch/",
-      "type": "rss"
-    },
-    {
-      "source": "TechCrunch",
-      "sourceColor": "#4a9eff",
-      "time": "Apr 3",
-      "headline": "Anthropic buys biotech startup Coefficient Bio in $400M deal: Reports",
-      "summary": "Anthropic has purchased the stealth biotech AI startup Coefficient Bio in a $400 million stock deal, according to The Information and Eric Newcomer.",
-      "url": "https://techcrunch.com/2026/04/03/anthropic-buys-biotech-startup-coefficient-bio-in-400m-deal-reports/",
       "type": "rss"
     }
   ]
